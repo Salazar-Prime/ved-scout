@@ -17,6 +17,7 @@ function createCorner(index: number): CornerCoordinate {
 
 export default function AddPlotContent() {
   const { closeModal } = useModal();
+  const [plotName, setPlotName] = useState("");
   const [shapeFile, setShapeFile] = useState<File | null>(null);
   const [corners, setCorners] = useState<CornerCoordinate[]>(() =>
     Array.from({ length: 4 }, (_, i) => createCorner(i))
@@ -55,6 +56,12 @@ export default function AddPlotContent() {
   const handleSubmit = useCallback(async () => {
     setError(null);
 
+    // Validate plot name
+    if (plotName.trim() === "") {
+      setError("Please enter a plot name.");
+      return;
+    }
+
     // Validate that every corner has both lat and lng filled in
     const filledCorners = corners.filter((c) => c.lat.trim() !== "" || c.lng.trim() !== "");
     if (filledCorners.length < 3) {
@@ -84,6 +91,7 @@ export default function AddPlotContent() {
     setIsSaving(true);
     try {
       await addDocument(collections.plots, {
+        name: plotName.trim(),
         corners: parsed,
         createdAt: new Date().toISOString(),
       });
@@ -94,11 +102,23 @@ export default function AddPlotContent() {
     } finally {
       setIsSaving(false);
     }
-  }, [corners, closeModal]);
+  }, [plotName, corners, closeModal]);
 
   return (
     <>
       <div className="px-5 py-4 space-y-6">
+        {/* Plot Name */}
+        <section>
+          <h3 className="text-sm font-semibold text-zinc-300 mb-3">Plot Name</h3>
+          <input
+            type="text"
+            placeholder="e.g. North Field, Block A"
+            value={plotName}
+            onChange={(e) => setPlotName(e.target.value)}
+            className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
+          />
+        </section>
+
         {/* Shapefile Upload */}
         <section>
           <h3 className="text-sm font-semibold text-zinc-300 mb-3">Upload Shapefile</h3>
