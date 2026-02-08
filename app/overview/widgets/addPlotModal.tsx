@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { Upload, Plus, Trash2, X } from "lucide-react";
+import { Upload, Plus, Trash2, X, Loader2 } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
+import { addDocument, collections } from "../../../lib/firestore";
 
 interface CornerCoordinate {
   id: string;
@@ -20,6 +21,8 @@ export default function AddPlotContent() {
   const [corners, setCorners] = useState<CornerCoordinate[]>(() =>
     Array.from({ length: 4 }, (_, i) => createCorner(i))
   );
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +51,50 @@ export default function AddPlotContent() {
   const handleRemoveCorner = useCallback((id: string) => {
     setCorners((prev) => (prev.length <= 3 ? prev : prev.filter((c) => c.id !== id)));
   }, []);
+
+  const handleSubmit = useCallback(async () => {
+    setError(null);
+
+    // Validate that every corner has both lat and lng filled in
+    const filledCorners = corners.filter((c) => c.lat.trim() !== "" || c.lng.trim() !== "");
+    if (filledCorners.length < 3) {
+      setError("Please enter at least 3 corner coordinates.");
+      return;
+    }
+
+    const hasIncomplete = filledCorners.some(
+      (c) => c.lat.trim() === "" || c.lng.trim() === ""
+    );
+    if (hasIncomplete) {
+      setError("Each corner must have both latitude and longitude.");
+      return;
+    }
+
+    // Validate numeric values
+    const parsed = filledCorners.map((c) => ({
+      lat: parseFloat(c.lat),
+      lng: parseFloat(c.lng),
+    }));
+
+    if (parsed.some((p) => isNaN(p.lat) || isNaN(p.lng))) {
+      setError("Coordinates must be valid numbers.");
+      return;
+    }
+
+    setIsSaving(true);
+    try {
+      await addDocument(collections.plots, {
+        corners: parsed,
+        createdAt: new Date().toISOString(),
+      });
+      closeModal();
+    } catch (err) {
+      console.error("Failed to save plot:", err);
+      setError("Failed to save plot. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  }, [corners, closeModal]);
 
   return (
     <>
@@ -142,16 +189,27 @@ export default function AddPlotContent() {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-end gap-3 px-5 py-4 border-t border-zinc-800">
-        <button
-          onClick={closeModal}
-          className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors"
-        >
-          Cancel
-        </button>
-        <button className="px-4 py-2 rounded-lg text-sm font-medium bg-[#cfb991] text-zinc-900 hover:bg-[#cfb991]/80 transition-colors">
-          Add Plot
-        </button>
+      <div className="px-5 py-4 border-t border-zinc-800 space-y-3">
+        {error && (
+          <p className="text-sm text-red-400">{error}</p>
+        )}
+        <div className="flex items-center justify-end gap-3">
+          <button
+            onClick={closeModal}
+            disabled={isSaving}
+            className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition-colors disabled:opacity-50"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={isSaving}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-[#cfb991] text-zinc-900 hover:bg-[#cfb991]/80 transition-colors disabled:opacity-50"
+          >
+            {isSaving && <Loader2 size={14} className="animate-spin" />}
+            {isSaving ? "Saving..." : "Add Plot"}
+          </button>
+        </div>
       </div>
     </>
   );
