@@ -24,20 +24,23 @@ const defaultBreakpointLayouts: ResponsiveLayouts = {
   lg: [
     { i: "mapOverview", x: 0, y: 0, w: 6, h: 4, minW: 3, minH: 2 },
     { i: "yourPlots", x: 6, y: 0, w: 6, h: 4, minW: 3, minH: 2 },
-    { i: "flightHistory", x: 0, y: 4, w: 6, h: 4, minW: 3, minH: 2 },
-    { i: "missionTypes", x: 6, y: 4, w: 6, h: 4, minW: 3, minH: 2 },
+    { i: "flightHistory", x: 0, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
+    { i: "missionTypes", x: 4, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
+    { i: "cameraSensors", x: 8, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
   ],
   md: [
     { i: "mapOverview", x: 0, y: 0, w: 6, h: 4, minW: 3, minH: 2 },
     { i: "yourPlots", x: 6, y: 0, w: 6, h: 4, minW: 3, minH: 2 },
-    { i: "flightHistory", x: 0, y: 4, w: 6, h: 4, minW: 3, minH: 2 },
-    { i: "missionTypes", x: 6, y: 4, w: 6, h: 4, minW: 3, minH: 2 },
+    { i: "flightHistory", x: 0, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
+    { i: "missionTypes", x: 4, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
+    { i: "cameraSensors", x: 8, y: 4, w: 4, h: 4, minW: 3, minH: 2 },
   ],
   sm: [
     { i: "mapOverview", x: 0, y: 0, w: 12, h: 4, minW: 3, minH: 2 },
     { i: "yourPlots", x: 0, y: 4, w: 12, h: 4, minW: 3, minH: 2 },
     { i: "flightHistory", x: 0, y: 8, w: 12, h: 4, minW: 3, minH: 2 },
     { i: "missionTypes", x: 0, y: 12, w: 12, h: 4, minW: 3, minH: 2 },
+    { i: "cameraSensors", x: 0, y: 16, w: 12, h: 4, minW: 3, minH: 2 },
   ],
 };
 

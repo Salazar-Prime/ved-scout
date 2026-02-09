@@ -26,6 +26,7 @@ export const collections = {
   liveMissions: "liveMissions",
   missionTypes: "missionTypes",
   voiceCommands: "voiceCommands",
+  cameraSensors: "cameraSensors",
 } as const;
 
 export type CollectionName = (typeof collections)[keyof typeof collections];
