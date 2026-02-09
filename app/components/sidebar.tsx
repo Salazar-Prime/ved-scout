@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { useVoiceCommand } from "./voiceCommandContext";
 
 const navItems = [
   { name: "Overview", href: "/overview", icon: LayoutDashboard },
@@ -20,32 +21,59 @@ const navItems = [
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const { triggerAutoRecord } = useVoiceCommand();
 
-  const handleVoiceCommand = () => {
-    router.push("/overview?autoRecord=true");
+  // Two-phase animation: mount overlay first, then animate in
+  useEffect(() => {
+    if (isExpanded) {
+      // Mount, then trigger CSS transition on next frame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsVisible(true);
+        });
+      });
+    } else {
+      setIsVisible(false);
+    }
+  }, [isExpanded]);
+
+  const handleTransitionEnd = () => {
+    // Unmount overlay after slide-out completes
+    // (handled by keeping isExpanded true until animation finishes)
   };
 
-  return (
-    <aside
-      className={`flex flex-col h-screen bg-zinc-900 text-zinc-300 border-r border-zinc-800 transition-all duration-300 ${
-        isExpanded ? "w-60" : "w-16"
-      }`}
-    >
+  const handleClose = () => {
+    setIsVisible(false);
+    // Wait for the transition to finish before unmounting
+    setTimeout(() => setIsExpanded(false), 300);
+  };
+
+  const handleVoiceCommand = () => {
+    triggerAutoRecord();
+    if (pathname !== "/overview") {
+      router.push("/overview");
+    }
+    handleClose();
+  };
+
+  const sidebarContent = (expanded: boolean) => (
+    <>
       {/* Header */}
       <div className="flex items-center justify-between h-14 px-3 border-b border-zinc-800">
-        {isExpanded && (
+        {expanded && (
           <span className="text-sm font-semibold text-white tracking-wide truncate">
             Ved Scout
           </span>
         )}
         <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="p-1.5 rounded-md hover:bg-zinc-800 transition-colors ml-auto"
-          aria-label={isExpanded ? "Collapse sidebar" : "Expand sidebar"}
+          onClick={() => (expanded ? handleClose() : setIsExpanded(true))}
+          className="p-1.5 rounded-md hover:bg-zinc-800 transition-colors ml-auto cursor-pointer"
+          aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
         >
-          {isExpanded ? (
+          {expanded ? (
             <ChevronLeft size={18} />
           ) : (
             <ChevronRight size={18} />
@@ -61,11 +89,11 @@ export default function Sidebar() {
             bg-[#cfb991]/15 text-[#cfb991] border-2 border-[#cfb991]/40
             hover:bg-[#cfb991]/25 hover:border-[#cfb991]/60 hover:shadow-[0_0_20px_rgba(207,185,145,0.15)]
             active:scale-[0.97]
-            ${!isExpanded ? "justify-center" : ""}`}
-          title={!isExpanded ? "Voice Command" : undefined}
+            ${!expanded ? "justify-center" : ""}`}
+          title={!expanded ? "Voice Command" : undefined}
         >
           <Mic size={22} className="shrink-0" />
-          {isExpanded && (
+          {expanded && (
             <span className="truncate tracking-wide">Voice Command</span>
           )}
         </button>
@@ -81,21 +109,54 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={handleClose}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
                   ? "bg-[#cfb991]/10 text-[#cfb991] border border-[#cfb991]/30"
                   : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent"
-              } ${!isExpanded ? "justify-center" : ""}`}
-              title={!isExpanded ? item.name : undefined}
+              } ${!expanded ? "justify-center" : ""}`}
+              title={!expanded ? item.name : undefined}
             >
               <Icon size={20} className="shrink-0" />
-              {isExpanded && (
-                <span className="truncate">{item.name}</span>
-              )}
+              {expanded && <span className="truncate">{item.name}</span>}
             </Link>
           );
         })}
       </nav>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Collapsed sidebar — always in flow, never resizes content */}
+      <aside className="flex flex-col w-16 shrink-0 h-screen bg-zinc-900 text-zinc-300 border-r border-zinc-800">
+        {sidebarContent(false)}
+      </aside>
+
+      {/* Expanded overlay — smooth slide animation */}
+      {isExpanded && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 transition-all duration-300 ease-in-out"
+            style={{
+              backgroundColor: isVisible ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)",
+              backdropFilter: isVisible ? "blur(4px)" : "blur(0px)",
+            }}
+            onClick={handleClose}
+          />
+          {/* Sliding panel */}
+          <aside
+            className="fixed top-0 left-0 z-50 flex flex-col w-60 h-screen bg-zinc-900 text-zinc-300 border-r border-zinc-800 shadow-2xl transition-transform duration-300 ease-in-out"
+            style={{
+              transform: isVisible ? "translateX(0)" : "translateX(-100%)",
+            }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {sidebarContent(true)}
+          </aside>
+        </>
+      )}
+    </>
   );
 }
