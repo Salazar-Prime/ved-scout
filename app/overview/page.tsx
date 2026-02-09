@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import DraggableGrid from "../components/draggablePanes_overview";
 import MapOverview from "./widgets/mapOverview";
 import YourPlots from "./widgets/yourPlots";
@@ -17,9 +18,12 @@ const widgets = [
 ];
 
 export default function OverviewPage() {
+  const searchParams = useSearchParams();
+  const autoRecord = searchParams.get("autoRecord") === "true";
+
   return (
     <div className="p-4 h-full">
-      <VoiceRecorder />
+      <VoiceRecorder autoStart={autoRecord} />
       <DraggableGrid widgets={widgets} />
     </div>
   );

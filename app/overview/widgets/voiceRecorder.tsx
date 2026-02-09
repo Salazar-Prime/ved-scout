@@ -1,17 +1,25 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { Mic, Square } from "lucide-react";
+import { Mic, Square, Loader2 } from "lucide-react";
 
 const BAR_COUNT = 60; // bars per side
 
-export default function VoiceRecorder() {
+interface VoiceRecorderProps {
+  autoStart?: boolean;
+}
+
+export default function VoiceRecorder({ autoStart = false }: VoiceRecorderProps) {
   const [isRecording, setIsRecording] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
+  const hasAutoStarted = useRef(false);
   const [audioLevel, setAudioLevel] = useState(0);
   const [barHeights, setBarHeights] = useState<number[]>(() =>
     Array.from({ length: BAR_COUNT }, () => 0)
   );
+  const [transcription, setTranscription] = useState<string | null>(null);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const animationRef = useRef<number | null>(null);
 
   // Audio refs
@@ -19,6 +27,39 @@ export default function VoiceRecorder() {
   const analyserRef = useRef<AnalyserNode | null>(null);
   const mediaStreamRef = useRef<MediaStream | null>(null);
   const sourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+
+  // Transcribe audio blob via our API route
+  const transcribeAudio = useCallback(async (audioBlob: Blob) => {
+    setIsTranscribing(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append("audio", audioBlob, "recording.webm");
+
+      const response = await fetch("/api/transcribe", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || "Transcription failed");
+      }
+
+      const data = await response.json();
+      setTranscription(data.text || "(no speech detected)");
+    } catch (err) {
+      console.error("Transcription error:", err);
+      setError(
+        err instanceof Error ? err.message : "Failed to transcribe audio"
+      );
+    } finally {
+      setIsTranscribing(false);
+    }
+  }, []);
 
   // Start/stop mic and drive bars from real frequency data
   useEffect(() => {
@@ -36,6 +77,33 @@ export default function VoiceRecorder() {
           }
           mediaStreamRef.current = stream;
 
+          // Set up MediaRecorder for capturing audio
+          audioChunksRef.current = [];
+          const mediaRecorder = new MediaRecorder(stream, {
+            mimeType: MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
+              ? "audio/webm;codecs=opus"
+              : "audio/webm",
+          });
+          mediaRecorderRef.current = mediaRecorder;
+
+          mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+              audioChunksRef.current.push(event.data);
+            }
+          };
+
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunksRef.current, {
+              type: "audio/webm",
+            });
+            if (audioBlob.size > 0) {
+              transcribeAudio(audioBlob);
+            }
+          };
+
+          mediaRecorder.start(250); // collect data every 250ms
+
+          // Set up AudioContext for visualisation
           const ctx = new AudioContext();
           audioContextRef.current = ctx;
 
@@ -70,7 +138,7 @@ export default function VoiceRecorder() {
             const newBars = Array.from({ length: BAR_COUNT }, (_, i) => {
               const binIndex =
                 minBin + Math.floor((i / BAR_COUNT) * speechBinCount);
-              return Math.min(1, (freqData[binIndex] / 255) * 1.5);
+              return Math.min(1, (freqData[binIndex] / 255) * 1.8);
             });
             setBarHeights(newBars);
             setAudioLevel(
@@ -94,6 +162,16 @@ export default function VoiceRecorder() {
           cancelAnimationFrame(animationRef.current);
           animationRef.current = null;
         }
+
+        // Stop the MediaRecorder (triggers onstop → transcription)
+        if (
+          mediaRecorderRef.current &&
+          mediaRecorderRef.current.state !== "inactive"
+        ) {
+          mediaRecorderRef.current.stop();
+        }
+        mediaRecorderRef.current = null;
+
         sourceRef.current?.disconnect();
         sourceRef.current = null;
         analyserRef.current = null;
@@ -111,12 +189,23 @@ export default function VoiceRecorder() {
       setBarHeights(Array.from({ length: BAR_COUNT }, () => 0));
       setAudioLevel(0);
     }
-  }, [isRecording]);
+  }, [isRecording, transcribeAudio]);
+
+  // Auto-start recording when autoStart prop is true (e.g. from sidebar voice command button)
+  useEffect(() => {
+    if (autoStart && !hasAutoStarted.current) {
+      hasAutoStarted.current = true;
+      setIsRecording(true);
+      setIsPulsing(true);
+    }
+  }, [autoStart]);
 
   const handleToggle = useCallback(() => {
     if (!isRecording) {
       setIsPulsing(true);
       setIsRecording(true);
+      setTranscription(null);
+      setError(null);
     } else {
       setIsRecording(false);
       setIsPulsing(false);
@@ -140,8 +229,8 @@ export default function VoiceRecorder() {
   return (
     <div className="relative z-20 w-full flex flex-col items-center justify-center py-2 pb-6 mb-2">
       {/* Top text */}
-      <span className="text-md font-bold text-[#cfb991]/70 tracking-wide select-none mb-0">
-        UAS
+      <span className="text-3xl font-bold text-[#cfb991]/70 tracking-wide select-none mb-0">
+        VED-SCOUT
       </span>
 
       {/* Waveform + Mic row */}
@@ -203,6 +292,7 @@ export default function VoiceRecorder() {
           {/* Main mic button */}
           <button
             onClick={handleToggle}
+            disabled={isTranscribing}
             className={`
               absolute inset-0
               z-10 flex items-center justify-center
@@ -210,15 +300,25 @@ export default function VoiceRecorder() {
               transition-all duration-300 ease-out
               cursor-pointer select-none
               ${
-                isRecording
-                  ? "bg-red-500/90 hover:bg-red-400/90 shadow-[0_0_30px_rgba(239,68,68,0.4)]"
-                  : "bg-[#cfb991]/20 hover:bg-[#cfb991]/30 shadow-[0_0_20px_rgba(207,185,145,0.15)]"
+                isTranscribing
+                  ? "bg-[#cfb991]/10 cursor-wait"
+                  : isRecording
+                    ? "bg-red-500/90 hover:bg-red-400/90 shadow-[0_0_30px_rgba(239,68,68,0.4)]"
+                    : "bg-[#cfb991]/20 hover:bg-[#cfb991]/30 shadow-[0_0_20px_rgba(207,185,145,0.15)]"
               }
               border border-[#cfb991]/40 hover:border-[#cfb991]/60
             `}
-            title={isRecording ? "Stop recording" : "Start recording"}
+            title={
+              isTranscribing
+                ? "Transcribing..."
+                : isRecording
+                  ? "Stop recording"
+                  : "Start recording"
+            }
           >
-            {isRecording ? (
+            {isTranscribing ? (
+              <Loader2 className="w-6 h-6 text-[#cfb991] animate-spin" />
+            ) : isRecording ? (
               <Square className="w-6 h-6 text-white" fill="white" />
             ) : (
               <Mic
@@ -249,7 +349,7 @@ export default function VoiceRecorder() {
 
       {/* Bottom text */}
       <span className="text-md font-bold text-[#cfb991]/70 tracking-wide select-none -mt-1">
-        Voice Command
+        UAS Voice Command
       </span>
 
       {/* Recording duration indicator — sits below */}
@@ -257,6 +357,32 @@ export default function VoiceRecorder() {
         <div className="flex items-center gap-1.5 mt-1">
           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
           <RecordingTimer />
+        </div>
+      )}
+
+      {/* Transcribing indicator */}
+      {isTranscribing && (
+        <div className="flex items-center gap-1.5 mt-2">
+          <Loader2 className="w-3 h-3 text-[#cfb991]/60 animate-spin" />
+          <span className="text-xs text-[#cfb991]/60 font-mono">
+            Transcribing...
+          </span>
+        </div>
+      )}
+
+      {/* Transcription result */}
+      {transcription && !isRecording && !isTranscribing && (
+        <div className="mt-2 mx-4 max-w-md">
+          <p className="text-sm text-[#cfb991]/80 text-center leading-relaxed">
+            {transcription}
+          </p>
+        </div>
+      )}
+
+      {/* Error message */}
+      {error && !isRecording && !isTranscribing && (
+        <div className="mt-2 mx-4 max-w-md">
+          <p className="text-xs text-red-400/80 text-center">{error}</p>
         </div>
       )}
     </div>

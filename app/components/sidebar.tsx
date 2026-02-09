@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Mic,
   LayoutDashboard,
@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { name: "Voice Command", href: "/voice-command", icon: Mic },
   { name: "Overview", href: "/overview", icon: LayoutDashboard },
   { name: "Live Missions", href: "/live-missions", icon: Radio },
   { name: "Flight History", href: "/flight-history", icon: History },
@@ -22,6 +21,11 @@ const navItems = [
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleVoiceCommand = () => {
+    router.push("/overview?autoRecord=true");
+  };
 
   return (
     <aside
@@ -49,8 +53,26 @@ export default function Sidebar() {
         </button>
       </div>
 
+      {/* Voice Command — bold prominent button */}
+      <div className="p-2 mt-2">
+        <button
+          onClick={handleVoiceCommand}
+          className={`flex items-center gap-3 w-full px-3 py-3 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer
+            bg-[#cfb991]/15 text-[#cfb991] border-2 border-[#cfb991]/40
+            hover:bg-[#cfb991]/25 hover:border-[#cfb991]/60 hover:shadow-[0_0_20px_rgba(207,185,145,0.15)]
+            active:scale-[0.97]
+            ${!isExpanded ? "justify-center" : ""}`}
+          title={!isExpanded ? "Voice Command" : undefined}
+        >
+          <Mic size={22} className="shrink-0" />
+          {isExpanded && (
+            <span className="truncate tracking-wide">Voice Command</span>
+          )}
+        </button>
+      </div>
+
       {/* Navigation */}
-      <nav className="flex-1 flex flex-col gap-1 p-2 mt-2">
+      <nav className="flex-1 flex flex-col gap-1 p-2 mt-1">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           const Icon = item.icon;
