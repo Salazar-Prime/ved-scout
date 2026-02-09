@@ -8,6 +8,9 @@ import {
   LayoutDashboard,
   Radio,
   History,
+  MapPin,
+  Camera,
+  Crosshair,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -15,6 +18,9 @@ import { useVoiceCommand } from "./voiceCommandContext";
 
 const navItems = [
   { name: "Overview", href: "/overview", icon: LayoutDashboard },
+  { name: "Your Plots", href: "/your-plots", icon: MapPin },
+  { name: "Camera Sensors", href: "/camera-sensors", icon: Camera },
+  { name: "Mission Types", href: "/mission-types", icon: Crosshair },
   { name: "Live Missions", href: "/live-missions", icon: Radio },
   { name: "Flight History", href: "/flight-history", icon: History },
 ];
