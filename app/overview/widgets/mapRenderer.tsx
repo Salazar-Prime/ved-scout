@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Polygon, Tooltip, useMap } from "react-leaflet
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { usePlots, type PlotDoc } from "../../components/plotsContext";
+import { getPlotColor } from "../../../lib/plotColors";
 
 const defaultCenter: [number, number] = [40.470078114634596, -86.99176832710066];
 const defaultZoom = 15;
@@ -61,25 +62,6 @@ function FitBoundsOnce({ plots }: { plots: PlotDoc[] }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Plot polygon colors                                                */
-/* ------------------------------------------------------------------ */
-
-const plotColors = [
-  "#cfb991", // gold (brand)
-  "#60a5fa", // blue
-  "#34d399", // emerald
-  "#f472b6", // pink
-  "#a78bfa", // violet
-  "#fbbf24", // amber
-  "#f87171", // red
-  "#2dd4bf", // teal
-];
-
-function getPlotColor(index: number) {
-  return plotColors[index % plotColors.length];
-}
-
-/* ------------------------------------------------------------------ */
 /*  Main renderer                                                      */
 /* ------------------------------------------------------------------ */
 
@@ -91,16 +73,11 @@ export default function MapRenderer() {
     const result: { id: string; name: string; positions: [number, number][]; color: string }[] = [];
 
     plots.forEach((p, i) => {
-      // DEBUG: log raw Firestore document
-      console.log(`[DEBUG] Plot "${p.name}" (${p.id}) raw corners:`, JSON.stringify(p.corners));
-
       if (!Array.isArray(p.corners)) return;
 
       // Only keep corners that have valid finite lat/lng
       const validPositions: [number, number][] = [];
       for (const c of p.corners) {
-        // DEBUG: log each corner's raw values and types
-        console.log(`[DEBUG]   corner raw:`, { lat: c.lat, lng: c.lng, latType: typeof c.lat, lngType: typeof c.lng });
         const lat = typeof c.lat === "number" ? c.lat : parseFloat(String(c.lat));
         const lng = typeof c.lng === "number" ? c.lng : parseFloat(String(c.lng));
         if (Number.isFinite(lat) && Number.isFinite(lng)) {
@@ -108,15 +85,11 @@ export default function MapRenderer() {
         }
       }
 
-      const sorted = sortCornersCcw(validPositions);
-      // DEBUG: log final positions being sent to Polygon
-      console.log(`[DEBUG] Plot "${p.name}" final positions (${sorted.length}):`, JSON.stringify(sorted));
-
       if (validPositions.length >= 3) {
         result.push({
           id: p.id,
           name: p.name?.trim() || "Unnamed Plot",
-          positions: sorted,
+          positions: sortCornersCcw(validPositions),
           color: getPlotColor(i),
         });
       }

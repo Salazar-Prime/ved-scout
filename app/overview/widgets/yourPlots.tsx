@@ -3,6 +3,7 @@
 import { Plus, MapPin, Loader2 } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
 import { usePlots } from "../../components/plotsContext";
+import { getPlotColor } from "../../../lib/plotColors";
 import AddPlotContent from "./addPlotModal";
 import ScrollableList, { type ListItem } from "../../components/scrollableList";
 
@@ -19,9 +20,10 @@ export default function YourPlots() {
   };
 
   // Map Firestore docs → ListItem[]
-  const listItems: ListItem[] = plots.map((plot) => {
+  const listItems: ListItem[] = plots.map((plot, index) => {
     const cornerCount = plot.corners?.length ?? 0;
     const plotName = plot.name?.trim() || "Unnamed Plot";
+    const color = getPlotColor(index);
     const dateLabel = plot.createdAt
       ? new Date(plot.createdAt).toLocaleDateString(undefined, {
           month: "short",
@@ -40,7 +42,7 @@ export default function YourPlots() {
       id: plot.id,
       title: plotName,
       subtitle,
-      leading: <MapPin size={16} />,
+      leading: <MapPin size={16} style={{ color }} />,
     };
   });
 
