@@ -14,6 +14,7 @@ import {
   Plug,
   ChevronLeft,
   ChevronRight,
+  Terminal,
 } from "lucide-react";
 import { useVoiceCommand } from "./voiceCommandContext";
 
@@ -22,6 +23,7 @@ const navItems = [
   { name: "Your Plots", href: "/your-plots", icon: MapPin },
   { name: "Camera Sensors", href: "/camera-sensors", icon: Camera },
   { name: "Mission Types", href: "/mission-types", icon: Crosshair },
+  { name: "Flight Script", href: "/flight-script", icon: Terminal },
   { name: "Live Missions", href: "/live-missions", icon: Radio },
   { name: "Flight History", href: "/flight-history", icon: History },
   { name: "WebSocket", href: "/websocket-connect", icon: Plug },

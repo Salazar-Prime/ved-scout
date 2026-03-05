@@ -3,7 +3,6 @@
 import { useState, useRef, useCallback } from "react";
 import { Upload, Plus, Trash2, X, Loader2, FileCheck, MapPin } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
-import { addDocument, collections } from "../../../lib/firestore";
 import { parseKml, type ParsedPolygon } from "../../../lib/kmlParser";
 
 interface CornerCoordinate {
@@ -87,17 +86,27 @@ export default function AddPlotContent() {
     if (kmlPolygons.length > 0) {
       setIsSaving(true);
       try {
-        for (const poly of kmlPolygons) {
-          await addDocument(collections.plots, {
-            name: poly.name,
-            corners: poly.corners,
-            createdAt: new Date().toISOString(),
-          });
+        const res = await fetch("/api/plots", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "addBatch",
+            plots: kmlPolygons.map((poly) => ({
+              name: poly.name,
+              corners: poly.corners,
+            })),
+          }),
+        });
+        if (!res.ok) {
+          const errData = await res.json();
+          throw new Error(errData.error || "Failed to save plots");
         }
         closeModal();
       } catch (err) {
         console.error("Failed to save KML plots:", err);
-        setError("Failed to save plots. Please try again.");
+        setError(
+          err instanceof Error ? err.message : "Failed to save plots. Please try again."
+        );
       } finally {
         setIsSaving(false);
       }
@@ -136,15 +145,25 @@ export default function AddPlotContent() {
 
     setIsSaving(true);
     try {
-      await addDocument(collections.plots, {
-        name: plotName.trim(),
-        corners: parsed,
-        createdAt: new Date().toISOString(),
+      const res = await fetch("/api/plots", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "add",
+          name: plotName.trim(),
+          corners: parsed,
+        }),
       });
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Failed to save plot");
+      }
       closeModal();
     } catch (err) {
       console.error("Failed to save plot:", err);
-      setError("Failed to save plot. Please try again.");
+      setError(
+        err instanceof Error ? err.message : "Failed to save plot. Please try again."
+      );
     } finally {
       setIsSaving(false);
     }
