@@ -8,7 +8,6 @@ import {
   Send,
   MapPin,
   Trash2,
-  RefreshCw,
   PenLine,
   List,
   Bot,
@@ -17,7 +16,10 @@ import {
   Wifi,
   WifiOff,
   Plane,
+  Crosshair,
+  Camera,
 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import { useWebSocketConnection } from "../components/webSocketContext";
 
 const BAR_COUNT = 40;
@@ -574,7 +576,13 @@ export default function FlightScriptPage() {
                     : "bg-zinc-800/60 text-zinc-200 border border-zinc-700/50"
                 }`}
               >
-                {msg.content}
+                {msg.role === "assistant" ? (
+                  <div className="markdownMessage [&_p]:my-1 [&_ul]:my-1 [&_ol]:my-1 [&_li]:my-0 [&_h1]:text-lg [&_h2]:text-base [&_h3]:text-sm [&_h1,_h2,_h3]:font-semibold [&_h1,_h2,_h3]:text-zinc-100 [&_h1,_h2,_h3]:mt-2 [&_h1,_h2,_h3]:mb-1 [&_code]:text-[#cfb991]/90 [&_code]:bg-zinc-700/50 [&_code]:px-1 [&_code]:rounded [&_pre]:my-2 [&_pre]:p-2 [&_pre]:bg-zinc-900/80 [&_pre]:border [&_pre]:border-zinc-700 [&_pre]:rounded-lg [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_a]:text-[#cfb991] [&_a]:underline [&_strong]:font-semibold">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  </div>
+                ) : (
+                  msg.content
+                )}
               </div>
 
               {/* Tool call results */}
@@ -661,6 +669,76 @@ function ToolCallBadge({ toolCall }: { toolCall: ToolCallResult }) {
         <Wrench size={12} className="text-zinc-500 shrink-0" />
         <Plane size={12} className="text-blue-400 shrink-0" />
         <span className="text-blue-400">{label}</span>
+        {success ? (
+          <span className="text-emerald-400/70 ml-auto">
+            {result.message as string}
+          </span>
+        ) : (
+          <span className="text-red-400/70 ml-auto">
+            {(result?.error as string) || "Failed"}
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  // Handle missionManagement tool
+  if (toolCall.toolName === "missionManagement") {
+    const missionActionConfig: Record<
+      string,
+      { icon: typeof Crosshair; label: string; color: string }
+    > = {
+      add: { icon: Crosshair, label: "Mission Type Added", color: "text-emerald-400" },
+      update: { icon: PenLine, label: "Mission Type Updated", color: "text-blue-400" },
+      delete: { icon: Trash2, label: "Mission Type Deleted", color: "text-red-400" },
+      list: { icon: List, label: "Mission Types Listed", color: "text-zinc-400" },
+    };
+    const missionConfig = missionActionConfig[action || ""] || {
+      icon: Wrench,
+      label: "Mission",
+      color: "text-zinc-400",
+    };
+    const MissionIcon = missionConfig.icon;
+    return (
+      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-800/40 border border-zinc-700/30 text-xs">
+        <Wrench size={12} className="text-zinc-500 shrink-0" />
+        <MissionIcon size={12} className={`${missionConfig.color} shrink-0`} />
+        <span className={missionConfig.color}>{missionConfig.label}</span>
+        {success ? (
+          <span className="text-emerald-400/70 ml-auto">
+            {result.message as string}
+          </span>
+        ) : (
+          <span className="text-red-400/70 ml-auto">
+            {(result?.error as string) || "Failed"}
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  // Handle cameraSensors tool
+  if (toolCall.toolName === "cameraSensors") {
+    const cameraActionConfig: Record<
+      string,
+      { icon: typeof Camera; label: string; color: string }
+    > = {
+      add: { icon: Camera, label: "Camera Added", color: "text-emerald-400" },
+      update: { icon: PenLine, label: "Camera Updated", color: "text-blue-400" },
+      delete: { icon: Trash2, label: "Camera Deleted", color: "text-red-400" },
+      list: { icon: List, label: "Cameras Listed", color: "text-zinc-400" },
+    };
+    const cameraConfig = cameraActionConfig[action || ""] || {
+      icon: Wrench,
+      label: "Camera",
+      color: "text-zinc-400",
+    };
+    const CameraIcon = cameraConfig.icon;
+    return (
+      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-800/40 border border-zinc-700/30 text-xs">
+        <Wrench size={12} className="text-zinc-500 shrink-0" />
+        <CameraIcon size={12} className={`${cameraConfig.color} shrink-0`} />
+        <span className={cameraConfig.color}>{cameraConfig.label}</span>
         {success ? (
           <span className="text-emerald-400/70 ml-auto">
             {result.message as string}

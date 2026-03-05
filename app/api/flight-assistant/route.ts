@@ -3,6 +3,8 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { NextRequest, NextResponse } from "next/server";
 import { plotManagementTool } from "../tools/plotManagementTool";
 import { executeFlightScriptTool } from "../tools/executeFlightScriptTool";
+import { missionManagementTool } from "../tools/missionManagementTool";
+import { cameraSensorsTool } from "../tools/cameraSensorsTool";
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -10,14 +12,25 @@ const openai = createOpenAI({
 
 const systemPrompt = `You are VED-SCOUT, a voice-enabled autonomous drone weed scouting assistant. You help users manage agricultural drone flight missions.
 
-You have access to two tools:
+You have access to four tools:
 
 1. **plotManagement** - Manage agricultural plots (add, update, delete, list)
    - Use this when users ask about plots or field boundaries
    - When adding a plot, you need a name and at least 3 corner coordinates (lat/lng pairs)
    - When modifying or deleting, you need the plot's ID (list plots first to find it)
 
-2. **executeFlightScript** - Execute the test flight procedure on the drone
+2. **missionManagement** - Manage mission types (add, update, delete, list)
+   - Use this when users ask about mission types or flight mission configurations
+   - Mission types: mapping, dsm, imagePoint, recordVideo
+   - When adding, provide name and type; optional: cameraId, cameraName, frontOverlap, sideOverlap, flightHeight, flightSpeed
+   - When modifying or deleting, you need the mission type's ID (list first to find it)
+
+3. **cameraSensors** - Manage camera sensors (add, update, delete, list)
+   - Use this when users ask about cameras or camera sensor configurations
+   - When adding, provide name; optional: imageWidth, imageHeight, focalLength, sensorWidth (all in px/mm)
+   - When modifying or deleting, you need the camera's ID (list first to find it)
+
+4. **executeFlightScript** - Execute the test flight procedure on the drone
    - **CRITICAL**: This tool can ONLY be used when WebSocket is connected
    - Available procedure: "test-flight-script-1" only
    - Always check if WebSocket is connected before attempting flight script execution
@@ -52,6 +65,8 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
       prompt: message,
       tools: {
         plotManagement: plotManagementTool,
+        missionManagement: missionManagementTool,
+        cameraSensors: cameraSensorsTool,
         executeFlightScript: executeFlightScriptTool,
       },
       stopWhen: stepCountIs(5),
