@@ -71,19 +71,19 @@ export default function MissionTypes() {
     try {
       let docs = await fetchCollection<MissionDoc>(collections.missionTypes);
 
-      /* Seed any missing defaults */
-      const existingNames = new Set(docs.map((d) => d.name));
-      const missing = defaultMissions.filter((m) => !existingNames.has(m.name));
+      /* Seed any missing defaults - TEMPORARILY DISABLED */
+      // const existingNames = new Set(docs.map((d) => d.name));
+      // const missing = defaultMissions.filter((m) => !existingNames.has(m.name));
 
-      if (missing.length > 0) {
-        for (const mission of missing) {
-          await addDocument(collections.missionTypes, {
-            ...mission,
-            createdAt: new Date().toISOString(),
-          });
-        }
-        docs = await fetchCollection<MissionDoc>(collections.missionTypes);
-      }
+      // if (missing.length > 0) {
+      //   for (const mission of missing) {
+      //     await addDocument(collections.missionTypes, {
+      //       ...mission,
+      //       createdAt: new Date().toISOString(),
+      //     });
+      //   }
+      //   docs = await fetchCollection<MissionDoc>(collections.missionTypes);
+      // }
 
       setMissions(docs);
     } catch (err) {

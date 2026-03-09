@@ -42,7 +42,7 @@ Be concise but helpful. Confirm actions after performing them.`;
 
 export async function POST(request: NextRequest) {
   try {
-    const { message, previousResponseId, isWebSocketConnected } =
+    const { message, previousResponseId, isWebSocketConnected, model, reasoning } =
       await request.json();
 
     if (!message || typeof message !== "string") {
@@ -52,6 +52,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Use provided model or default to gpt-5.2
+    const modelToUse = model || "gpt-5.2";
+    const reasoningEffort = reasoning || "none";
+
     // Build system prompt with WebSocket status
     const enhancedSystemPrompt = `${systemPrompt}
 
@@ -59,8 +63,11 @@ export async function POST(request: NextRequest) {
 - WebSocket Connection: ${isWebSocketConnected ? "CONNECTED ✓" : "NOT CONNECTED ✗"}
 ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket is connected" : ""}`;
 
+    // Variable to capture usage from onFinish callback
+    let capturedUsage = { promptTokens: 0, completionTokens: 0, totalTokens: 0 };
+
     const result = await generateText({
-      model: openai.responses("gpt-4o"),
+      model: openai.responses(modelToUse),
       system: enhancedSystemPrompt,
       prompt: message,
       tools: {
@@ -69,17 +76,32 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
         cameraSensors: cameraSensorsTool,
         executeFlightScript: executeFlightScriptTool,
       },
-      stopWhen: stepCountIs(5),
+      stopWhen: stepCountIs(20),
       providerOptions: {
         openai: {
           ...(previousResponseId && { previousResponseId }),
+          ...(reasoningEffort !== "none" && { reasoningEffort }),
         },
+      },
+      onFinish: ({ usage }) => {
+        const { promptTokens, completionTokens, totalTokens } = usage;
+        capturedUsage = { promptTokens, completionTokens, totalTokens };
+        console.log('onFinish - Prompt tokens:', promptTokens);
+        console.log('onFinish - Completion tokens:', completionTokens);
+        console.log('onFinish - Total tokens:', totalTokens);
       },
     });
 
     const toolResults = result.steps
       .flatMap((step) => step.toolResults)
       .filter(Boolean);
+
+    // Use captured usage from onFinish callback
+    const inputTokens = capturedUsage.promptTokens || 0;
+    const outputTokens = capturedUsage.completionTokens || 0;
+    const totalTokens = capturedUsage.totalTokens || 0;
+
+    console.log('Final usage to return:', { inputTokens, outputTokens, totalTokens });
 
     return NextResponse.json({
       text: result.text,
@@ -89,6 +111,13 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
         args: tr.input,
         result: tr.output,
       })),
+      usage: {
+        inputTokens,
+        outputTokens,
+        totalTokens,
+        promptTokens: inputTokens,
+        completionTokens: outputTokens,
+      },
     });
   } catch (error) {
     console.error("Flight assistant error:", error);

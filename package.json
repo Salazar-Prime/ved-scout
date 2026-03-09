@@ -10,7 +10,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "config-manager": "node scripts/firebaseConfigManager.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.26",
@@ -24,6 +25,7 @@
     "react-grid-layout": "^2.2.2",
     "react-leaflet": "^5.0.0",
     "react-markdown": "^9.0.1",
+    "tsx": "^4.21.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {

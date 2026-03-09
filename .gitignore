@@ -44,3 +44,6 @@ next-env.d.ts
 .cursorindexingignore
 .specstory
 .pnpm-store
+/config
+
+__pycache__/

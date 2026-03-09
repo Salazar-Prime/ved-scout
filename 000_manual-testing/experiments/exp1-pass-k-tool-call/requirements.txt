@@ -1,0 +1,10 @@
+# Python Requirements for Pass^k Experiments
+
+# HTTP client (recommended)
+requests>=2.31.0
+
+# Excel file handling
+openpyxl>=3.1.2
+
+# Optional: For better performance
+# urllib3>=2.0.0

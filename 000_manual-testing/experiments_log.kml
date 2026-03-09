@@ -1,0 +1,3262 @@
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Experiments log</name>
+    <Folder>
+      <name>naive-5.2-reason-none-run1</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-none-run1 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-none-run1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:21:57.787953&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: mHDMkQSlQz1YdU]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;224&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;323&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004914&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;4.2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654200, -86.993606000, 10
+40.472654200, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472668600, -86.993606000, 10
+40.472668600, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472683000, -86.993606000, 10
+40.472683000, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472697400, -86.993606000, 10
+40.472697400, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-none-run1</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-none-run1 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-none-run1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:22:13.204001&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: d3jF19AckiAwxo]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;222&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;323&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004910&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;4.17&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654200, -86.993606000, 10
+40.472654200, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472668600, -86.993606000, 10
+40.472668600, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472683000, -86.993606000, 10
+40.472683000, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472697400, -86.993606000, 10
+40.472697400, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-high-run1</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-high-run1 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-high-run1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:22:34.750472&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: fLjgIOLiYlqHit]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;223&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;1592&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.022678&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;21.31&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.4726470, -86.9942220, 10
+40.4726470, -86.9936060, 10
+40.4726542, -86.9936060, 10
+40.4726542, -86.9942220, 10
+40.4726614, -86.9942220, 10
+40.4726614, -86.9936060, 10
+40.4726686, -86.9936060, 10
+40.4726686, -86.9942220, 10
+40.4726758, -86.9942220, 10
+40.4726758, -86.9936060, 10
+40.4726830, -86.9936060, 10
+40.4726830, -86.9942220, 10
+40.4726902, -86.9942220, 10
+40.4726902, -86.9936060, 10
+40.4726974, -86.9936060, 10
+40.4726974, -86.9942220, 10
+40.4727046, -86.9942220, 10
+40.4727046, -86.9936060, 10
+40.4727100, -86.9936060, 10
+40.4727100, -86.9942220, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>smart-5.2-code-interpreter-run1</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654187,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654187,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661373,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661373,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.47266856,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.47266856,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675747,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675747,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682933,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682933,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.47269012,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.47269012,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472697307,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472697307,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472704493,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472704493,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654187,10.0
+-86.994222,40.472654187,10.0
+-86.994222,40.472661373,10.0
+-86.993606,40.472661373,10.0
+-86.993606,40.47266856,10.0
+-86.994222,40.47266856,10.0
+-86.994222,40.472675747,10.0
+-86.993606,40.472675747,10.0
+-86.993606,40.472682933,10.0
+-86.994222,40.472682933,10.0
+-86.994222,40.47269012,10.0
+-86.993606,40.47269012,10.0
+-86.993606,40.472697307,10.0
+-86.994222,40.472697307,10.0
+-86.994222,40.472704493,10.0
+-86.993606,40.472704493,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>smart-5.2-code-interpreter-run1 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;smart-5.2-code-interpreter-run1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:23:23.843675&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: cYNcVCiV2KVi2t]
+
+You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;2288&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;919&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.016870&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;49.08&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654187, -86.993606000, 10
+40.472654187, -86.994222000, 10
+40.472661373, -86.994222000, 10
+40.472661373, -86.993606000, 10
+40.472668560, -86.993606000, 10
+40.472668560, -86.994222000, 10
+40.472675747, -86.994222000, 10
+40.472675747, -86.993606000, 10
+40.472682933, -86.993606000, 10
+40.472682933, -86.994222000, 10
+40.472690120, -86.994222000, 10
+40.472690120, -86.993606000, 10
+40.472697307, -86.993606000, 10
+40.472697307, -86.994222000, 10
+40.472704493, -86.994222000, 10
+40.472704493, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.4-reason-none-run1</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472665,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472665,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472701,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472701,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472665,10.0
+-86.994222,40.472665,10.0
+-86.994222,40.472683,10.0
+-86.993606,40.472683,10.0
+-86.993606,40.472701,10.0
+-86.994222,40.472701,10.0
+-86.994222,40.47271,10.0
+-86.993606,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.4-reason-none-run1 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.4-reason-none-run1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:23:26.684152&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: zVLWGhygHlpQie]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;222&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;143&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.002700&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;2.83&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472665, -86.993606, 10
+40.472665, -86.994222, 10
+40.472683, -86.994222, 10
+40.472683, -86.993606, 10
+40.472701, -86.993606, 10
+40.472701, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.993606, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-none-run2</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.9941732,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.9941732,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.9941244,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.9941244,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.9940756,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.9940756,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.9940268,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.9940268,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993978,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.993978,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.9939292,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.9939292,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.9938804,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.9938804,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.9938316,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.9938316,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.9937828,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.9937828,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>21</name>
+        <Point>
+          <coordinates>-86.993734,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>22</name>
+        <Point>
+          <coordinates>-86.993734,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>23</name>
+        <Point>
+          <coordinates>-86.9936852,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>24</name>
+        <Point>
+          <coordinates>-86.9936852,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>25</name>
+        <Point>
+          <coordinates>-86.9936364,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>26</name>
+        <Point>
+          <coordinates>-86.9936364,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>27</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>28</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.994222,40.47271,10.0
+-86.9941732,40.47271,10.0
+-86.9941732,40.472647,10.0
+-86.9941244,40.472647,10.0
+-86.9941244,40.47271,10.0
+-86.9940756,40.47271,10.0
+-86.9940756,40.472647,10.0
+-86.9940268,40.472647,10.0
+-86.9940268,40.47271,10.0
+-86.993978,40.47271,10.0
+-86.993978,40.472647,10.0
+-86.9939292,40.472647,10.0
+-86.9939292,40.47271,10.0
+-86.9938804,40.47271,10.0
+-86.9938804,40.472647,10.0
+-86.9938316,40.472647,10.0
+-86.9938316,40.47271,10.0
+-86.9937828,40.47271,10.0
+-86.9937828,40.472647,10.0
+-86.993734,40.472647,10.0
+-86.993734,40.47271,10.0
+-86.9936852,40.47271,10.0
+-86.9936852,40.472647,10.0
+-86.9936364,40.472647,10.0
+-86.9936364,40.47271,10.0
+-86.993606,40.47271,10.0
+-86.993606,40.472647,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-none-run2 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-none-run2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:23:31.658111&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: gK6fkBwBk3ePoc]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;223&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;451&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.006704&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;4.96&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472710000, -86.994222000, 10
+40.472710000, -86.994173200, 10
+40.472647000, -86.994173200, 10
+40.472647000, -86.994124400, 10
+40.472710000, -86.994124400, 10
+40.472710000, -86.994075600, 10
+40.472647000, -86.994075600, 10
+40.472647000, -86.994026800, 10
+40.472710000, -86.994026800, 10
+40.472710000, -86.993978000, 10
+40.472647000, -86.993978000, 10
+40.472647000, -86.993929200, 10
+40.472710000, -86.993929200, 10
+40.472710000, -86.993880400, 10
+40.472647000, -86.993880400, 10
+40.472647000, -86.993831600, 10
+40.472710000, -86.993831600, 10
+40.472710000, -86.993782800, 10
+40.472647000, -86.993782800, 10
+40.472647000, -86.993734000, 10
+40.472710000, -86.993734000, 10
+40.472710000, -86.993685200, 10
+40.472647000, -86.993685200, 10
+40.472647000, -86.993636400, 10
+40.472710000, -86.993636400, 10
+40.472710000, -86.993606000, 10
+40.472647000, -86.993606000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-high-run2</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.4727118,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.4727118,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.4727118,10.0
+-86.994222,40.4727118,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-high-run2 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-high-run2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:24:10.800187&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: DX0CoBPXuqqxin]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;220&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;2722&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.038493&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;39.13&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.47264700, -86.994222, 10
+40.47264700, -86.993606, 10
+40.47265420, -86.993606, 10
+40.47265420, -86.994222, 10
+40.47266140, -86.994222, 10
+40.47266140, -86.993606, 10
+40.47266860, -86.993606, 10
+40.47266860, -86.994222, 10
+40.47267580, -86.994222, 10
+40.47267580, -86.993606, 10
+40.47268300, -86.993606, 10
+40.47268300, -86.994222, 10
+40.47269020, -86.994222, 10
+40.47269020, -86.993606, 10
+40.47269740, -86.993606, 10
+40.47269740, -86.994222, 10
+40.47270460, -86.994222, 10
+40.47270460, -86.993606, 10
+40.47271180, -86.993606, 10
+40.47271180, -86.994222, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>smart-5.2-code-interpreter-run2</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654186,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654186,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661373,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661373,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668559,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668559,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675745,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675745,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682932,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682932,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472690118,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472690118,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472697305,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472697305,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472704491,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472704491,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654186,10.0
+-86.994222,40.472654186,10.0
+-86.994222,40.472661373,10.0
+-86.993606,40.472661373,10.0
+-86.993606,40.472668559,10.0
+-86.994222,40.472668559,10.0
+-86.994222,40.472675745,10.0
+-86.993606,40.472675745,10.0
+-86.993606,40.472682932,10.0
+-86.994222,40.472682932,10.0
+-86.994222,40.472690118,10.0
+-86.993606,40.472690118,10.0
+-86.993606,40.472697305,10.0
+-86.994222,40.472697305,10.0
+-86.994222,40.472704491,10.0
+-86.993606,40.472704491,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>smart-5.2-code-interpreter-run2 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;smart-5.2-code-interpreter-run2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:25:26.001255&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: UA6cLy4DYSCJ4Y]
+
+You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;2189&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;809&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.015157&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;75.18&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654186, -86.993606000, 10
+40.472654186, -86.994222000, 10
+40.472661373, -86.994222000, 10
+40.472661373, -86.993606000, 10
+40.472668559, -86.993606000, 10
+40.472668559, -86.994222000, 10
+40.472675745, -86.994222000, 10
+40.472675745, -86.993606000, 10
+40.472682932, -86.993606000, 10
+40.472682932, -86.994222000, 10
+40.472690118, -86.994222000, 10
+40.472690118, -86.993606000, 10
+40.472697305, -86.993606000, 10
+40.472697305, -86.994222000, 10
+40.472704491, -86.994222000, 10
+40.472704491, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.4-reason-none-run2</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.994175,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994175,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994128,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.994128,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.994081,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994081,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994034,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.994034,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993987,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.993987,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.99394,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.99394,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993893,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.993893,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.993846,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993846,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993799,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.993799,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>21</name>
+        <Point>
+          <coordinates>-86.993752,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>22</name>
+        <Point>
+          <coordinates>-86.993752,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>23</name>
+        <Point>
+          <coordinates>-86.993705,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>24</name>
+        <Point>
+          <coordinates>-86.993705,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>25</name>
+        <Point>
+          <coordinates>-86.993658,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>26</name>
+        <Point>
+          <coordinates>-86.993658,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>27</name>
+        <Point>
+          <coordinates>-86.993611,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>28</name>
+        <Point>
+          <coordinates>-86.993611,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>29</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>30</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.994222,40.47271,10.0
+-86.994175,40.47271,10.0
+-86.994175,40.472647,10.0
+-86.994128,40.472647,10.0
+-86.994128,40.47271,10.0
+-86.994081,40.47271,10.0
+-86.994081,40.472647,10.0
+-86.994034,40.472647,10.0
+-86.994034,40.47271,10.0
+-86.993987,40.47271,10.0
+-86.993987,40.472647,10.0
+-86.99394,40.472647,10.0
+-86.99394,40.47271,10.0
+-86.993893,40.47271,10.0
+-86.993893,40.472647,10.0
+-86.993846,40.472647,10.0
+-86.993846,40.47271,10.0
+-86.993799,40.47271,10.0
+-86.993799,40.472647,10.0
+-86.993752,40.472647,10.0
+-86.993752,40.47271,10.0
+-86.993705,40.47271,10.0
+-86.993705,40.472647,10.0
+-86.993658,40.472647,10.0
+-86.993658,40.47271,10.0
+-86.993611,40.47271,10.0
+-86.993611,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.4-reason-none-run2 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.4-reason-none-run2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:25:31.235659&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: hCwjz5exqWg4oe]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;224&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;423&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.006905&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;5.23&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.994175, 10
+40.472647, -86.994175, 10
+40.472647, -86.994128, 10
+40.472710, -86.994128, 10
+40.472710, -86.994081, 10
+40.472647, -86.994081, 10
+40.472647, -86.994034, 10
+40.472710, -86.994034, 10
+40.472710, -86.993987, 10
+40.472647, -86.993987, 10
+40.472647, -86.993940, 10
+40.472710, -86.993940, 10
+40.472710, -86.993893, 10
+40.472647, -86.993893, 10
+40.472647, -86.993846, 10
+40.472710, -86.993846, 10
+40.472710, -86.993799, 10
+40.472647, -86.993799, 10
+40.472647, -86.993752, 10
+40.472710, -86.993752, 10
+40.472710, -86.993705, 10
+40.472647, -86.993705, 10
+40.472647, -86.993658, 10
+40.472710, -86.993658, 10
+40.472710, -86.993611, 10
+40.472647, -86.993611, 10
+40.472647, -86.993606, 10
+40.472710, -86.993606, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-none-run3</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-none-run3 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-none-run3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:25:34.748032&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: TmmSgOXNlILKKG]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;222&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;323&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004910&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;3.5&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654200, -86.993606000, 10
+40.472654200, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472668600, -86.993606000, 10
+40.472668600, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472683000, -86.993606000, 10
+40.472683000, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472697400, -86.993606000, 10
+40.472697400, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-high-run3</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654,10.0
+-86.994222,40.472654,10.0
+-86.994222,40.472661,10.0
+-86.993606,40.472661,10.0
+-86.993606,40.472668,10.0
+-86.994222,40.472668,10.0
+-86.994222,40.472675,10.0
+-86.993606,40.472675,10.0
+-86.993606,40.472682,10.0
+-86.994222,40.472682,10.0
+-86.994222,40.472689,10.0
+-86.993606,40.472689,10.0
+-86.993606,40.472696,10.0
+-86.994222,40.472696,10.0
+-86.994222,40.472703,10.0
+-86.993606,40.472703,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-high-run3 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-high-run3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:26:02.841963&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: rjF3r64YVWUKF1]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;224&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;1971&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.027986&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;28.08&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472654, -86.993606, 10
+40.472654, -86.994222, 10
+40.472661, -86.994222, 10
+40.472661, -86.993606, 10
+40.472668, -86.993606, 10
+40.472668, -86.994222, 10
+40.472675, -86.994222, 10
+40.472675, -86.993606, 10
+40.472682, -86.993606, 10
+40.472682, -86.994222, 10
+40.472689, -86.994222, 10
+40.472689, -86.993606, 10
+40.472696, -86.993606, 10
+40.472696, -86.994222, 10
+40.472703, -86.994222, 10
+40.472703, -86.993606, 10
+40.472710, -86.993606, 10
+40.472710, -86.994222, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>smart-5.2-code-interpreter-run3</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.47265419,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.47265419,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661379,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661379,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668569,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668569,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682948,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682948,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472690138,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472690138,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472697327,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472697327,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472704517,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472704517,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.47265419,10.0
+-86.994222,40.47265419,10.0
+-86.994222,40.472661379,10.0
+-86.993606,40.472661379,10.0
+-86.993606,40.472668569,10.0
+-86.994222,40.472668569,10.0
+-86.994222,40.472675758,10.0
+-86.993606,40.472675758,10.0
+-86.993606,40.472682948,10.0
+-86.994222,40.472682948,10.0
+-86.994222,40.472690138,10.0
+-86.993606,40.472690138,10.0
+-86.993606,40.472697327,10.0
+-86.994222,40.472697327,10.0
+-86.994222,40.472704517,10.0
+-86.993606,40.472704517,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>smart-5.2-code-interpreter-run3 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;smart-5.2-code-interpreter-run3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:26:53.825152&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: LL1qn7y7wXeC2j]
+
+You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;2368&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;966&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.017668&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;50.96&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654190, -86.993606000, 10
+40.472654190, -86.994222000, 10
+40.472661379, -86.994222000, 10
+40.472661379, -86.993606000, 10
+40.472668569, -86.993606000, 10
+40.472668569, -86.994222000, 10
+40.472675758, -86.994222000, 10
+40.472675758, -86.993606000, 10
+40.472682948, -86.993606000, 10
+40.472682948, -86.994222000, 10
+40.472690138, -86.994222000, 10
+40.472690138, -86.993606000, 10
+40.472697327, -86.993606000, 10
+40.472697327, -86.994222000, 10
+40.472704517, -86.994222000, 10
+40.472704517, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.4-reason-none-run3</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654,10.0
+-86.994222,40.472654,10.0
+-86.994222,40.472661,10.0
+-86.993606,40.472661,10.0
+-86.993606,40.472668,10.0
+-86.994222,40.472668,10.0
+-86.994222,40.472675,10.0
+-86.993606,40.472675,10.0
+-86.993606,40.472682,10.0
+-86.994222,40.472682,10.0
+-86.994222,40.472689,10.0
+-86.993606,40.472689,10.0
+-86.993606,40.472696,10.0
+-86.994222,40.472696,10.0
+-86.994222,40.472703,10.0
+-86.993606,40.472703,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.4-reason-none-run3 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.4-reason-none-run3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:26:56.821173&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: RsbTp7Yo2QBOmq]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;222&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;283&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004800&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;2.93&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472654, -86.993606, 10
+40.472654, -86.994222, 10
+40.472661, -86.994222, 10
+40.472661, -86.993606, 10
+40.472668, -86.993606, 10
+40.472668, -86.994222, 10
+40.472675, -86.994222, 10
+40.472675, -86.993606, 10
+40.472682, -86.993606, 10
+40.472682, -86.994222, 10
+40.472689, -86.994222, 10
+40.472689, -86.993606, 10
+40.472696, -86.993606, 10
+40.472696, -86.994222, 10
+40.472703, -86.994222, 10
+40.472703, -86.993606, 10
+40.472710, -86.993606, 10
+40.472710, -86.994222, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-none-run4</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472655,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472655,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472663,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472663,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472671,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472671,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472679,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472679,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472687,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472687,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472695,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472695,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472655,10.0
+-86.994222,40.472655,10.0
+-86.994222,40.472663,10.0
+-86.993606,40.472663,10.0
+-86.993606,40.472671,10.0
+-86.994222,40.472671,10.0
+-86.994222,40.472679,10.0
+-86.993606,40.472679,10.0
+-86.993606,40.472687,10.0
+-86.994222,40.472687,10.0
+-86.994222,40.472695,10.0
+-86.993606,40.472695,10.0
+-86.993606,40.472703,10.0
+-86.994222,40.472703,10.0
+-86.994222,40.47271,10.0
+-86.993606,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-none-run4 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-none-run4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:26:59.910011&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: f4j57kfbPmt65X]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;223&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;291&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004464&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;3.07&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472655000, -86.993606000, 10
+40.472655000, -86.994222000, 10
+40.472663000, -86.994222000, 10
+40.472663000, -86.993606000, 10
+40.472671000, -86.993606000, 10
+40.472671000, -86.994222000, 10
+40.472679000, -86.994222000, 10
+40.472679000, -86.993606000, 10
+40.472687000, -86.993606000, 10
+40.472687000, -86.994222000, 10
+40.472695000, -86.994222000, 10
+40.472695000, -86.993606000, 10
+40.472703000, -86.993606000, 10
+40.472703000, -86.994222000, 10
+40.472710000, -86.994222000, 10
+40.472710000, -86.993606000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.2-reason-high-run4</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.4726542,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.4726614,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.4726686,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.4726758,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.4726902,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.4726974,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.4727046,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.4726542,10.0
+-86.994222,40.4726542,10.0
+-86.994222,40.4726614,10.0
+-86.993606,40.4726614,10.0
+-86.993606,40.4726686,10.0
+-86.994222,40.4726686,10.0
+-86.994222,40.4726758,10.0
+-86.993606,40.4726758,10.0
+-86.993606,40.472683,10.0
+-86.994222,40.472683,10.0
+-86.994222,40.4726902,10.0
+-86.993606,40.4726902,10.0
+-86.993606,40.4726974,10.0
+-86.994222,40.4726974,10.0
+-86.994222,40.4727046,10.0
+-86.993606,40.4727046,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.2-reason-high-run4 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.2-reason-high-run4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:27:31.597263&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: FZA9P3fG6LEsBs]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;224&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;2138&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.030324&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;31.67&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.4726470, -86.9942220, 10
+40.4726470, -86.9936060, 10
+40.4726542, -86.9936060, 10
+40.4726542, -86.9942220, 10
+40.4726614, -86.9942220, 10
+40.4726614, -86.9936060, 10
+40.4726686, -86.9936060, 10
+40.4726686, -86.9942220, 10
+40.4726758, -86.9942220, 10
+40.4726758, -86.9936060, 10
+40.4726830, -86.9936060, 10
+40.4726830, -86.9942220, 10
+40.4726902, -86.9942220, 10
+40.4726902, -86.9936060, 10
+40.4726974, -86.9936060, 10
+40.4726974, -86.9942220, 10
+40.4727046, -86.9942220, 10
+40.4727046, -86.9936060, 10
+40.4727100, -86.9936060, 10
+40.4727100, -86.9942220, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>smart-5.2-code-interpreter-run4</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654204,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654204,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661409,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661409,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668613,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668613,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675817,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675817,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472683022,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472683022,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472690226,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472690226,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.47269743,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.47269743,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472704635,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472704635,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654204,10.0
+-86.994222,40.472654204,10.0
+-86.994222,40.472661409,10.0
+-86.993606,40.472661409,10.0
+-86.993606,40.472668613,10.0
+-86.994222,40.472668613,10.0
+-86.994222,40.472675817,10.0
+-86.993606,40.472675817,10.0
+-86.993606,40.472683022,10.0
+-86.994222,40.472683022,10.0
+-86.994222,40.472690226,10.0
+-86.993606,40.472690226,10.0
+-86.993606,40.47269743,10.0
+-86.994222,40.47269743,10.0
+-86.994222,40.472704635,10.0
+-86.993606,40.472704635,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>smart-5.2-code-interpreter-run4 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;smart-5.2-code-interpreter-run4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:28:16.643828&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: 8GbyJLXckzr4vz]
+
+You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;2298&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;888&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.016453&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;45.03&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654204, -86.993606000, 10
+40.472654204, -86.994222000, 10
+40.472661409, -86.994222000, 10
+40.472661409, -86.993606000, 10
+40.472668613, -86.993606000, 10
+40.472668613, -86.994222000, 10
+40.472675817, -86.994222000, 10
+40.472675817, -86.993606000, 10
+40.472683022, -86.993606000, 10
+40.472683022, -86.994222000, 10
+40.472690226, -86.994222000, 10
+40.472690226, -86.993606000, 10
+40.472697430, -86.993606000, 10
+40.472697430, -86.994222000, 10
+40.472704635, -86.994222000, 10
+40.472704635, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>naive-5.4-reason-none-run4</name>
+      <Placemark>
+        <name>1</name>
+        <Point>
+          <coordinates>-86.994222,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>2</name>
+        <Point>
+          <coordinates>-86.993606,40.472647,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>3</name>
+        <Point>
+          <coordinates>-86.993606,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>4</name>
+        <Point>
+          <coordinates>-86.994222,40.472654,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>5</name>
+        <Point>
+          <coordinates>-86.994222,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>6</name>
+        <Point>
+          <coordinates>-86.993606,40.472661,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>7</name>
+        <Point>
+          <coordinates>-86.993606,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>8</name>
+        <Point>
+          <coordinates>-86.994222,40.472668,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>9</name>
+        <Point>
+          <coordinates>-86.994222,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>10</name>
+        <Point>
+          <coordinates>-86.993606,40.472675,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>11</name>
+        <Point>
+          <coordinates>-86.993606,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>12</name>
+        <Point>
+          <coordinates>-86.994222,40.472682,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>13</name>
+        <Point>
+          <coordinates>-86.994222,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>14</name>
+        <Point>
+          <coordinates>-86.993606,40.472689,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>15</name>
+        <Point>
+          <coordinates>-86.993606,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>16</name>
+        <Point>
+          <coordinates>-86.994222,40.472696,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>17</name>
+        <Point>
+          <coordinates>-86.994222,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>18</name>
+        <Point>
+          <coordinates>-86.993606,40.472703,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>19</name>
+        <Point>
+          <coordinates>-86.993606,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>20</name>
+        <Point>
+          <coordinates>-86.994222,40.47271,10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Path</name>
+        <LineString>
+          <coordinates>-86.994222,40.472647,10.0
+-86.993606,40.472647,10.0
+-86.993606,40.472654,10.0
+-86.994222,40.472654,10.0
+-86.994222,40.472661,10.0
+-86.993606,40.472661,10.0
+-86.993606,40.472668,10.0
+-86.994222,40.472668,10.0
+-86.994222,40.472675,10.0
+-86.993606,40.472675,10.0
+-86.993606,40.472682,10.0
+-86.994222,40.472682,10.0
+-86.994222,40.472689,10.0
+-86.993606,40.472689,10.0
+-86.993606,40.472696,10.0
+-86.994222,40.472696,10.0
+-86.994222,40.472703,10.0
+-86.993606,40.472703,10.0
+-86.993606,40.47271,10.0
+-86.994222,40.47271,10.0</coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>naive-5.4-reason-none-run4 (metadata)</name>
+        <description>&lt;table border="1" cellpadding="4"&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;td&gt;naive-5.4-reason-none-run4&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Timestamp&lt;/th&gt;&lt;td&gt;2026-03-07T19:28:19.882856&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input&lt;/th&gt;&lt;td&gt;[cache-bust: 35HPIBI4WQGWJu]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.994222},
+{&amp;quot;lat&amp;quot;: 40.472647, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.993606},
+{&amp;quot;lat&amp;quot;: 40.472710, &amp;quot;lng&amp;quot;: -86.994222}
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Input tokens&lt;/th&gt;&lt;td&gt;223&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Output tokens&lt;/th&gt;&lt;td&gt;283&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Est. cost ($)&lt;/th&gt;&lt;td&gt;0.004802&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Time (s)&lt;/th&gt;&lt;td&gt;3.23&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Output&lt;/h3&gt;&lt;pre&gt;40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472654, -86.993606, 10
+40.472654, -86.994222, 10
+40.472661, -86.994222, 10
+40.472661, -86.993606, 10
+40.472668, -86.993606, 10
+40.472668, -86.994222, 10
+40.472675, -86.994222, 10
+40.472675, -86.993606, 10
+40.472682, -86.993606, 10
+40.472682, -86.994222, 10
+40.472689, -86.994222, 10
+40.472689, -86.993606, 10
+40.472696, -86.993606, 10
+40.472696, -86.994222, 10
+40.472703, -86.994222, 10
+40.472703, -86.993606, 10
+40.472710, -86.993606, 10
+40.472710, -86.994222, 10&lt;/pre&gt;</description>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
