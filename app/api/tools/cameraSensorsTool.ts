@@ -46,7 +46,7 @@ const cameraSensorsSchema = z.object({
 export const cameraSensorsTool = tool({
   description: `Manage camera sensors — add, update, delete, or list camera sensor configurations.
 Use action "add" to create a new camera with name and optional image dimensions (imageWidth, imageHeight, focalLength, sensorWidth).
-Use action "update" to modify an existing camera (requires the camera ID).
+Use action "update" to modify an existing camera (requires the camera ID). For updates, only pass fields that should change — never pass empty strings for unchanged fields.
 Use action "delete" to remove a camera sensor (requires the camera ID).
 Use action "list" to retrieve all camera sensors and their details.
 Always list first if you need to find a camera's ID for update/delete.`,
@@ -95,7 +95,8 @@ Always list first if you need to find a camera's ID for update/delete.`,
         const updateData: Record<string, string | number> = {
           updatedAt: new Date().toISOString(),
         };
-        if (name !== undefined) updateData.name = name.trim();
+        if (name !== undefined && name.trim() !== "")
+          updateData.name = name.trim();
         if (imageWidth !== undefined) updateData.imageWidth = imageWidth;
         if (imageHeight !== undefined) updateData.imageHeight = imageHeight;
         if (focalLength !== undefined) updateData.focalLength = focalLength;

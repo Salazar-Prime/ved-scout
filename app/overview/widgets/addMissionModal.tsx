@@ -128,11 +128,16 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
     }
 
     const selectedCamera = cameras.find((c) => c.id === formData.cameraId);
+    const resolvedCameraName =
+      selectedCamera?.name ??
+      (isEditing && editMission && formData.cameraId === editMission.cameraId
+        ? editMission.cameraName
+        : "");
 
     const payload = {
       name: formData.missionName.trim(),
       cameraId: formData.cameraId,
-      cameraName: selectedCamera?.name ?? "",
+      cameraName: resolvedCameraName,
       type: formData.type,
       frontOverlap: parseFloat(formData.frontOverlap),
       sideOverlap: parseFloat(formData.sideOverlap),

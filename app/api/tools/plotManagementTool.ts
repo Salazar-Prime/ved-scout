@@ -38,7 +38,7 @@ const plotManagementSchema = z.object({
 export const plotManagementTool = tool({
   description: `Manage agricultural plots — add, update, delete, or list plots.
 Use action "add" to create a new plot with a name and corner coordinates.
-Use action "update" to modify an existing plot's name or corners (requires the plot ID).
+Use action "update" to modify an existing plot's name or corners (requires the plot ID). For updates, only pass fields that should change — never pass an empty name or empty corners array for unchanged fields.
 Use action "delete" to remove a plot (requires the plot ID).
 Use action "list" to retrieve all existing plots and their details.
 Always list plots first if you need to find a plot's ID for update/delete.`,
@@ -75,8 +75,16 @@ Always list plots first if you need to find a plot's ID for update/delete.`,
           string,
           string | { lat: number; lng: number }[]
         > = {};
-        if (name !== undefined) updateData.name = name.trim();
-        if (corners !== undefined) updateData.corners = corners;
+        if (name !== undefined && name.trim() !== "")
+          updateData.name = name.trim();
+        if (corners !== undefined) {
+          if (corners.length < 3)
+            return {
+              error:
+                "At least 3 corner coordinates are required when updating corners",
+            };
+          updateData.corners = corners;
+        }
         updateData.updatedAt = new Date().toISOString();
         await updateDocument(collections.plots, id, updateData);
         return {

@@ -70,7 +70,7 @@ type MissionType = "mapping" | "dsm" | "imagePoint" | "recordVideo";
 export const missionManagementTool = tool({
   description: `Manage mission types — add, update, delete, or list mission type configurations.
 Use action "add" to create a new mission type with name, type (mapping, dsm, imagePoint, recordVideo), and optional camera/overlap/flight params.
-Use action "update" to modify an existing mission (requires the mission ID).
+Use action "update" to modify an existing mission (requires the mission ID). For updates, only pass fields that should change — never pass empty strings for fields you are not updating (empty strings would clear stored values).
 Use action "delete" to remove a mission type (requires the mission ID).
 Use action "list" to retrieve all mission types and their details.
 Always list first if you need to find a mission's ID for update/delete.`,
@@ -133,9 +133,13 @@ Always list first if you need to find a mission's ID for update/delete.`,
         const updateData: Record<string, string | number> = {
           updatedAt: new Date().toISOString(),
         };
-        if (name !== undefined) updateData.name = name.trim();
-        if (cameraId !== undefined) updateData.cameraId = cameraId;
-        if (cameraName !== undefined) updateData.cameraName = cameraName;
+        // Only apply string fields when non-empty — models often send "" for unchanged fields,
+        // which would otherwise wipe name, cameraId, or cameraName in Firestore.
+        if (name !== undefined && name.trim() !== "") updateData.name = name.trim();
+        if (cameraId !== undefined && cameraId !== "")
+          updateData.cameraId = cameraId;
+        if (cameraName !== undefined && cameraName.trim() !== "")
+          updateData.cameraName = cameraName.trim();
         if (type !== undefined) updateData.type = type;
         if (frontOverlap !== undefined) updateData.frontOverlap = frontOverlap;
         if (sideOverlap !== undefined) updateData.sideOverlap = sideOverlap;

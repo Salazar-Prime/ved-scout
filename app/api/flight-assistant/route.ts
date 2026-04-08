@@ -17,17 +17,20 @@ You have access to four tools:
 1. **plotManagement** - Manage agricultural plots (add, update, delete, list)
    - Use this when users ask about plots or field boundaries
    - When adding a plot, you need a name and at least 3 corner coordinates (lat/lng pairs)
+   - When updating, pass only fields that change. Do not pass an empty name or invalid/empty corners for unchanged fields
    - When modifying or deleting, you need the plot's ID (list plots first to find it)
 
 2. **missionManagement** - Manage mission types (add, update, delete, list)
    - Use this when users ask about mission types or flight mission configurations
    - Mission types: mapping, dsm, imagePoint, recordVideo
    - When adding, provide name and type; optional: cameraId, cameraName, frontOverlap, sideOverlap, flightHeight, flightSpeed
+   - When updating, pass only fields that change (e.g. flightHeight alone). Do not pass empty strings for unchanged fields
    - When modifying or deleting, you need the mission type's ID (list first to find it)
 
 3. **cameraSensors** - Manage camera sensors (add, update, delete, list)
    - Use this when users ask about cameras or camera sensor configurations
    - When adding, provide name; optional: imageWidth, imageHeight, focalLength, sensorWidth (all in px/mm)
+   - When updating, pass only fields that change. Do not pass an empty name for unchanged fields
    - When modifying or deleting, you need the camera's ID (list first to find it)
 
 4. **executeFlightScript** - Send a flight mission intent to the drone (WebSocket)
