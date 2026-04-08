@@ -1,8 +1,14 @@
 import type {
   SavedFlightScriptChatMessage,
   SavedFlightScriptChatRecord,
+  SavedFlightConfirmationData,
 } from "../flightScriptSavedChatsStorage";
 import type { ToolCallLogEntry } from "./toolCallLogExcel";
+
+export type {
+  SavedSafetyCheckItem,
+  SavedFlightConfirmationData,
+} from "../flightScriptSavedChatsStorage";
 
 /**
  * Live chat message shape (Date timestamps) from Flight Script / Dev WS Chat pages.
@@ -15,6 +21,7 @@ export type SourceChatMessageForSave = {
   timestamp: Date;
   timings?: { label: string; ms: number }[];
   ackRoundTripMs?: number;
+  flightConfirmation?: SavedFlightConfirmationData;
 };
 
 function toIsoTimestamp(d: Date): string {
@@ -48,6 +55,9 @@ export function serializeMessagesForSavedChat(
     }
     if (m.ackRoundTripMs !== undefined && typeof m.ackRoundTripMs === "number") {
       row.ackRoundTripMs = m.ackRoundTripMs;
+    }
+    if (m.flightConfirmation !== undefined) {
+      row.flightConfirmation = m.flightConfirmation;
     }
     return row;
   });
@@ -88,6 +98,9 @@ export function firebaseSafeChatDocument(
     }
     if (m.ackRoundTripMs !== undefined) {
       row.ackRoundTripMs = m.ackRoundTripMs;
+    }
+    if (m.flightConfirmation !== undefined) {
+      row.flightConfirmation = m.flightConfirmation;
     }
     return row;
   });

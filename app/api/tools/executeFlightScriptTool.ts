@@ -1,5 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
+import { runFlightSafetyChecks } from "../../../lib/flightSafetyChecks";
 
 /** Wire names sent as WebSocket scriptName; must match webscoket.py scriptMapping keys. */
 export const flightScriptProcedures = [
@@ -101,6 +102,19 @@ Procedures:
     };
   }) => {
     const { procedure, plot, mission, camera } = args;
+
+    const safety = runFlightSafetyChecks({ plot, mission, camera });
+    if (!safety.passed) {
+      const failedLabels = safety.checks
+        .filter((c) => !c.passed)
+        .map((c) => c.label);
+      return {
+        success: false,
+        safetyFailure: true,
+        safetyChecks: safety.checks,
+        message: `Pre-flight safety checks failed: ${failedLabels.join("; ")}`,
+      };
+    }
 
     return {
       success: true,

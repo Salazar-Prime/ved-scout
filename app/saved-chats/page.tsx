@@ -15,11 +15,16 @@ import {
   Loader2,
   Clock,
   Wrench,
+  ShieldCheck,
+  CheckCircle2,
+  XCircle,
 } from "lucide-react";
 import {
   loadSavedFlightScriptChats,
   deleteSavedFlightScriptChat,
   type SavedFlightScriptChatRecord,
+  type SavedFlightConfirmationData,
+  type SavedSafetyCheckItem,
 } from "../../lib/flightScriptSavedChatsStorage";
 import {
   uploadSavedFlightScriptChatToFirebase,
@@ -381,6 +386,82 @@ export default function SavedChatsPage() {
               )}
               <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin">
                 {selected.record.messages.map((msg) => {
+                  const fc = msg.flightConfirmation as SavedFlightConfirmationData | undefined;
+
+                  // Flight confirmation card
+                  if (fc) {
+                    const displayChecks: SavedSafetyCheckItem[] = fc.serverSafetyChecks ?? fc.safetyChecks;
+                    const isServerChecks = !!fc.serverSafetyChecks;
+                    const isConfirmed = fc.status === "confirmed";
+                    const isCancelled = fc.status === "cancelled";
+                    return (
+                      <div key={msg.id} className="flex gap-3 justify-start">
+                        <div className="w-7 h-7 rounded-full bg-[#cfb991]/15 flex items-center justify-center shrink-0 mt-0.5">
+                          <ShieldCheck size={14} className="text-[#cfb991]" />
+                        </div>
+                        <div className="max-w-[80%] rounded-xl border bg-zinc-900 overflow-hidden border-zinc-700">
+                          {/* Header */}
+                          <div className={`flex items-center gap-2 px-4 py-2.5 border-b border-zinc-700 ${isCancelled ? "bg-zinc-800/30" : "bg-zinc-800/60"}`}>
+                            <ShieldCheck size={14} className={`shrink-0 ${isCancelled ? "text-zinc-500" : "text-[#cfb991]"}`} />
+                            <span className={`text-sm font-semibold ${isCancelled ? "text-zinc-500" : "text-zinc-100"}`}>
+                              Pre-flight Safety Review
+                            </span>
+                            <span className="ml-auto flex items-center gap-2 text-[11px] font-mono text-zinc-400">
+                              {fc.procedure}
+                              {isConfirmed && (
+                                <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/25 text-emerald-400">confirmed</span>
+                              )}
+                              {isCancelled && (
+                                <span className="px-1.5 py-0.5 rounded bg-zinc-700/50 border border-zinc-600 text-zinc-500">cancelled</span>
+                              )}
+                            </span>
+                          </div>
+                          {/* Flight summary */}
+                          <div className={`px-4 py-3 border-b border-zinc-700/60 grid grid-cols-3 gap-x-4 gap-y-1 text-xs ${isCancelled ? "opacity-50" : ""}`}>
+                            <div>
+                              <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Plot</span>
+                              <p className="text-zinc-200 font-medium truncate">{(fc.plot.name as string) ?? "—"}</p>
+                            </div>
+                            <div>
+                              <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Mission</span>
+                              <p className="text-zinc-200 font-medium truncate">{(fc.mission.name as string) ?? "—"}</p>
+                            </div>
+                            <div>
+                              <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Camera</span>
+                              <p className="text-zinc-200 font-medium truncate">{(fc.camera.name as string) ?? "—"}</p>
+                            </div>
+                          </div>
+                          {/* Safety check rows */}
+                          <div className={`px-4 py-3 space-y-1.5 ${isCancelled ? "opacity-50" : ""}`}>
+                            <div className="flex items-center justify-between mb-2">
+                              <p className="text-[10px] uppercase tracking-wider text-zinc-500">Safety Checks</p>
+                              <span className="text-[10px] text-zinc-600 font-mono">
+                                {isServerChecks ? "server verified" : "client only"}
+                              </span>
+                            </div>
+                            {displayChecks.map((check) => (
+                              <div key={check.id} className="flex items-start gap-2">
+                                {check.passed ? (
+                                  <CheckCircle2 size={13} className="shrink-0 mt-0.5 text-emerald-400" />
+                                ) : (
+                                  <XCircle size={13} className="shrink-0 mt-0.5 text-red-400" />
+                                )}
+                                <div className="min-w-0">
+                                  <span className={`text-xs font-medium ${check.passed ? "text-zinc-300" : "text-red-300"}`}>
+                                    {check.label}
+                                  </span>
+                                  <span className="text-zinc-500 text-xs"> — {check.detail}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <p className="px-4 pb-2.5 text-[10px] text-zinc-600 font-mono">{formatSavedAt(msg.timestamp)}</p>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // Standard message bubble
                   const toolCalls = msg.toolCalls as { toolName?: string }[] | undefined;
                   const timings = msg.timings as TimingStep[] | undefined;
                   const hasBadges = !!(toolCalls?.length || timings?.length || msg.ackRoundTripMs !== undefined);
@@ -418,7 +499,6 @@ export default function SavedChatsPage() {
                         >
                           {formatSavedAt(msg.timestamp)}
                         </p>
-
                         {hasBadges && (
                           <div className="flex flex-wrap items-center gap-1.5">
                             {toolCalls?.map((tc, idx) => (

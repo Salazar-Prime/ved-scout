@@ -16,12 +16,21 @@ import {
   Square,
   FileSpreadsheet,
   Clock,
+  CheckCircle2,
+  XCircle,
+  AlertTriangle,
+  ShieldCheck,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useWebSocketConnection } from "../components/webSocketContext";
 import { useModal } from "../components/modal/modalContext";
 import { buildSaveChatModalOptions } from "../components/saveChatModalContent";
 import { excelToolCallLogFromDevEntries } from "../../lib/chatSave/savedChatRecord";
+import {
+  runFlightSafetyChecks,
+  FAA_MAX_ALTITUDE_METERS,
+  type SafetyCheckItem,
+} from "../../lib/flightSafetyChecks";
 
 interface ToolCallResult {
   toolName: string;
@@ -34,6 +43,17 @@ interface TimingStep {
   ms: number;
 }
 
+interface FlightConfirmationData {
+  procedure: string;
+  plot: Record<string, unknown>;
+  mission: Record<string, unknown>;
+  camera: Record<string, unknown>;
+  safetyChecks: SafetyCheckItem[];
+  serverSafetyChecks: SafetyCheckItem[] | null;
+  /** "pending" = awaiting operator action, "confirmed" / "cancelled" = resolved */
+  status: "pending" | "confirmed" | "cancelled";
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
@@ -43,6 +63,7 @@ interface Message {
   timings?: TimingStep[];
   receivedAt?: string;
   ackRoundTripMs?: number;
+  flightConfirmation?: FlightConfirmationData;
 }
 
 interface ToolCallEntry {
@@ -59,6 +80,18 @@ interface DevChatSnapshot {
   messages: Array<Omit<Message, "timestamp"> & { timestamp: string }>;
   toolCallLog: Array<Omit<ToolCallEntry, "timestamp"> & { timestamp: string }>;
   responseId: string | null;
+}
+
+interface PendingFlightConfirmation {
+  /** ID of the Message that holds the FlightConfirmationData */
+  messageId: string;
+  procedure: string;
+  plot: Record<string, unknown>;
+  mission: Record<string, unknown>;
+  camera: Record<string, unknown>;
+  timingSteps: TimingStep[];
+  t0: number;
+  prefixMs: number;
 }
 
 /** ISO string for display in the chat message itself */
@@ -88,6 +121,8 @@ export default function DevWsChatPage() {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [wsUrlInput, setWsUrlInput] = useState(wsUrl);
   const [chatHydrated, setChatHydrated] = useState(false);
+  const [pendingFlightConfirmation, setPendingFlightConfirmation] =
+    useState<PendingFlightConfirmation | null>(null);
 
   const { openModal } = useModal();
 
@@ -103,6 +138,7 @@ export default function DevWsChatPage() {
         const restored: Message[] = data.messages.map((m) => {
           const ts = new Date(typeof m.timestamp === "string" ? m.timestamp : Date.now());
           const raw = m as Record<string, unknown>;
+          const fc = raw.flightConfirmation as FlightConfirmationData | undefined;
           return {
             id: typeof m.id === "string" ? m.id : `msg-${Date.now()}`,
             role: m.role === "user" || m.role === "assistant" ? m.role : "assistant",
@@ -112,6 +148,14 @@ export default function DevWsChatPage() {
             receivedAt: typeof raw.receivedAt === "string" ? raw.receivedAt : undefined,
             ackRoundTripMs: typeof raw.ackRoundTripMs === "number" ? raw.ackRoundTripMs : undefined,
             timestamp: isNaN(ts.getTime()) ? new Date() : ts,
+            // Restore confirmation card — any "pending" card becomes "cancelled" on
+            // reload since the WS session is gone and the operator can't confirm it.
+            ...(fc && {
+              flightConfirmation: {
+                ...fc,
+                status: fc.status === "pending" ? "cancelled" : fc.status,
+              } as FlightConfirmationData,
+            }),
           };
         });
         setMessages(restored);
@@ -157,6 +201,7 @@ export default function DevWsChatPage() {
           receivedAt: m.receivedAt,
           ackRoundTripMs: m.ackRoundTripMs,
           timestamp: m.timestamp.toISOString(),
+          ...(m.flightConfirmation && { flightConfirmation: m.flightConfirmation }),
         })),
         toolCallLog: toolCallLog.map((tc) => ({
           id: tc.id,
@@ -295,93 +340,54 @@ export default function DevWsChatPage() {
           );
 
           if (flightScriptCall) {
-            const tWsSendStart = performance.now();
+            const toolResult = flightScriptCall.result as Record<string, unknown>;
+            const args = flightScriptCall.args as Record<string, unknown>;
+            const procedure = args.procedure as string;
+            const plot = (args.plot as Record<string, unknown> | undefined) ?? {};
+            const mission = (args.mission as Record<string, unknown> | undefined) ?? {};
+            const camera = (args.camera as Record<string, unknown> | undefined) ?? {};
 
-            const waitingMessage: Message = {
-              id: `waiting-${Date.now()}`,
+            // Run client-side safety checks for the confirmation card
+            const safety = runFlightSafetyChecks({
+              plot: plot as Parameters<typeof runFlightSafetyChecks>[0]["plot"],
+              mission: mission as Parameters<typeof runFlightSafetyChecks>[0]["mission"],
+              camera: camera as Parameters<typeof runFlightSafetyChecks>[0]["camera"],
+            });
+
+            // If the tool itself already rejected with structured checks, use those
+            const serverRejected = toolResult?.safetyFailure === true;
+            const toolChecks = serverRejected
+              ? ((toolResult.safetyChecks as SafetyCheckItem[] | undefined) ?? null)
+              : null;
+
+            const confirmMsgId = `flight-confirm-${Date.now()}`;
+            const confirmMsg: Message = {
+              id: confirmMsgId,
               role: "assistant",
-              content: "Sending command to drone and waiting for completion...",
+              content: "",
               timestamp: new Date(),
+              flightConfirmation: {
+                procedure,
+                plot,
+                mission,
+                camera,
+                safetyChecks: toolChecks ?? safety.checks,
+                serverSafetyChecks: null,
+                status: "pending",
+              },
             };
-            setMessages((prev) => [...prev, waitingMessage]);
+            setMessages((prev) => [...prev, confirmMsg]);
 
-            try {
-              const privateKey =
-                process.env.NEXT_PUBLIC_DRONE_PRIVATE_KEY || "";
-
-              const args = flightScriptCall.args as Record<string, unknown>;
-              const procedure = args.procedure as string;
-              const plot = args.plot as Record<string, unknown> | undefined;
-              const mission = args.mission as Record<string, unknown> | undefined;
-              const camera = args.camera as Record<string, unknown> | undefined;
-
-              const response = await sendCommandAndWait(
-                {
-                  type: "flight_script",
-                  scriptName: procedure,
-                  privateKey,
-                  plot: plot || {},
-                  mission: mission || {},
-                  camera: camera || {},
-                  parameters: {},
-                },
-                60000
-              );
-
-              const tWsDone = performance.now();
-              const roundTripMs = tWsDone - tWsSendStart;
-
-              // receivedAt is the server-side ISO timestamp when it got the message
-              const receivedAt = response.receivedAt as string | undefined;
-              const isAck = response.status === "acknowledged";
-              const isCompleted = response.status === "completed";
-
-              const wsTimings: TimingStep[] = [
-                ...timingSteps,
-                { label: "WS round-trip", ms: roundTripMs },
-                { label: "Total", ms: prefixMs + (tWsDone - t0) },
-              ];
-
-              let completionContent: string;
-              if (isAck) {
-                completionContent =
-                  `Mission details acknowledged by server${receivedAt ? ` at ${receivedAt}` : ""}.` +
-                  (mission
-                    ? `\n\n**Mission:** ${(mission as Record<string, unknown>).name ?? "—"} (${(mission as Record<string, unknown>).type ?? "—"})` +
-                      `\n**Plot:** ${(plot as Record<string, unknown>)?.name ?? "—"}` +
-                      `\n**Camera:** ${(camera as Record<string, unknown>)?.name ?? "—"}`
-                    : "");
-              } else if (isCompleted) {
-                completionContent = `Flight script completed successfully${response.message ? `: ${response.message}` : ""}`;
-              } else {
-                completionContent = `Flight script failed${response.error ? `: ${response.error}` : ""}`;
-              }
-
-              const completionMessage: Message = {
-                id: `completion-${Date.now()}`,
-                role: "assistant",
-                content: completionContent,
-                timestamp: new Date(),
-                timings: wsTimings,
-                receivedAt,
-                ackRoundTripMs: isAck ? roundTripMs : undefined,
-              };
-              setMessages((prev) => [...prev, completionMessage]);
-            } catch (err) {
-              const tWsErr = performance.now();
-              const errorMessage: Message = {
-                id: `ws-error-${Date.now()}`,
-                role: "assistant",
-                content: `WebSocket error: ${err instanceof Error ? err.message : "Command failed"}`,
-                timestamp: new Date(),
-                timings: [
-                  ...timingSteps,
-                  { label: "WS error", ms: tWsErr - tWsSendStart },
-                  { label: "Total", ms: prefixMs + (tWsErr - t0) },
-                ],
-              };
-              setMessages((prev) => [...prev, errorMessage]);
-            }
+            setPendingFlightConfirmation({
+              messageId: confirmMsgId,
+              procedure,
+              plot,
+              mission,
+              camera,
+              timingSteps,
+              t0,
+              prefixMs,
+            });
           }
         }
       } catch (err) {
@@ -402,8 +408,134 @@ export default function DevWsChatPage() {
         setIsLoading(false);
       }
     },
-    [responseId, wsConnected, sendCommandAndWait]
+    [responseId, wsConnected, setPendingFlightConfirmation]
   );
+
+  /** Update the flightConfirmation data on a specific message in-place */
+  const updateConfirmMsg = useCallback(
+    (msgId: string, patch: Partial<FlightConfirmationData>) => {
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === msgId && m.flightConfirmation
+            ? { ...m, flightConfirmation: { ...m.flightConfirmation, ...patch } }
+            : m
+        )
+      );
+    },
+    []
+  );
+
+  const handleConfirmFlight = useCallback(async () => {
+    if (!pendingFlightConfirmation) return;
+    const { messageId, procedure, plot, mission, camera, timingSteps, t0, prefixMs } =
+      pendingFlightConfirmation;
+    setPendingFlightConfirmation(null);
+    updateConfirmMsg(messageId, { status: "confirmed" });
+
+    const tWsSendStart = performance.now();
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: `waiting-${Date.now()}`,
+        role: "assistant",
+        content: "Sending command to drone and waiting for completion...",
+        timestamp: new Date(),
+      },
+    ]);
+
+    try {
+      const privateKey = process.env.NEXT_PUBLIC_DRONE_PRIVATE_KEY || "";
+
+      const response = await sendCommandAndWait(
+        {
+          type: "flight_script",
+          scriptName: procedure,
+          privateKey,
+          plot,
+          mission,
+          camera,
+          parameters: {},
+        },
+        60000
+      );
+
+      const tWsDone = performance.now();
+      const roundTripMs = tWsDone - tWsSendStart;
+
+      const receivedAt = response.receivedAt as string | undefined;
+      const isAck = response.status === "acknowledged";
+      const isCompleted = response.status === "completed";
+      const isSafetyFailure = response.status === "safety_failure";
+
+      // Patch server-returned checks back onto the confirmation message in-place
+      const serverChecks = (response.safetyChecks as SafetyCheckItem[] | undefined) ?? null;
+      if (serverChecks) {
+        updateConfirmMsg(messageId, { serverSafetyChecks: serverChecks });
+      }
+
+      const wsTimings: TimingStep[] = [
+        ...timingSteps,
+        { label: "WS round-trip", ms: roundTripMs },
+        { label: "Total", ms: prefixMs + (tWsDone - t0) },
+      ];
+
+      let completionContent: string;
+      if (isSafetyFailure) {
+        const failedChecks = serverChecks?.filter((c) => !c.passed) ?? [];
+        completionContent =
+          `**Pre-flight safety checks failed on server — command rejected.**\n\n` +
+          (failedChecks.length
+            ? failedChecks.map((c) => `- **${c.label}**: ${c.detail}`).join("\n")
+            : "See safety check details above.");
+      } else if (isAck) {
+        completionContent =
+          `Mission details acknowledged by server${receivedAt ? ` at ${receivedAt}` : ""}.` +
+          `\n\n**Mission:** ${(mission.name as string) ?? "—"} (${(mission.type as string) ?? "—"})` +
+          `\n**Plot:** ${(plot.name as string) ?? "—"}` +
+          `\n**Camera:** ${(camera.name as string) ?? "—"}`;
+      } else if (isCompleted) {
+        completionContent = `Flight script completed successfully${response.message ? `: ${response.message}` : ""}`;
+      } else {
+        completionContent = `Flight script failed${response.error ? `: ${response.error}` : ""}`;
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `completion-${Date.now()}`,
+          role: "assistant",
+          content: completionContent,
+          timestamp: new Date(),
+          timings: wsTimings,
+          receivedAt,
+          ackRoundTripMs: isAck ? roundTripMs : undefined,
+        },
+      ]);
+    } catch (err) {
+      const tWsErr = performance.now();
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `ws-error-${Date.now()}`,
+          role: "assistant",
+          content: `WebSocket error: ${err instanceof Error ? err.message : "Command failed"}`,
+          timestamp: new Date(),
+          timings: [
+            ...timingSteps,
+            { label: "WS error", ms: tWsErr - tWsSendStart },
+            { label: "Total", ms: prefixMs + (tWsErr - t0) },
+          ],
+        },
+      ]);
+    }
+  }, [pendingFlightConfirmation, sendCommandAndWait, updateConfirmMsg]);
+
+  const handleCancelFlight = useCallback(() => {
+    if (!pendingFlightConfirmation) return;
+    updateConfirmMsg(pendingFlightConfirmation.messageId, { status: "cancelled" });
+    setPendingFlightConfirmation(null);
+  }, [pendingFlightConfirmation, updateConfirmMsg]);
 
   const handleSubmit = useCallback(
     (e?: React.FormEvent) => {
@@ -721,68 +853,209 @@ export default function DevWsChatPage() {
               </div>
             )}
 
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-              >
-                {msg.role === "assistant" && (
-                  <div className="w-7 h-7 rounded-full bg-[#cfb991]/15 flex items-center justify-center shrink-0 mt-0.5">
-                    <Bot size={14} className="text-[#cfb991]" />
-                  </div>
-                )}
-
-                <div
-                  className={`max-w-[75%] space-y-2 ${msg.role === "user" ? "items-end" : "items-start"}`}
-                >
-                  <div
-                    className={`rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
-                      msg.role === "user"
-                        ? "bg-[#cfb991]/15 text-[#cfb991] border border-[#cfb991]/20"
-                        : "bg-zinc-800/60 text-zinc-200 border border-zinc-700/50"
-                    }`}
-                  >
-                    {msg.role === "assistant" ? (
-                      <div className="markdownMessage [&_p]:my-1 [&_ul]:my-1 [&_ol]:my-1 [&_li]:my-0 [&_h1]:text-lg [&_h2]:text-base [&_h3]:text-sm [&_h1,_h2,_h3]:font-semibold [&_h1,_h2,_h3]:text-zinc-100 [&_h1,_h2,_h3]:mt-2 [&_h1,_h2,_h3]:mb-1 [&_code]:text-[#cfb991]/90 [&_code]:bg-zinc-700/50 [&_code]:px-1 [&_code]:rounded [&_pre]:my-2 [&_pre]:p-2 [&_pre]:bg-zinc-900/80 [&_pre]:border [&_pre]:border-zinc-700 [&_pre]:rounded-lg [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_a]:text-[#cfb991] [&_a]:underline [&_strong]:font-semibold">
-                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+            {messages.map((msg) => {
+              // Flight confirmation card — rendered as a persisted message
+              if (msg.flightConfirmation) {
+                const fc = msg.flightConfirmation;
+                const displayChecks = fc.serverSafetyChecks ?? fc.safetyChecks;
+                const isServerChecks = !!fc.serverSafetyChecks;
+                const allPassed = displayChecks.every((c) => c.passed);
+                const isPending = fc.status === "pending";
+                const isConfirmed = fc.status === "confirmed";
+                const isCancelled = fc.status === "cancelled";
+                return (
+                  <div key={msg.id} className="flex gap-3 justify-start">
+                    <div className="w-7 h-7 rounded-full bg-[#cfb991]/15 flex items-center justify-center shrink-0 mt-0.5">
+                      <ShieldCheck size={14} className="text-[#cfb991]" />
+                    </div>
+                    <div className="max-w-[80%] rounded-xl border bg-zinc-900 overflow-hidden border-zinc-700">
+                      {/* Card header */}
+                      <div className={`flex items-center gap-2 px-4 py-2.5 border-b border-zinc-700 ${
+                        isCancelled ? "bg-zinc-800/30" : "bg-zinc-800/60"
+                      }`}>
+                        <ShieldCheck size={14} className={`shrink-0 ${isCancelled ? "text-zinc-500" : "text-[#cfb991]"}`} />
+                        <span className={`text-sm font-semibold ${isCancelled ? "text-zinc-500" : "text-zinc-100"}`}>
+                          Pre-flight Safety Review
+                        </span>
+                        <span className="ml-auto flex items-center gap-2 text-[11px] font-mono text-zinc-400">
+                          {fc.procedure}
+                          {isConfirmed && (
+                            <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/25 text-emerald-400">confirmed</span>
+                          )}
+                          {isCancelled && (
+                            <span className="px-1.5 py-0.5 rounded bg-zinc-700/50 border border-zinc-600 text-zinc-500">cancelled</span>
+                          )}
+                        </span>
                       </div>
-                    ) : (
-                      msg.content
+
+                      {/* Flight summary */}
+                      <div className={`px-4 py-3 border-b border-zinc-700/60 grid grid-cols-3 gap-x-4 gap-y-1 text-xs ${isCancelled ? "opacity-50" : ""}`}>
+                        <div>
+                          <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Plot</span>
+                          <p className="text-zinc-200 font-medium truncate">
+                            {(fc.plot.name as string) ?? "—"}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Mission</span>
+                          <p className="text-zinc-200 font-medium truncate">
+                            {(fc.mission.name as string) ?? "—"}
+                            {fc.mission.flightHeight !== undefined && (
+                              <span className="ml-1 text-zinc-400">
+                                · {fc.mission.flightHeight as number}m
+                                {(fc.mission.flightHeight as number) > FAA_MAX_ALTITUDE_METERS && (
+                                  <span className="text-red-400"> ⚠</span>
+                                )}
+                              </span>
+                            )}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-zinc-500 uppercase tracking-wider text-[10px]">Camera</span>
+                          <p className="text-zinc-200 font-medium truncate">
+                            {(fc.camera.name as string) ?? "—"}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Safety check rows */}
+                      <div className={`px-4 py-3 space-y-1.5 ${isCancelled ? "opacity-50" : ""} ${isPending ? "border-b border-zinc-700/60" : ""}`}>
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-[10px] uppercase tracking-wider text-zinc-500">Safety Checks</p>
+                          {isServerChecks ? (
+                            <span className="text-[10px] text-zinc-500 font-mono">server verified</span>
+                          ) : (
+                            <span className="text-[10px] text-zinc-600 font-mono">client — battery pending</span>
+                          )}
+                        </div>
+                        {displayChecks.map((check) => (
+                          <div key={check.id} className="flex items-start gap-2">
+                            {check.passed ? (
+                              <CheckCircle2 size={13} className="shrink-0 mt-0.5 text-emerald-400" />
+                            ) : (
+                              <XCircle size={13} className="shrink-0 mt-0.5 text-red-400" />
+                            )}
+                            <div className="min-w-0">
+                              <span className={`text-xs font-medium ${check.passed ? "text-zinc-300" : "text-red-300"}`}>
+                                {check.label}
+                              </span>
+                              <span className="text-zinc-500 text-xs"> — {check.detail}</span>
+                            </div>
+                          </div>
+                        ))}
+                        {!isServerChecks && isPending && (
+                          <div className="flex items-center gap-1.5 text-[11px] text-zinc-600 pt-1">
+                            <Loader2 size={11} className="animate-spin shrink-0" />
+                            Battery check available after server confirmation
+                          </div>
+                        )}
+                        {!isServerChecks && !isPending && (
+                          <div className="flex items-center gap-1.5 text-[11px] text-zinc-600 pt-1">
+                            Battery check not retrieved
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Action buttons — only shown while pending */}
+                      {isPending && (
+                        <div className="flex items-center gap-2 px-4 py-3">
+                          {!allPassed && (
+                            <div className="flex items-center gap-1.5 text-[11px] text-amber-400 mr-auto">
+                              <AlertTriangle size={12} className="shrink-0" />
+                              Safety checks failed — confirm to override
+                            </div>
+                          )}
+                          <div className="flex gap-2 ml-auto">
+                            <button
+                              type="button"
+                              onClick={handleCancelFlight}
+                              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-700/50 text-zinc-300 border border-zinc-600 hover:bg-zinc-700 transition-colors cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="button"
+                              onClick={handleConfirmFlight}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors cursor-pointer ${
+                                allPassed
+                                  ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30"
+                                  : "bg-red-500/20 text-red-300 border-red-500/40 hover:bg-red-500/30"
+                              }`}
+                            >
+                              {allPassed ? "Confirm & Execute" : "Override & Execute"}
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Standard message bubble
+              return (
+                <div
+                  key={msg.id}
+                  className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                >
+                  {msg.role === "assistant" && (
+                    <div className="w-7 h-7 rounded-full bg-[#cfb991]/15 flex items-center justify-center shrink-0 mt-0.5">
+                      <Bot size={14} className="text-[#cfb991]" />
+                    </div>
+                  )}
+
+                  <div
+                    className={`max-w-[75%] space-y-2 ${msg.role === "user" ? "items-end" : "items-start"}`}
+                  >
+                    <div
+                      className={`rounded-xl px-4 py-2.5 text-sm leading-relaxed ${
+                        msg.role === "user"
+                          ? "bg-[#cfb991]/15 text-[#cfb991] border border-[#cfb991]/20"
+                          : "bg-zinc-800/60 text-zinc-200 border border-zinc-700/50"
+                      }`}
+                    >
+                      {msg.role === "assistant" ? (
+                        <div className="markdownMessage [&_p]:my-1 [&_ul]:my-1 [&_ol]:my-1 [&_li]:my-0 [&_h1]:text-lg [&_h2]:text-base [&_h3]:text-sm [&_h1,_h2,_h3]:font-semibold [&_h1,_h2,_h3]:text-zinc-100 [&_h1,_h2,_h3]:mt-2 [&_h1,_h2,_h3]:mb-1 [&_code]:text-[#cfb991]/90 [&_code]:bg-zinc-700/50 [&_code]:px-1 [&_code]:rounded [&_pre]:my-2 [&_pre]:p-2 [&_pre]:bg-zinc-900/80 [&_pre]:border [&_pre]:border-zinc-700 [&_pre]:rounded-lg [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_a]:text-[#cfb991] [&_a]:underline [&_strong]:font-semibold">
+                          <ReactMarkdown>{msg.content}</ReactMarkdown>
+                        </div>
+                      ) : (
+                        msg.content
+                      )}
+                    </div>
+
+                    {/* Tool call badges + timing pill + receivedAt */}
+                    {!!(msg.toolCalls?.length || msg.timings?.length || msg.receivedAt) && (
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {msg.toolCalls?.map((tc, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-800/40 border border-zinc-700/30 text-[11px] text-zinc-400"
+                          >
+                            <Wrench size={10} className="text-zinc-500" />
+                            {tc.toolName}
+                          </span>
+                        ))}
+                        {msg.timings && msg.timings.length > 0 && (
+                          <TimingBadge timings={msg.timings} />
+                        )}
+                        {msg.ackRoundTripMs !== undefined && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-400 font-mono whitespace-nowrap">
+                            <Clock size={10} className="shrink-0" />
+                            ack {formatMs(msg.ackRoundTripMs)}
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
 
-                  {/* Tool call badges + timing pill + receivedAt */}
-                  {!!(msg.toolCalls?.length || msg.timings?.length || msg.receivedAt) && (
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      {msg.toolCalls?.map((tc, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-800/40 border border-zinc-700/30 text-[11px] text-zinc-400"
-                        >
-                          <Wrench size={10} className="text-zinc-500" />
-                          {tc.toolName}
-                        </span>
-                      ))}
-                      {msg.timings && msg.timings.length > 0 && (
-                        <TimingBadge timings={msg.timings} />
-                      )}
-                      {msg.ackRoundTripMs !== undefined && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-400 font-mono whitespace-nowrap">
-                          <Clock size={10} className="shrink-0" />
-                          ack {formatMs(msg.ackRoundTripMs)}
-                        </span>
-                      )}
+                  {msg.role === "user" && (
+                    <div className="w-7 h-7 rounded-full bg-zinc-700/50 flex items-center justify-center shrink-0 mt-0.5">
+                      <User size={14} className="text-zinc-400" />
                     </div>
                   )}
                 </div>
-
-                {msg.role === "user" && (
-                  <div className="w-7 h-7 rounded-full bg-zinc-700/50 flex items-center justify-center shrink-0 mt-0.5">
-                    <User size={14} className="text-zinc-400" />
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
 
             {isLoading && (
               <div className="flex gap-3">

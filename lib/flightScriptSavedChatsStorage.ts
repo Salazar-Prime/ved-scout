@@ -6,6 +6,23 @@ export type TimingStep = {
   ms: number;
 };
 
+export type SavedSafetyCheckItem = {
+  id: string;
+  label: string;
+  passed: boolean;
+  detail: string;
+};
+
+export type SavedFlightConfirmationData = {
+  procedure: string;
+  plot: Record<string, unknown>;
+  mission: Record<string, unknown>;
+  camera: Record<string, unknown>;
+  safetyChecks: SavedSafetyCheckItem[];
+  serverSafetyChecks: SavedSafetyCheckItem[] | null;
+  status: "pending" | "confirmed" | "cancelled";
+};
+
 export type SavedFlightScriptChatMessage = {
   id: string;
   role: "user" | "assistant";
@@ -14,6 +31,7 @@ export type SavedFlightScriptChatMessage = {
   timestamp: string;
   timings?: TimingStep[];
   ackRoundTripMs?: number;
+  flightConfirmation?: SavedFlightConfirmationData;
 };
 
 export type SavedFlightScriptChatRecord = {
