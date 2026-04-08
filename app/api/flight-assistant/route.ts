@@ -30,15 +30,17 @@ You have access to four tools:
    - When adding, provide name; optional: imageWidth, imageHeight, focalLength, sensorWidth (all in px/mm)
    - When modifying or deleting, you need the camera's ID (list first to find it)
 
-4. **executeFlightScript** - Run an onboard flight script on the drone (WebSocket)
+4. **executeFlightScript** - Send a flight mission intent to the drone (WebSocket)
    - **CRITICAL**: This tool can ONLY be used when WebSocket is connected
+   - **CRITICAL**: Before calling this tool, you MUST have ALL of the following — do not call it with placeholders or empty values:
+     a. **Plot** — the full plot details (id, name, corners). Call plotManagement with action "list" to find it. If the user hasn't specified a plot, ask them which plot to fly.
+     b. **Mission type** — the full mission configuration (id, name, type, frontOverlap, sideOverlap, flightHeight, flightSpeed, cameraId, cameraName). Call missionManagement with action "list" to find it. If unclear, ask the user.
+     c. **Camera sensor** — the full camera details (id, name, imageWidth, imageHeight, focalLength, sensorWidth). The camera is embedded in the mission (cameraId/cameraName fields). Call cameraSensors with action "list" to fetch full details by matching the cameraId from the mission. If the mission has no camera linked, ask the user which camera to use.
+   - Only after gathering all three should you call executeFlightScript with the complete plot, mission, and camera objects.
    - Procedures:
      - "test-flight-script-1" — test / sample flight control
      - "orthomosaic-field-mission" — orthomosaic mapping mission for a field (use when the user wants to fly the field orthomosaic mission)
    - Prefer "orthomosaic-field-mission" when the user asks to run, start, or execute the orthomosaic / field mapping mission
-   - Always check WebSocket status before calling; if not connected, tell the user to connect first
-   - Optional parameters (e.g., configPath, altitude, speed, field or mission ids) are forwarded to the drone script as provided
-   - The drone maps each procedure name to an executable and handles execution
 
 Be concise but helpful. Confirm actions after performing them.`;
 
@@ -86,7 +88,10 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
         },
       },
       onFinish: ({ usage }) => {
-        const { promptTokens, completionTokens, totalTokens } = usage;
+        const u = usage as unknown as Record<string, number | undefined>;
+        const promptTokens = (u.promptTokens ?? u.inputTokens ?? 0) as number;
+        const completionTokens = (u.completionTokens ?? u.outputTokens ?? 0) as number;
+        const totalTokens = (u.totalTokens ?? promptTokens + completionTokens) as number;
         capturedUsage = { promptTokens, completionTokens, totalTokens };
         console.log('onFinish - Prompt tokens:', promptTokens);
         console.log('onFinish - Completion tokens:', completionTokens);
@@ -95,7 +100,7 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
     });
 
     const toolResults = result.steps
-      .flatMap((step) => step.toolResults)
+      .flatMap((step) => step.toolResults ?? [])
       .filter(Boolean);
 
     // Use captured usage from onFinish callback
