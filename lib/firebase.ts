@@ -16,6 +16,10 @@ import { getFirestore } from "firebase/firestore";
  *   Document: { id, name: string, imageWidth: number, imageHeight: number,
  *               focalLength: number, sensorWidth: number, createdAt?: string }
  *
+ * Collection: flightScriptSavedChats (saved-chats page, flightScriptSavedChatsFirebase.ts)
+ *   Document id: same as local saved chat id. Fields: chatName, noteMessage, savedAt, messages,
+ *                 uploadedAt (ISO string when written to Firestore)
+ *
  * Execute flight script (executeFlightScriptTool — tool input, not Firestore)
  *   Input: { procedure: "test-flight-script-1", parameters?: Record<string, unknown> }
  *
