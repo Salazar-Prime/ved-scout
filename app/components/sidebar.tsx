@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Terminal,
+  Wrench,
   MessageSquare,
 } from "lucide-react";
 import { useVoiceCommand } from "./voiceCommandContext";
@@ -29,6 +30,7 @@ const navItems = [
   { name: "Live Missions", href: "/live-missions", icon: Radio },
   { name: "Flight History", href: "/flight-history", icon: History },
   { name: "WebSocket", href: "/websocket-connect", icon: Plug },
+  { name: "Dev WS chat", href: "/dev-ws-chat", icon: Wrench },
 ];
 
 export default function Sidebar() {

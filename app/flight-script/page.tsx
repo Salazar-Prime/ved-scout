@@ -18,9 +18,12 @@ import {
   Plane,
   Crosshair,
   Camera,
+  FileSpreadsheet,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useWebSocketConnection } from "../components/webSocketContext";
+import { useModal } from "../components/modal/modalContext";
+import { buildSaveChatModalOptions } from "../components/saveChatModalContent";
 
 const BAR_COUNT = 40;
 
@@ -58,6 +61,8 @@ export default function FlightScriptPage() {
     sendCommandAndWait,
     connectionError: wsError,
   } = useWebSocketConnection();
+
+  const { openModal } = useModal();
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState("");
@@ -271,6 +276,11 @@ export default function FlightScriptPage() {
     },
     [inputText, isLoading, sendToAssistant]
   );
+
+  const clearChat = useCallback(() => {
+    setMessages([]);
+    setResponseId(null);
+  }, []);
 
   // Transcribe audio then send to assistant
   const transcribeAndSend = useCallback(
@@ -609,6 +619,29 @@ export default function FlightScriptPage() {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="shrink-0 flex items-center justify-end gap-2 px-4 py-2 border-b border-zinc-800 bg-zinc-900/40">
+        <button
+          type="button"
+          disabled={messages.length === 0}
+          onClick={clearChat}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-600 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          <Trash2 size={14} />
+          Clear chat
+        </button>
+        <button
+          type="button"
+          disabled={messages.length === 0}
+          onClick={() =>
+            openModal(buildSaveChatModalOptions(messages))
+          }
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border border-zinc-600 text-zinc-300 hover:bg-zinc-800 hover:border-[#cfb991]/40 hover:text-[#cfb991] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          <FileSpreadsheet size={14} />
+          Save chat
+        </button>
       </div>
 
       {/* Messages area */}
