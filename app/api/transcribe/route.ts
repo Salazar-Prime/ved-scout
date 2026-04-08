@@ -33,6 +33,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       text: result.text,
       segments: result.segments,
+      durationInSeconds: result.durationInSeconds,
+      language: result.language,
     });
   } catch (error) {
     console.error("Transcription error:", error);

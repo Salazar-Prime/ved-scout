@@ -116,6 +116,7 @@ class OpenAIClient:
             "temperature": self.temperature,
             "top_p": self.topP,
             "max_completion_tokens": self.maxTokens,  # Use max_completion_tokens for newer models
+            "service_tier": "flex",
         }
         
         # Add tools if provided

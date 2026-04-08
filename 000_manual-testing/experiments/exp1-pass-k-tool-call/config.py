@@ -19,7 +19,7 @@ def getOpenAiApiKey() -> str:
 DEFAULT_MODEL = "gpt-5.2"
 DEFAULT_REASONING = "none"
 DEFAULT_MAX_TOKENS = 4096  # Note: Used as max_completion_tokens for newer models
-DEFAULT_TEMPERATURE = 1.0
+DEFAULT_TEMPERATURE = 0.3
 DEFAULT_TOP_P = 1.0
 
 # OpenAI API endpoint

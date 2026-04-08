@@ -470,9 +470,11 @@ def appendRunToExcel(
     
     if os.path.isfile(logPath):
         wb = load_workbook(logPath)
-        if wb.active.title != "Summary":
-            wb.active.title = "Summary"
-        ws = wb.active
+        if "Summary" in wb.sheetnames:
+            ws = wb["Summary"]
+        else:
+            ws = wb.create_sheet("Summary", 0)
+            ws.append(LOG_HEADERS)
     else:
         wb = Workbook()
         ws = wb.active
@@ -550,6 +552,7 @@ def main():
     parser.add_argument("--model", default=None, help="Model to use (default: run all configurations)")
     parser.add_argument("--reasoning", default=None, help="Reasoning effort: none, high (default: run all configurations)")
     parser.add_argument("--runs-per-config", type=int, default=1, help="Number of runs per configuration (default: 1)")
+    parser.add_argument("--start-run", type=int, default=1, help="Start from run number (1-indexed, default: 1)")
     args = parser.parse_args()
     
     # Default paths
@@ -570,6 +573,16 @@ def main():
         print("No questions to run.", file=sys.stderr)
         sys.exit(0)
     
+    # Validate start-run
+    if args.start_run < 1:
+        print(f"Error: --start-run must be at least 1 (got {args.start_run})", file=sys.stderr)
+        sys.exit(1)
+    
+    if args.start_run > args.runs_per_config:
+        print(f"Warning: --start-run ({args.start_run}) > --runs-per-config ({args.runs_per_config})", file=sys.stderr)
+        print(f"No runs will be executed. Adjust --start-run or increase --runs-per-config.", file=sys.stderr)
+        sys.exit(1)
+    
     # Define model configurations
     if args.model and args.reasoning:
         configurations = [(args.model, args.reasoning)]
@@ -588,9 +601,12 @@ def main():
     print(f"Tools API URL: {args.tools_base_url}")
     print(f"Log path: {logPath}")
     print(f"Configurations: {len(configurations)}, runs per config: {args.runs_per_config}")
+    if args.start_run > 1:
+        print(f"Starting from run: {args.start_run}")
     print()
     
     totalRuns = 0
+    skippedRuns = 0
     
     for configIdx, (model, reasoning) in enumerate(configurations):
         configName = f"{model}-reasoning-{reasoning}"
@@ -600,9 +616,17 @@ def main():
         openaiClient = createOpenAiClient(model=model)
         
         for runNum in range(args.runs_per_config):
+            actualRunNum = runNum + 1
+            
+            # Skip runs before start_run
+            if actualRunNum < args.start_run:
+                skippedRuns += 1
+                print(f"Skipping run {actualRunNum} (starting from run {args.start_run})")
+                continue
+            
             for qIdx, question in enumerate(questions):
                 totalRuns += 1
-                runId = f"{configName}-run{runNum + 1}-q{qIdx + 1}"
+                runId = f"{configName}-run{actualRunNum}-q{qIdx + 1}"
                 qId = question["id"] or f"Q{qIdx + 1}"
                 print(f"[{runId}] Running question {qId}...")
                 
@@ -653,6 +677,8 @@ def main():
         print()
     
     print(f"All runs completed. Total runs: {totalRuns}")
+    if skippedRuns > 0:
+        print(f"Skipped runs: {skippedRuns} (runs 1-{args.start_run - 1})")
     print(f"Log saved to: {logPath}")
 
 

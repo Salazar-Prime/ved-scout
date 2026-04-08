@@ -38,8 +38,8 @@ LOG_HEADERS = (
     "Est. cost ($)",
     "Time (s)",
 )
-DEFAULT_LOG = "chatgpt-API-call-tester_log.xlsx"
-DEFAULT_OUT_KML = "experiments_log.kml"
+DEFAULT_LOG = "/Users/varun/Work/ved-scout/000_manual-testing/output/Field 1 - chatgpt-API-call-tester_log.xlsx"
+DEFAULT_OUT_KML = "/Users/varun/Work/ved-scout/000_manual-testing/output/Field 1 - All GPT Runs.kml"
 
 
 def parseWaypointsFromOutput(outputText, defaultAltM=DEFAULT_ALTITUDE_M):
