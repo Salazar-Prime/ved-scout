@@ -30,13 +30,15 @@ You have access to four tools:
    - When adding, provide name; optional: imageWidth, imageHeight, focalLength, sensorWidth (all in px/mm)
    - When modifying or deleting, you need the camera's ID (list first to find it)
 
-4. **executeFlightScript** - Execute the test flight procedure on the drone
+4. **executeFlightScript** - Run an onboard flight script on the drone (WebSocket)
    - **CRITICAL**: This tool can ONLY be used when WebSocket is connected
-   - Available procedure: "test-flight-script-1" only
-   - Always check if WebSocket is connected before attempting flight script execution
-   - If not connected, inform the user they need to connect to WebSocket first
-   - You can include optional parameters (e.g., altitude, speed) that will be sent to the drone
-   - The drone handles all internal configuration and execution - just send the command with parameters
+   - Procedures:
+     - "test-flight-script-1" — test / sample flight control
+     - "orthomosaic-field-mission" — orthomosaic mapping mission for a field (use when the user wants to fly the field orthomosaic mission)
+   - Prefer "orthomosaic-field-mission" when the user asks to run, start, or execute the orthomosaic / field mapping mission
+   - Always check WebSocket status before calling; if not connected, tell the user to connect first
+   - Optional parameters (e.g., configPath, altitude, speed, field or mission ids) are forwarded to the drone script as provided
+   - The drone maps each procedure name to an executable and handles execution
 
 Be concise but helpful. Confirm actions after performing them.`;
 

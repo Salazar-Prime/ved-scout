@@ -1,10 +1,11 @@
 "use client";
 
-import { Plus, MapPin, Loader2 } from "lucide-react";
+import { Plus, MapPin, Loader2, Pencil } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
-import { usePlots } from "../../components/plotsContext";
+import { usePlots, type PlotDoc } from "../../components/plotsContext";
 import { getPlotColor } from "../../../lib/plotColors";
 import AddPlotContent from "./addPlotModal";
+import EditPlotContent from "./editPlotModal";
 import ScrollableList, { type ListItem } from "../../components/scrollableList";
 
 export default function YourPlots() {
@@ -15,6 +16,14 @@ export default function YourPlots() {
     openModal({
       title: "Add New Plot",
       content: <AddPlotContent />,
+      size: "lg",
+    });
+  };
+
+  const handleEditPlot = (plot: PlotDoc) => {
+    openModal({
+      title: "Edit Plot",
+      content: <EditPlotContent plot={plot} />,
       size: "lg",
     });
   };
@@ -43,6 +52,8 @@ export default function YourPlots() {
       title: plotName,
       subtitle,
       leading: <MapPin size={16} style={{ color }} />,
+      trailing: <Pencil size={14} className="text-zinc-500" aria-hidden />,
+      onClick: () => handleEditPlot(plot),
     };
   });
 

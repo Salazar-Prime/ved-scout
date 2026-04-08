@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useWebSocketConnection } from "../components/webSocketContext";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -67,14 +68,27 @@ function formatFlightTime(seconds: number): string {
 /* ------------------------------------------------------------------ */
 
 export function useWebSocketTelemetry(): UseWebSocketTelemetryReturn {
-  const [status, setStatus] = useState<ConnectionStatus>("disconnected");
+  const {
+    isConnected,
+    isConnecting,
+    connectionError,
+    connect: contextConnect,
+    disconnect: contextDisconnect,
+    subscribeToMessages,
+  } = useWebSocketConnection();
+
   const [telemetry, setTelemetry] = useState<TelemetryData | null>(null);
   const [droneModel, setDroneModel] = useState<string | null>(null);
   const [consoleEntries, setConsoleEntries] = useState<ConsoleEntry[]>([]);
   const [sequenceNumber, setSequenceNumber] = useState(0);
-
-  const wsRef = useRef<WebSocket | null>(null);
   const idRef = useRef(0);
+
+  const status: ConnectionStatus = useMemo(() => {
+    if (isConnecting) return "connecting";
+    if (isConnected) return "connected";
+    if (connectionError) return "error";
+    return "disconnected";
+  }, [isConnected, isConnecting, connectionError]);
 
   const addEntry = useCallback(
     (level: ConsoleEntry["level"], message: string) => {
@@ -91,94 +105,48 @@ export function useWebSocketTelemetry(): UseWebSocketTelemetryReturn {
     []
   );
 
-  /* ---- Connect ---- */
   const connect = useCallback(
     (url: string) => {
-      // Close existing connection
-      if (wsRef.current) {
-        wsRef.current.close();
-        wsRef.current = null;
-      }
-
-      setStatus("connecting");
-      addEntry("info", `Connecting to ${url}...`);
-
-      const ws = new WebSocket(url);
-      wsRef.current = ws;
-
-      ws.onopen = () => {
-        setStatus("connected");
-        addEntry("success", `Connected to telemetry feed at ${url}`);
-        addEntry("info", "Awaiting telemetry data...");
-      };
-
-      ws.onmessage = (event) => {
-        try {
-          const msg: TelemetryMessage = JSON.parse(event.data);
-
-          if (msg.type === "telemetry" && msg.data) {
-            setTelemetry(msg.data);
-            setSequenceNumber(msg.sequenceNumber);
-
-            if (msg.droneModel) {
-              setDroneModel(msg.droneModel);
-            }
-
-            // Log a summary every 10th sequence number
-            if (msg.sequenceNumber % 10 === 0) {
-              addEntry(
-                "info",
-                `Seq #${msg.sequenceNumber} | Battery: ${msg.data.battery.toFixed(1)}% | Alt: ${msg.data.altitude.toFixed(1)}m | Speed: ${msg.data.speed.toFixed(2)} m/s | Pos: ${msg.data.latitude.toFixed(6)}, ${msg.data.longitude.toFixed(6)} | Flight: ${formatFlightTime(msg.data.flightTime)}`
-              );
-            }
-
-            // Warnings
-            if (msg.data.battery < 20) {
-              addEntry("warn", `Low battery warning: ${msg.data.battery.toFixed(1)}%`);
-            }
-            if (msg.data.signal < 50) {
-              addEntry("warn", `Weak signal: ${msg.data.signal.toFixed(1)} dBm`);
-            }
-          } else {
-            addEntry("info", `Received: ${event.data}`);
-          }
-        } catch {
-          // Non-JSON message
-          addEntry("info", `Received: ${event.data}`);
-        }
-      };
-
-      ws.onerror = () => {
-        setStatus("error");
-        addEntry("error", "WebSocket connection error");
-      };
-
-      ws.onclose = (event) => {
-        setStatus("disconnected");
-        addEntry(
-          "warn",
-          `Connection closed (code ${event.code}${event.reason ? `: ${event.reason}` : ""})`
-        );
-        wsRef.current = null;
-      };
+      const trimmed = url.trim();
+      addEntry("info", `Connecting to ${trimmed}...`);
+      contextConnect(trimmed);
     },
-    [addEntry]
+    [addEntry, contextConnect]
   );
 
-  /* ---- Disconnect ---- */
   const disconnect = useCallback(() => {
-    if (wsRef.current) {
-      wsRef.current.close();
-      wsRef.current = null;
-    }
-  }, []);
+    contextDisconnect();
+  }, [contextDisconnect]);
 
-  /* ---- Cleanup on unmount ---- */
   useEffect(() => {
-    return () => {
-      wsRef.current?.close();
-    };
-  }, []);
+    return subscribeToMessages(({ parsed }) => {
+      if (!parsed || typeof parsed !== "object") return;
+
+      const msg = parsed as unknown as TelemetryMessage;
+      if (msg.type === "telemetry" && msg.data) {
+        setTelemetry(msg.data);
+        setSequenceNumber(msg.sequenceNumber);
+
+        if (msg.droneModel) {
+          setDroneModel(msg.droneModel);
+        }
+
+        if (msg.sequenceNumber % 10 === 0) {
+          addEntry(
+            "info",
+            `Seq #${msg.sequenceNumber} | Battery: ${msg.data.battery.toFixed(1)}% | Alt: ${msg.data.altitude.toFixed(1)}m | Speed: ${msg.data.speed.toFixed(2)} m/s | Pos: ${msg.data.latitude.toFixed(6)}, ${msg.data.longitude.toFixed(6)} | Flight: ${formatFlightTime(msg.data.flightTime)}`
+          );
+        }
+
+        if (msg.data.battery < 20) {
+          addEntry("warn", `Low battery warning: ${msg.data.battery.toFixed(1)}%`);
+        }
+        if (msg.data.signal < 50) {
+          addEntry("warn", `Weak signal: ${msg.data.signal.toFixed(1)} dBm`);
+        }
+      }
+    });
+  }, [subscribeToMessages, addEntry]);
 
   return {
     status,

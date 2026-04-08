@@ -38,11 +38,21 @@ interface Message {
   timestamp: Date;
 }
 
+/** localStorage snapshot for reload persistence */
+interface FlightScriptChatSnapshot {
+  version: 1;
+  messages: Array<
+    Omit<Message, "timestamp"> & { timestamp: string }
+  >;
+  responseId: string | null;
+}
+
+const FLIGHT_SCRIPT_CHAT_STORAGE_KEY = "ved-scout-flight-script-chat-v1";
+
 export default function FlightScriptPage() {
   const {
     isConnected: wsConnected,
     wsUrl,
-    setWsUrl,
     connect: wsConnect,
     disconnect: wsDisconnect,
     sendCommandAndWait,
@@ -53,7 +63,66 @@ export default function FlightScriptPage() {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [responseId, setResponseId] = useState<string | null>(null);
+  const [chatHydrated, setChatHydrated] = useState(false);
   const [wsUrlInput, setWsUrlInput] = useState(wsUrl);
+
+  useEffect(() => {
+    setWsUrlInput(wsUrl);
+  }, [wsUrl]);
+
+  // Restore chat + assistant thread id from localStorage (client-only; avoids clobbering before read)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(FLIGHT_SCRIPT_CHAT_STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw) as Partial<FlightScriptChatSnapshot>;
+      if (data.version !== 1 || !Array.isArray(data.messages)) return;
+
+      const restored: Message[] = data.messages.map((m) => {
+        const ts = new Date(
+          typeof m.timestamp === "string" ? m.timestamp : Date.now()
+        );
+        return {
+          id: typeof m.id === "string" ? m.id : `msg-${Date.now()}`,
+          role: m.role === "user" || m.role === "assistant" ? m.role : "assistant",
+          content: typeof m.content === "string" ? m.content : "",
+          toolCalls: m.toolCalls,
+          timestamp: isNaN(ts.getTime()) ? new Date() : ts,
+        };
+      });
+      setMessages(restored);
+      if (data.responseId === null || typeof data.responseId === "string") {
+        setResponseId(data.responseId);
+      }
+    } catch (e) {
+      console.error("Failed to restore flight script chat:", e);
+    } finally {
+      setChatHydrated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!chatHydrated) return;
+    try {
+      const snapshot: FlightScriptChatSnapshot = {
+        version: 1,
+        messages: messages.map((m) => ({
+          id: m.id,
+          role: m.role,
+          content: m.content,
+          toolCalls: m.toolCalls,
+          timestamp: m.timestamp.toISOString(),
+        })),
+        responseId,
+      };
+      localStorage.setItem(
+        FLIGHT_SCRIPT_CHAT_STORAGE_KEY,
+        JSON.stringify(snapshot)
+      );
+    } catch (e) {
+      console.error("Failed to persist flight script chat:", e);
+    }
+  }, [messages, responseId, chatHydrated]);
 
   // Voice state
   const [isRecording, setIsRecording] = useState(false);
@@ -372,7 +441,7 @@ export default function FlightScriptPage() {
               type="text"
               value={wsUrlInput}
               onChange={(e) => setWsUrlInput(e.target.value)}
-              placeholder="ws://localhost:8080"
+              placeholder="ws://localhost:8765"
               disabled={wsConnected}
               className="flex-1 max-w-xs rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-[#cfb991]/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             />
@@ -381,8 +450,7 @@ export default function FlightScriptPage() {
                 if (wsConnected) {
                   wsDisconnect();
                 } else {
-                  setWsUrl(wsUrlInput);
-                  wsConnect();
+                  wsConnect(wsUrlInput.trim());
                 }
               }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
@@ -659,10 +727,14 @@ function ToolCallBadge({ toolCall }: { toolCall: ToolCallResult }) {
   const result = toolCall.result as Record<string, unknown>;
   const success = result?.success === true;
 
-  // Handle executeFlightScript tool (test-flight-script-1 only)
+  // Handle executeFlightScript tool
   if (toolCall.toolName === "executeFlightScript") {
     const procedure = (toolCall.args as Record<string, unknown>).procedure as string | undefined;
-    const label = procedure === "test-flight-script-1" ? "Test Flight Script 1" : "Flight Script";
+    const procedureLabels: Record<string, string> = {
+      "test-flight-script-1": "Test Flight Script 1",
+      "orthomosaic-field-mission": "Orthomosaic Field Mission",
+    };
+    const label = procedure ? procedureLabels[procedure] ?? "Flight Script" : "Flight Script";
 
     return (
       <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-800/40 border border-zinc-700/30 text-xs">

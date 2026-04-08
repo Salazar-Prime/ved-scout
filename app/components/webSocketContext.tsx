@@ -10,19 +10,44 @@ import {
   type ReactNode,
 } from "react";
 
+const wsUrlStorageKey = "vedScout.wsUrl";
+const wsAutoConnectStorageKey = "vedScout.wsAutoConnect";
+
+const defaultWsUrl = "ws://localhost:8765";
+
+function readStoredWsUrl(): string {
+  if (typeof window === "undefined") return defaultWsUrl;
+  try {
+    const stored = localStorage.getItem(wsUrlStorageKey);
+    return stored?.trim() || defaultWsUrl;
+  } catch {
+    return defaultWsUrl;
+  }
+}
+
+export type WebSocketInboundPayload = {
+  parsed: Record<string, unknown> | null;
+  raw: string;
+};
+
+type MessageListener = (payload: WebSocketInboundPayload) => void;
+
 interface WebSocketContextValue {
   isConnected: boolean;
+  isConnecting: boolean;
   wsUrl: string;
   setWsUrl: (url: string) => void;
-  connect: () => void;
+  connect: (overrideUrl?: string) => void;
   disconnect: () => void;
   sendMessage: (message: Record<string, unknown>) => void;
+  sendRaw: (data: string) => void;
   sendCommandAndWait: (
     command: Record<string, unknown>,
     timeoutMs?: number
   ) => Promise<Record<string, unknown>>;
   lastMessage: Record<string, unknown> | null;
   connectionError: string | null;
+  subscribeToMessages: (listener: MessageListener) => () => void;
 }
 
 const WebSocketContext = createContext<WebSocketContextValue | null>(null);
@@ -39,12 +64,15 @@ export function useWebSocketConnection() {
 
 export function WebSocketProvider({ children }: { children: ReactNode }) {
   const [isConnected, setIsConnected] = useState(false);
-  const [wsUrl, setWsUrl] = useState("ws://localhost:8080");
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [wsUrl, setWsUrlState] = useState(defaultWsUrl);
   const [lastMessage, setLastMessage] = useState<Record<string, unknown> | null>(
     null
   );
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
+  const intentionalDisconnectRef = useRef(false);
+  const messageListenersRef = useRef<Set<MessageListener>>(new Set());
   const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingCommandsRef = useRef<
     Map<
@@ -57,7 +85,29 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
     >
   >(new Map());
 
+  const setWsUrl = useCallback((url: string) => {
+    setWsUrlState(url);
+    try {
+      localStorage.setItem(wsUrlStorageKey, url);
+    } catch {
+      /* ignore quota */
+    }
+  }, []);
+
+  const subscribeToMessages = useCallback((listener: MessageListener) => {
+    messageListenersRef.current.add(listener);
+    return () => {
+      messageListenersRef.current.delete(listener);
+    };
+  }, []);
+
   const disconnect = useCallback(() => {
+    intentionalDisconnectRef.current = true;
+    try {
+      localStorage.removeItem(wsAutoConnectStorageKey);
+    } catch {
+      /* ignore */
+    }
     if (reconnectTimeoutRef.current) {
       clearTimeout(reconnectTimeoutRef.current);
       reconnectTimeoutRef.current = null;
@@ -66,29 +116,50 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
       wsRef.current.close();
       wsRef.current = null;
     }
+    setIsConnecting(false);
     setIsConnected(false);
     setConnectionError(null);
   }, []);
 
-  const connect = useCallback(() => {
+  const connect = useCallback((overrideUrl?: string) => {
+    intentionalDisconnectRef.current = false;
+    const targetUrl = (overrideUrl ?? wsUrl).trim();
+    if (overrideUrl !== undefined) {
+      setWsUrlState(targetUrl);
+      try {
+        localStorage.setItem(wsUrlStorageKey, targetUrl);
+      } catch {
+        /* ignore */
+      }
+    }
+
     if (wsRef.current) {
-      disconnect();
+      wsRef.current.close();
+      wsRef.current = null;
     }
 
     setConnectionError(null);
+    setIsConnecting(true);
 
     try {
-      const ws = new WebSocket(wsUrl);
+      const ws = new WebSocket(targetUrl);
       wsRef.current = ws;
 
       ws.onopen = () => {
         setIsConnected(true);
+        setIsConnecting(false);
         setConnectionError(null);
-        console.log("WebSocket connected to:", wsUrl);
+        try {
+          localStorage.setItem(wsAutoConnectStorageKey, "1");
+        } catch {
+          /* ignore */
+        }
+        console.log("WebSocket connected to:", targetUrl);
       };
 
       ws.onclose = () => {
         setIsConnected(false);
+        setIsConnecting(false);
         wsRef.current = null;
         console.log("WebSocket disconnected");
       };
@@ -97,24 +168,39 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
         console.error("WebSocket error:", error);
         setConnectionError("Failed to connect to WebSocket");
         setIsConnected(false);
+        setIsConnecting(false);
       };
 
       ws.onmessage = (event) => {
+        const raw = typeof event.data === "string" ? event.data : "[binary data]";
+        let data: Record<string, unknown> | null = null;
         try {
-          const data = JSON.parse(event.data);
+          data = JSON.parse(raw) as Record<string, unknown>;
+        } catch {
+          data = null;
+        }
+
+        const payload: WebSocketInboundPayload = { parsed: data, raw };
+        messageListenersRef.current.forEach((listener) => {
+          try {
+            listener(payload);
+          } catch (e) {
+            console.error("WebSocket message listener error:", e);
+          }
+        });
+
+        if (data) {
           setLastMessage(data);
 
           // Check if this is a response to a pending command
-          if (data.commandId && pendingCommandsRef.current.has(data.commandId)) {
-            const pending = pendingCommandsRef.current.get(data.commandId);
+          if (data.commandId && pendingCommandsRef.current.has(data.commandId as string)) {
+            const pending = pendingCommandsRef.current.get(data.commandId as string);
             if (pending) {
               clearTimeout(pending.timeout);
               pending.resolve(data);
-              pendingCommandsRef.current.delete(data.commandId);
+              pendingCommandsRef.current.delete(data.commandId as string);
             }
           }
-        } catch (err) {
-          console.error("Failed to parse WebSocket message:", err);
         }
       };
     } catch (err) {
@@ -122,8 +208,20 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
         err instanceof Error ? err.message : "Connection failed"
       );
       setIsConnected(false);
+      setIsConnecting(false);
     }
-  }, [wsUrl, disconnect]);
+  }, [wsUrl]);
+
+  const connectRef = useRef(connect);
+  connectRef.current = connect;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = readStoredWsUrl();
+    setWsUrlState(stored);
+    if (localStorage.getItem(wsAutoConnectStorageKey) !== "1") return;
+    connectRef.current(stored);
+  }, []);
 
   const sendMessage = useCallback(
     (message: Record<string, unknown>) => {
@@ -131,6 +229,17 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
         wsRef.current.send(JSON.stringify(message));
       } else {
         console.warn("WebSocket not connected, cannot send message");
+      }
+    },
+    [isConnected]
+  );
+
+  const sendRaw = useCallback(
+    (data: string) => {
+      if (wsRef.current && isConnected) {
+        wsRef.current.send(data);
+      } else {
+        console.warn("WebSocket not connected, cannot send raw message");
       }
     },
     [isConnected]
@@ -196,14 +305,17 @@ export function WebSocketProvider({ children }: { children: ReactNode }) {
     <WebSocketContext.Provider
       value={{
         isConnected,
+        isConnecting,
         wsUrl,
         setWsUrl,
         connect,
         disconnect,
         sendMessage,
+        sendRaw,
         sendCommandAndWait,
         lastMessage,
         connectionError,
+        subscribeToMessages,
       }}
     >
       {children}

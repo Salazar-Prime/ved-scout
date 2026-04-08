@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   Plug,
   Unplug,
@@ -11,6 +11,7 @@ import {
   ArrowUpCircle,
   Clock,
 } from "lucide-react";
+import { useWebSocketConnection } from "../components/webSocketContext";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -60,13 +61,29 @@ function statusLabel(status: ConnectionStatus) {
 /* ------------------------------------------------------------------ */
 
 export default function WebSocketConnectPage() {
-  const [wsUrl, setWsUrl] = useState("ws://0.0.0.0:8765");
-  const [status, setStatus] = useState<ConnectionStatus>("disconnected");
+  const {
+    isConnected,
+    isConnecting,
+    wsUrl,
+    setWsUrl,
+    connect,
+    disconnect,
+    sendRaw,
+    connectionError,
+    subscribeToMessages,
+  } = useWebSocketConnection();
+
   const [messages, setMessages] = useState<WsMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
-  const wsRef = useRef<WebSocket | null>(null);
   const idRef = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const status: ConnectionStatus = useMemo(() => {
+    if (isConnecting) return "connecting";
+    if (isConnected) return "connected";
+    if (connectionError) return "error";
+    return "disconnected";
+  }, [isConnected, isConnecting, connectionError]);
 
   const getNow = () =>
     new Date().toLocaleTimeString("en-US", {
@@ -81,89 +98,37 @@ export default function WebSocketConnectPage() {
     }
   }, [messages]);
 
-  /* Cleanup on unmount */
   useEffect(() => {
-    return () => {
-      wsRef.current?.close();
-    };
-  }, []);
+    return subscribeToMessages(({ raw, parsed }) => {
+      const text =
+        parsed !== null ? JSON.stringify(parsed, null, 2) : raw;
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: idRef.current++,
+          direction: "received",
+          timestamp: getNow(),
+          data: text,
+        },
+      ]);
+    });
+  }, [subscribeToMessages]);
 
   /* ---- Connect ---- */
   const handleConnect = useCallback(() => {
-    if (wsRef.current) {
-      wsRef.current.close();
-    }
-
-    setStatus("connecting");
-
-    const ws = new WebSocket(wsUrl);
-    wsRef.current = ws;
-
-    ws.onopen = () => {
-      setStatus("connected");
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: idRef.current++,
-          direction: "received",
-          timestamp: getNow(),
-          data: `✓ Connected to ${wsUrl}`,
-        },
-      ]);
-    };
-
-    ws.onmessage = (event) => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: idRef.current++,
-          direction: "received",
-          timestamp: getNow(),
-          data: typeof event.data === "string" ? event.data : "[binary data]",
-        },
-      ]);
-    };
-
-    ws.onerror = () => {
-      setStatus("error");
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: idRef.current++,
-          direction: "received",
-          timestamp: getNow(),
-          data: "✗ Connection error",
-        },
-      ]);
-    };
-
-    ws.onclose = (event) => {
-      setStatus("disconnected");
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: idRef.current++,
-          direction: "received",
-          timestamp: getNow(),
-          data: `Connection closed (code ${event.code})`,
-        },
-      ]);
-      wsRef.current = null;
-    };
-  }, [wsUrl]);
+    connect(wsUrl.trim());
+  }, [connect, wsUrl]);
 
   /* ---- Disconnect ---- */
   const handleDisconnect = useCallback(() => {
-    wsRef.current?.close();
-    wsRef.current = null;
-  }, []);
+    disconnect();
+  }, [disconnect]);
 
   /* ---- Send message ---- */
   const handleSend = useCallback(() => {
-    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return;
-    if (!inputMessage.trim()) return;
+    if (!isConnected || !inputMessage.trim()) return;
 
-    wsRef.current.send(inputMessage);
+    sendRaw(inputMessage);
     setMessages((prev) => [
       ...prev,
       {
@@ -174,12 +139,12 @@ export default function WebSocketConnectPage() {
       },
     ]);
     setInputMessage("");
-  }, [inputMessage]);
+  }, [inputMessage, isConnected, sendRaw]);
 
   /* ---- Clear log ---- */
   const handleClear = () => setMessages([]);
 
-  const isConnected = status === "connected";
+  const isBusy = status === "connected";
 
   return (
     <div className="flex flex-col h-screen bg-zinc-950 text-zinc-200">
@@ -189,6 +154,10 @@ export default function WebSocketConnectPage() {
         <h1 className="text-lg font-semibold text-white tracking-wide">
           WebSocket Connection
         </h1>
+        <p className="text-[10px] text-zinc-500 max-w-xs hidden sm:block">
+          Shared across all pages — same session as Flight Script and Live
+          Missions
+        </p>
         <div className="ml-auto flex items-center gap-2">
           <Circle size={10} className={`fill-current ${statusColor(status)}`} />
           <span className={`text-xs font-medium ${statusColor(status)}`}>
@@ -206,11 +175,11 @@ export default function WebSocketConnectPage() {
           type="text"
           value={wsUrl}
           onChange={(e) => setWsUrl(e.target.value)}
-          disabled={isConnected}
-          placeholder="ws://0.0.0.0:8765"
+          disabled={isBusy}
+          placeholder="ws://localhost:8765"
           className="flex-1 bg-zinc-800/60 border border-zinc-700/50 rounded-lg px-3 py-2 text-sm font-mono text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#cfb991]/40 focus:border-[#cfb991]/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         />
-        {!isConnected ? (
+        {!isBusy ? (
           <button
             onClick={handleConnect}
             disabled={status === "connecting" || !wsUrl.trim()}
@@ -229,6 +198,12 @@ export default function WebSocketConnectPage() {
           </button>
         )}
       </div>
+
+      {connectionError && status === "error" && (
+        <div className="px-6 py-2 text-xs text-red-400 bg-red-500/5 border-b border-red-500/20">
+          {connectionError}
+        </div>
+      )}
 
       {/* ---- Messages area ---- */}
       <div className="flex-1 min-h-0 flex flex-col">
@@ -284,7 +259,7 @@ export default function WebSocketConnectPage() {
               <span
                 className={`${
                   msg.direction === "sent" ? "text-[#cfb991]" : "text-zinc-300"
-                } break-all`}
+                } break-all whitespace-pre-wrap`}
               >
                 {msg.data}
               </span>

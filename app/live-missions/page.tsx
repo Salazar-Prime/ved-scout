@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { Plug, Unplug, Circle } from "lucide-react";
+import { useWebSocketConnection } from "../components/webSocketContext";
 import TelemetryConsole from "./telemetryConsole";
 import { useWebSocketTelemetry } from "./useWebSocketTelemetry";
 
@@ -49,7 +50,7 @@ const MAX_TRAIL_LENGTH = 500;
 /* ------------------------------------------------------------------ */
 
 export default function LiveMissionsPage() {
-  const [wsUrl, setWsUrl] = useState("ws://0.0.0.0:8765");
+  const { wsUrl, setWsUrl } = useWebSocketConnection();
   const {
     status,
     telemetry,
@@ -105,7 +106,7 @@ export default function LiveMissionsPage() {
           value={wsUrl}
           onChange={(e) => setWsUrl(e.target.value)}
           disabled={isConnected}
-          placeholder="ws://0.0.0.0:8765"
+          placeholder="ws://localhost:8765"
           className="flex-1 max-w-md bg-zinc-800/60 border border-zinc-700/50 rounded-lg px-3 py-1.5 text-xs font-mono text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#cfb991]/40 focus:border-[#cfb991]/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         />
 

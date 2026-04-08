@@ -14,6 +14,12 @@ PRIVATE_KEY = os.getenv('PRIVATE_KEY')
 # Path to the flight control sample
 FLIGHT_CONTROL_SAMPLE_PATH = '/home/usr/work/Onboard-SDK/build/bin/djiosdk-flightcontrol-sample'
 
+# Orthomosaic field mission binary (override via .env on the drone host)
+ORTHOMOSAIC_FIELD_MISSION_SCRIPT_PATH = os.getenv(
+    'ORTHOMOSAIC_FIELD_MISSION_SCRIPT_PATH',
+    '/home/usr/work/Onboard-SDK/build/bin/djiosdk-flightcontrol-sample',
+)
+
 class WebSocketServer:
     def __init__(self, host='0.0.0.0', port=8765):
         self.host = host
@@ -88,9 +94,10 @@ class WebSocketServer:
     async def handleFlightScript(self, websocket, scriptName, parameters, commandId):
         """Execute the flight script with given parameters"""
         
-        # Map script names to executables
+        # Map script names to executables (names must match executeFlightScriptTool procedure ids)
         scriptMapping = {
             'test-flight-script-1': FLIGHT_CONTROL_SAMPLE_PATH,
+            'orthomosaic-field-mission': ORTHOMOSAIC_FIELD_MISSION_SCRIPT_PATH,
         }
         
         # Get script path
