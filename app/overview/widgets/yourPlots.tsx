@@ -7,10 +7,12 @@ import { getPlotColor } from "../../../lib/plotColors";
 import AddPlotContent from "./addPlotModal";
 import EditPlotContent from "./editPlotModal";
 import ScrollableList, { type ListItem } from "../../components/scrollableList";
+import { useMapOverviewFocusOptional } from "../mapOverviewFocusContext";
 
 export default function YourPlots() {
   const { openModal } = useModal();
   const { plots, isLoading } = usePlots();
+  const mapFocus = useMapOverviewFocusOptional();
 
   const handleAddPlot = () => {
     openModal({
@@ -54,6 +56,11 @@ export default function YourPlots() {
       leading: <MapPin size={16} style={{ color }} />,
       trailing: <Pencil size={14} className="text-zinc-500" aria-hidden />,
       onClick: () => handleEditPlot(plot),
+      ...(mapFocus
+        ? {
+            onMapFocus: () => mapFocus.requestZoomToPlot(plot.id),
+          }
+        : {}),
     };
   });
 

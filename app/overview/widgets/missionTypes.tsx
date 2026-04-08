@@ -1,13 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Plus, Crosshair, Loader2, Pencil } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
-import {
-  fetchCollection,
-  addDocument,
-  collections,
-} from "../../../lib/firestore";
+import { db } from "../../../lib/firebase";
+import { collections } from "../../../lib/firestore";
 import AddMissionContent, { missionTypeLabels, type MissionType, type EditableMission } from "./addMissionModal";
 import ScrollableList, { type ListItem } from "../../components/scrollableList";
 
@@ -28,74 +26,35 @@ interface MissionDoc {
   createdAt?: string;
 }
 
-/* ------------------------------------------------------------------ */
-/*  Default missions to seed on first load                             */
-/* ------------------------------------------------------------------ */
-
-const defaultMissions: Omit<MissionDoc, "id">[] = [
-  {
-    name: "Survey",
-    cameraId: "",
-    cameraName: "Zenmuse P1 (Image)",
-    type: "mapping",
-    frontOverlap: 80,
-    sideOverlap: 80,
-    flightHeight: 10,
-    flightSpeed: 1,
-    createdAt: new Date().toISOString(),
-  },
-  {
-    name: "Point of Interest",
-    cameraId: "",
-    cameraName: "Zenmuse P1 (Image)",
-    type: "imagePoint",
-    frontOverlap: 100,
-    sideOverlap: 100,
-    flightHeight: 10,
-    flightSpeed: 1,
-    createdAt: new Date().toISOString(),
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
-
 export default function MissionTypes() {
   const { openModal } = useModal();
   const [missions, setMissions] = useState<MissionDoc[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const loadMissions = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      let docs = await fetchCollection<MissionDoc>(collections.missionTypes);
-
-      /* Seed any missing defaults - TEMPORARILY DISABLED */
-      // const existingNames = new Set(docs.map((d) => d.name));
-      // const missing = defaultMissions.filter((m) => !existingNames.has(m.name));
-
-      // if (missing.length > 0) {
-      //   for (const mission of missing) {
-      //     await addDocument(collections.missionTypes, {
-      //       ...mission,
-      //       createdAt: new Date().toISOString(),
-      //     });
-      //   }
-      //   docs = await fetchCollection<MissionDoc>(collections.missionTypes);
-      // }
-
-      setMissions(docs);
-    } catch (err) {
-      console.error("Failed to load missions:", err);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    loadMissions();
-  }, [loadMissions]);
+    const q = query(
+      collection(db, collections.missionTypes),
+      orderBy("createdAt", "desc"),
+    );
+
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const docs = snapshot.docs.map((d) => ({
+          id: d.id,
+          ...d.data(),
+        })) as MissionDoc[];
+        setMissions(docs);
+        setIsLoading(false);
+      },
+      (err) => {
+        console.error("Failed to listen to mission types:", err);
+        setIsLoading(false);
+      },
+    );
+
+    return () => unsubscribe();
+  }, []);
 
   const handleAddMission = () => {
     openModal({

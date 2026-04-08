@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Plus, Camera, Loader2, Pencil } from "lucide-react";
 import { useModal } from "../../components/modal/modalContext";
-import { fetchCollection, collections } from "../../../lib/firestore";
+import { db } from "../../../lib/firebase";
+import { collections } from "../../../lib/firestore";
 import AddCameraContent, { type EditableCamera } from "./addCameraModal";
 import ScrollableList, { type ListItem } from "../../components/scrollableList";
 
@@ -22,21 +24,30 @@ export default function CameraSensors() {
   const [cameras, setCameras] = useState<CameraSensor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const loadCameras = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const docs = await fetchCollection<CameraSensor>(collections.cameraSensors);
-      setCameras(docs);
-    } catch (err) {
-      console.error("Failed to load camera sensors:", err);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    loadCameras();
-  }, [loadCameras]);
+    const q = query(
+      collection(db, collections.cameraSensors),
+      orderBy("createdAt", "desc"),
+    );
+
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const docs = snapshot.docs.map((d) => ({
+          id: d.id,
+          ...d.data(),
+        })) as CameraSensor[];
+        setCameras(docs);
+        setIsLoading(false);
+      },
+      (err) => {
+        console.error("Failed to listen to camera sensors:", err);
+        setIsLoading(false);
+      },
+    );
+
+    return () => unsubscribe();
+  }, []);
 
   const handleAddCamera = () => {
     openModal({
