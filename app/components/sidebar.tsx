@@ -17,6 +17,7 @@ import {
   Terminal,
   Wrench,
   MessageSquare,
+  LogOut,
 } from "lucide-react";
 import { useVoiceCommand } from "./voiceCommandContext";
 
@@ -63,6 +64,11 @@ export default function Sidebar() {
     setIsVisible(false);
     // Wait for the transition to finish before unmounting
     setTimeout(() => setIsExpanded(false), 300);
+  };
+
+  const handleSignOut = async () => {
+    await fetch("/api/auth/session", { method: "DELETE" });
+    router.push("/login");
   };
 
   const handleVoiceCommand = () => {
@@ -137,6 +143,20 @@ export default function Sidebar() {
           );
         })}
       </nav>
+
+      {/* Sign out */}
+      <div className="p-2 border-t border-zinc-800">
+        <button
+          onClick={handleSignOut}
+          className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-zinc-500
+            hover:bg-zinc-800/60 hover:text-zinc-300 transition-colors cursor-pointer
+            ${!expanded ? "justify-center" : ""}`}
+          title={!expanded ? "Sign out" : undefined}
+        >
+          <LogOut size={18} className="shrink-0" />
+          {expanded && <span className="truncate">Sign out</span>}
+        </button>
+      </div>
     </>
   );
 

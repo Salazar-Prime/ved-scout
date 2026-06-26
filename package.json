@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.26",
+    "@face-auth/face-auth": "^0.0.5",
     "ai": "^6.0.77",
     "firebase": "^12.9.0",
     "leaflet": "^1.9.4",
