@@ -43,3 +43,8 @@ next-env.d.ts
 # USER IGNORES
 .cursorindexingignore
 .specstory
+.pnpm-store
+/config
+
+__pycache__/
+~$*

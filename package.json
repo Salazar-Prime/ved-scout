@@ -10,10 +10,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "config-manager": "node scripts/firebaseConfigManager.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.26",
+    "@face-auth/face-auth": "^0.0.5",
     "ai": "^6.0.77",
     "firebase": "^12.9.0",
     "leaflet": "^1.9.4",
@@ -22,7 +24,11 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-grid-layout": "^2.2.2",
-    "react-leaflet": "^5.0.0"
+    "react-leaflet": "^5.0.0",
+    "react-markdown": "^9.0.1",
+    "tsx": "^4.21.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -34,5 +40,13 @@
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@firebase/util",
+      "protobufjs",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }

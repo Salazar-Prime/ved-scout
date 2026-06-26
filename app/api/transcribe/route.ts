@@ -20,19 +20,20 @@ export async function POST(request: NextRequest) {
 
     const audioBuffer = await audioFile.arrayBuffer();
 
+    // Use full result for segments/duration metadata this route exposes
     const result = await transcribe({
       model: openai.transcription("whisper-1"),
       audio: new Uint8Array(audioBuffer),
       providerOptions: {
-        openai: {
-          language: "en",
-        },
+        openai: { language: "en" },
       },
     });
 
     return NextResponse.json({
       text: result.text,
       segments: result.segments,
+      durationInSeconds: result.durationInSeconds,
+      language: result.language,
     });
   } catch (error) {
     console.error("Transcription error:", error);
@@ -42,3 +43,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

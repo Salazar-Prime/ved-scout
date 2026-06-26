@@ -7,6 +7,7 @@ import FlightHistory from "./widgets/flightHistory";
 import MissionTypes from "./widgets/missionTypes";
 import CameraSensors from "./widgets/cameraSensors";
 import VoiceRecorder from "./widgets/voiceRecorder";
+import { MapOverviewFocusProvider } from "./mapOverviewFocusContext";
 
 const widgets = [
   { id: "mapOverview", title: "Map Overview", component: <MapOverview />, hideTitle: true },
@@ -18,9 +19,11 @@ const widgets = [
 
 export default function OverviewPage() {
   return (
-    <div className="p-4 h-full">
-      <VoiceRecorder />
-      <DraggableGrid widgets={widgets} />
-    </div>
+    <MapOverviewFocusProvider>
+      <div className="p-4 h-full">
+        <VoiceRecorder />
+        <DraggableGrid widgets={widgets} />
+      </div>
+    </MapOverviewFocusProvider>
   );
 }

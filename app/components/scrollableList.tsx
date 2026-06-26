@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { ZoomIn } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Public types                                                       */
@@ -18,6 +19,8 @@ export interface ListItem {
   trailing?: ReactNode;
   /** Fires when the row is clicked */
   onClick?: () => void;
+  /** When set with `onClick`, shows a map/zoom control beside the row (avoids nested buttons) */
+  onMapFocus?: () => void;
 }
 
 export interface ScrollableListProps {
@@ -92,6 +95,48 @@ export default function ScrollableList({
 /* ------------------------------------------------------------------ */
 
 function DefaultRow({ item }: { item: ListItem }) {
+  const splitRow = item.onClick && item.onMapFocus;
+
+  if (splitRow) {
+    return (
+      <div className="flex items-center gap-2 w-full px-3 py-2.5 transition-colors hover:bg-zinc-800/60">
+        {item.leading && (
+          <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-800 text-zinc-400">
+            {item.leading}
+          </span>
+        )}
+        <button
+          type="button"
+          onClick={item.onClick}
+          className="flex-1 min-w-0 text-left rounded-md -my-0.5 py-0.5 -mx-1 px-1 hover:bg-zinc-800/80 active:bg-zinc-800 cursor-pointer"
+        >
+          <p className="text-sm font-medium text-zinc-200 truncate">
+            {item.title}
+          </p>
+          {item.subtitle && (
+            <p className="text-xs text-zinc-500 truncate mt-0.5">
+              {item.subtitle}
+            </p>
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            item.onMapFocus?.();
+          }}
+          className="shrink-0 p-1.5 rounded-md text-zinc-400 hover:text-[#cfb991] hover:bg-zinc-800 transition-colors"
+          aria-label="Zoom to plot on map"
+        >
+          <ZoomIn size={16} aria-hidden />
+        </button>
+        {item.trailing && (
+          <span className="shrink-0 text-zinc-400">{item.trailing}</span>
+        )}
+      </div>
+    );
+  }
+
   const Wrapper = item.onClick ? "button" : "div";
 
   return (

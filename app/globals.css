@@ -47,3 +47,31 @@ body {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background-color: #52525b;
 }
+
+/* ---- Vault door animation ---- */
+@keyframes vaultLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes vaultRight {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+.vault-door-left {
+  animation: vaultLeft 0.85s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+}
+
+.vault-door-right {
+  animation: vaultRight 0.85s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+}
+
+@keyframes fadeInContent {
+  0%   { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.vault-content-reveal {
+  animation: fadeInContent 0.4s ease-out forwards;
+}
