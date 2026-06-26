@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Mic,
   LayoutDashboard,
   Radio,
   History,
@@ -19,27 +18,68 @@ import {
   MessageSquare,
   LogOut,
 } from "lucide-react";
-import { useVoiceCommand } from "./voiceCommandContext";
+import type { LucideIcon } from "lucide-react";
 
-const navItems = [
-  { name: "Overview", href: "/overview", icon: LayoutDashboard },
-  { name: "Your Plots", href: "/your-plots", icon: MapPin },
-  { name: "Camera Sensors", href: "/camera-sensors", icon: Camera },
-  { name: "Mission Types", href: "/mission-types", icon: Crosshair },
-  { name: "Flight Script", href: "/flight-script", icon: Terminal },
-  { name: "Saved chats", href: "/saved-chats", icon: MessageSquare },
-  { name: "Live Missions", href: "/live-missions", icon: Radio },
-  { name: "Flight History", href: "/flight-history", icon: History },
-  { name: "WebSocket", href: "/websocket-connect", icon: Plug },
-  { name: "Dev WS chat", href: "/dev-ws-chat", icon: Wrench },
+type NavItem = {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+};
+
+type NavGroup = {
+  label: string;
+  items: NavItem[];
+};
+
+const navGroups: NavGroup[] = [
+  {
+    label: "Home",
+    items: [
+      { name: "Overview", href: "/overview", icon: LayoutDashboard },
+    ],
+  },
+  {
+    label: "Setup",
+    items: [
+      { name: "Plots", href: "/your-plots", icon: MapPin },
+      { name: "Cameras", href: "/camera-sensors", icon: Camera },
+      { name: "Mission types", href: "/mission-types", icon: Crosshair },
+    ],
+  },
+  {
+    label: "Operations",
+    items: [
+      { name: "Flight script", href: "/flight-script", icon: Terminal },
+      { name: "Live missions", href: "/live-missions", icon: Radio },
+    ],
+  },
+  {
+    label: "History",
+    items: [
+      { name: "Flight history", href: "/flight-history", icon: History },
+      { name: "Saved chats", href: "/saved-chats", icon: MessageSquare },
+    ],
+  },
 ];
+
+const devNavGroup: NavGroup = {
+  label: "Dev",
+  items: [
+    { name: "WebSocket", href: "/websocket-connect", icon: Plug },
+    { name: "Dev WS chat", href: "/dev-ws-chat", icon: Wrench },
+  ],
+};
+
+const visibleNavGroups =
+  process.env.NODE_ENV === "production"
+    ? navGroups
+    : [...navGroups, devNavGroup];
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const { triggerAutoRecord } = useVoiceCommand();
 
   // Two-phase animation: mount overlay first, then animate in
   useEffect(() => {
@@ -71,14 +111,6 @@ export default function Sidebar() {
     router.push("/login");
   };
 
-  const handleVoiceCommand = () => {
-    triggerAutoRecord();
-    if (pathname !== "/overview") {
-      router.push("/overview");
-    }
-    handleClose();
-  };
-
   const sidebarContent = (expanded: boolean) => (
     <>
       {/* Header */}
@@ -101,47 +133,47 @@ export default function Sidebar() {
         </button>
       </div>
 
-      {/* Voice Command — bold prominent button */}
-      <div className="p-2 mt-2">
-        <button
-          onClick={handleVoiceCommand}
-          className={`flex items-center gap-3 w-full px-3 py-3 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer
-            bg-[#cfb991]/15 text-[#cfb991] border-2 border-[#cfb991]/40
-            hover:bg-[#cfb991]/25 hover:border-[#cfb991]/60 hover:shadow-[0_0_20px_rgba(207,185,145,0.15)]
-            active:scale-[0.97]
-            ${!expanded ? "justify-center" : ""}`}
-          title={!expanded ? "Voice Command" : undefined}
-        >
-          <Mic size={22} className="shrink-0" />
-          {expanded && (
-            <span className="truncate tracking-wide">Voice Command</span>
-          )}
-        </button>
-      </div>
-
       {/* Navigation */}
-      <nav className="flex-1 flex flex-col gap-1 p-2 mt-1">
-        {navItems.map((item) => {
-          const isActive = pathname === item.href;
-          const Icon = item.icon;
+      <nav className="flex-1 flex flex-col p-2 mt-1 overflow-y-auto">
+        {visibleNavGroups.map((group, groupIndex) => (
+          <div
+            key={group.label}
+            className={groupIndex > 0 ? "mt-3" : ""}
+          >
+            {expanded ? (
+              <p className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+                {group.label}
+              </p>
+            ) : (
+              groupIndex > 0 && (
+                <div className="mx-2 mb-2 border-t border-zinc-800" />
+              )
+            )}
+            <div className="flex flex-col gap-1">
+              {group.items.map((item) => {
+                const isActive = pathname === item.href;
+                const Icon = item.icon;
 
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={handleClose}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                isActive
-                  ? "bg-[#cfb991]/10 text-[#cfb991] border border-[#cfb991]/30"
-                  : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent"
-              } ${!expanded ? "justify-center" : ""}`}
-              title={!expanded ? item.name : undefined}
-            >
-              <Icon size={20} className="shrink-0" />
-              {expanded && <span className="truncate">{item.name}</span>}
-            </Link>
-          );
-        })}
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleClose}
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-[#cfb991]/10 text-[#cfb991] border border-[#cfb991]/30"
+                        : "text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent"
+                    } ${!expanded ? "justify-center" : ""}`}
+                    title={!expanded ? item.name : undefined}
+                  >
+                    <Icon size={20} className="shrink-0" />
+                    {expanded && <span className="truncate">{item.name}</span>}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </nav>
 
       {/* Sign out */}

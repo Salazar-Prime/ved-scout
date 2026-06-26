@@ -2,12 +2,10 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { Mic, Square, Loader2 } from "lucide-react";
-import { useVoiceCommand } from "../../components/voiceCommandContext";
 
 const BAR_COUNT = 60; // bars per side
 
 export default function VoiceRecorder() {
-  const { shouldAutoRecord, clearAutoRecord } = useVoiceCommand();
   const [isRecording, setIsRecording] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
   const [audioLevel, setAudioLevel] = useState(0);
@@ -187,15 +185,6 @@ export default function VoiceRecorder() {
       setAudioLevel(0);
     }
   }, [isRecording, transcribeAudio]);
-
-  // Auto-start recording when triggered from sidebar voice command button
-  useEffect(() => {
-    if (shouldAutoRecord && !isRecording) {
-      setIsRecording(true);
-      setIsPulsing(true);
-      clearAutoRecord();
-    }
-  }, [shouldAutoRecord, isRecording, clearAutoRecord]);
 
   const handleToggle = useCallback(() => {
     if (!isRecording) {

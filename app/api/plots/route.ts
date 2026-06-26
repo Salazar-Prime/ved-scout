@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
             { status: 400 }
           );
         }
-        const updateData: Record<string, unknown> = {};
+        const updateData: Record<string, string | PlotCorner[]> = {};
         if (body.name !== undefined) updateData.name = body.name.trim();
         if (body.corners !== undefined) updateData.corners = body.corners;
         updateData.updatedAt = new Date().toISOString();
