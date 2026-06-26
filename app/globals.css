@@ -75,3 +75,10 @@ body {
 .vault-content-reveal {
   animation: fadeInContent 0.4s ease-out forwards;
 }
+
+/* Leaflet panes use z-index 400–1000 globally; scope them inside map containers */
+.leafletMapRoot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}

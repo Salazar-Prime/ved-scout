@@ -13,8 +13,8 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { usePlots, type PlotDoc } from "../components/plotsContext";
-import { getPlotColor } from "../../lib/plotColors";
+import { usePlots, type PlotDoc } from "@/app/components/plotsContext";
+import { getPlotColor } from "@/lib/plotColors";
 import { type TelemetryData } from "./useWebSocketTelemetry";
 
 const defaultCenter: [number, number] = [40.470078114634596, -86.99176832710066];

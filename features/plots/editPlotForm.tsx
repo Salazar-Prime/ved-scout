@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from "react";
 import { Plus, Trash2, Loader2 } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import type { PlotDoc } from "../../components/plotsContext";
+import { useModal } from "@/app/components/modal/modalContext";
+import type { PlotDoc } from "@/app/components/plotsContext";
 
 interface CornerCoordinate {
   id: string;
@@ -27,7 +27,7 @@ function plotCornersToState(plot: PlotDoc): CornerCoordinate[] {
   }));
 }
 
-export default function EditPlotContent({ plot }: { plot: PlotDoc }) {
+export default function EditPlotForm({ plot }: { plot: PlotDoc }) {
   const { closeModal } = useModal();
   const [plotName, setPlotName] = useState(() => plot.name?.trim() ?? "");
   const [corners, setCorners] = useState<CornerCoordinate[]>(() =>
@@ -106,9 +106,7 @@ export default function EditPlotContent({ plot }: { plot: PlotDoc }) {
       closeModal();
     } catch (err) {
       console.error("Failed to update plot:", err);
-      setError(
-        err instanceof Error ? err.message : "Failed to update plot. Please try again."
-      );
+      setError(err instanceof Error ? err.message : "Failed to update plot. Please try again.");
     } finally {
       setIsSaving(false);
     }

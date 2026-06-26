@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from "react";
 import { Loader2 } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { addDocument, updateDocument, collections } from "../../../lib/firestore";
+import { useModal } from "@/app/components/modal/modalContext";
+import { addDocument, updateDocument, collections } from "@/lib/firestore";
 
 export interface EditableCamera {
   id: string;
@@ -38,11 +38,11 @@ const fields: { key: keyof CameraFormData; label: string; placeholder: string; u
   { key: "sensorWidth", label: "Sensor Width", placeholder: "e.g. 6.3", unit: "mm" },
 ];
 
-interface AddCameraContentProps {
+interface AddCameraFormProps {
   editCamera?: EditableCamera;
 }
 
-export default function AddCameraContent({ editCamera }: AddCameraContentProps) {
+export default function AddCameraForm({ editCamera }: AddCameraFormProps) {
   const isEditing = !!editCamera;
   const { closeModal } = useModal();
   const [formData, setFormData] = useState<CameraFormData>(() =>
@@ -137,7 +137,6 @@ export default function AddCameraContent({ editCamera }: AddCameraContentProps) 
         ))}
       </div>
 
-      {/* Footer */}
       <div className="px-5 py-4 border-t border-zinc-800 space-y-3">
         {error && <p className="text-sm text-red-400">{error}</p>}
         <div className="flex items-center justify-end gap-3">

@@ -13,6 +13,16 @@ flowchart TB
     components[shared components]
   end
 
+  subgraph features [features/ — domain UI]
+    plots[plots]
+    cameras[cameras]
+    missions[missions]
+    map[map]
+    fh[flightHistory]
+    liveMissions[liveMissions]
+    flightScript[flightScript]
+  end
+
   subgraph lib [lib/ — shared logic]
     firebase[Firebase / Firestore]
     chatSave[chat save & export]
@@ -30,7 +40,9 @@ flowchart TB
     experiments[experiments]
   end
 
+  ui --> features
   ui --> lib
+  features --> lib
   lib --> fb
   api --> openai
   api --> droneWS
@@ -43,7 +55,6 @@ flowchart TB
 
 | Path | What it is |
 |------|------------|
-| `README.md` | Default Next.js getting-started docs |
 | `package.json` | Dependencies: Next 16, React 19, Firebase, Leaflet, Vercel AI SDK, xlsx |
 | `next.config.ts` | Next.js configuration |
 | `tsconfig.json` | TypeScript config |
@@ -56,6 +67,63 @@ flowchart TB
 
 ---
 
+## `features/` — Domain UI components
+
+Reusable feature components shared between the Overview dashboard and dedicated setup pages. No `page.tsx` files — these are UI building blocks, not routes.
+
+### `features/plots/`
+
+| File | Description |
+|------|-------------|
+| `plotList.tsx` | List/manage agricultural field plots; supports click-to-focus on map |
+| `addPlotForm.tsx` | Form for creating plots — manual coordinates or KML file import |
+| `editPlotForm.tsx` | Form for editing an existing plot's name and corners |
+
+### `features/cameras/`
+
+| File | Description |
+|------|-------------|
+| `cameraList.tsx` | List/manage camera sensors (focal length, sensor size, resolution) |
+| `addCameraForm.tsx` | Form for adding or editing a camera sensor |
+
+### `features/missions/`
+
+| File | Description |
+|------|-------------|
+| `missionList.tsx` | List/manage mission type configs (mapping, DSM, image point, video) |
+| `addMissionForm.tsx` | Form for adding or editing a mission type; exports `MissionType`, `EditableMission`, `missionTypeLabels` |
+
+### `features/map/`
+
+| File | Description |
+|------|-------------|
+| `mapOverview.tsx` | Thin wrapper that lazy-loads `MapRenderer` with `ssr: false` |
+| `mapRenderer.tsx` | Leaflet map: draws plot polygons, fits bounds, zooms on plot click |
+| `mapFocusContext.tsx` | Context (`MapFocusProvider` / `useMapFocusOptional`) for syncing map zoom when a plot is selected in `PlotList` |
+
+### `features/flightHistory/`
+
+| File | Description |
+|------|-------------|
+| `flightHistoryPanel.tsx` | Placeholder panel (feature not yet implemented) |
+
+### `features/liveMissions/`
+
+| File | Description |
+|------|-------------|
+| `liveMissionsPanel.tsx` | Live missions UI: WebSocket connect bar, map, telemetry console |
+| `liveMissionMap.tsx` | Leaflet map for live mission tracking with drone trail |
+| `telemetryConsole.tsx` | Scrollable telemetry log and stat cards |
+| `useWebSocketTelemetry.ts` | Hook for parsing live WS telemetry messages |
+
+### `features/flightScript/`
+
+| File | Description |
+|------|-------------|
+| `flightScriptChat.tsx` | Text/voice chat UI for planning and executing missions via the AI assistant |
+
+---
+
 ## `app/` — Next.js App Router (UI + API)
 
 Entry point: `page.tsx` redirects `/` → `/overview`.  
@@ -64,53 +132,37 @@ Styles: `globals.css`.
 
 ### `app/overview/` — Main dashboard
 
-The primary landing page. A draggable grid of widgets plus a floating voice recorder.
+The primary landing page. A draggable grid of feature panels plus a floating voice recorder.
 
 | Path | Description |
 |------|-------------|
-| `page.tsx` | Composes the dashboard grid and voice UI |
-| `mapOverviewFocusContext.tsx` | Context for syncing map focus when a plot is selected elsewhere |
-| **`widgets/`** | |
-| `mapOverview.tsx` | Leaflet map showing all plots |
-| `mapRenderer.tsx` | Low-level map rendering helpers |
-| `yourPlots.tsx` | List/manage agricultural field plots (corners, names) |
-| `missionTypes.tsx` | Mission type configs (mapping, DSM, image point, video) |
-| `cameraSensors.tsx` | Camera sensor specs (focal length, sensor size, resolution) |
-| `flightHistory.tsx` | Past flight records |
-| `voiceRecorder.tsx` | Mic UI — sends audio to transcribe + flight-assistant |
-| `addPlotModal.tsx` / `editPlotModal.tsx` | Modals for creating/editing plots |
-| `addMissionModal.tsx` | Modal for new mission types |
-| `addCameraModal.tsx` | Modal for new camera sensors |
+| `page.tsx` | Composes the dashboard grid from `features/` panels; wraps in `MapFocusProvider` |
+| `widgets/voiceRecorder.tsx` | Mic UI — sends audio to `/api/transcribe`; overview-only component |
 
 ### Feature pages (sidebar routes)
 
 | Path | Description |
 |------|-------------|
-| `your-plots/` | Full-page plots view: map + plot list (reuses overview widgets) |
-| `camera-sensors/` | Dedicated camera sensors management page |
-| `mission-types/` | Dedicated mission types page |
-| `flight-history/` | Dedicated flight history page |
-| `flight-script/` | Text/voice chat UI for planning and executing missions via the AI assistant; shows tool calls, WebSocket status, export to Excel |
-| `flight-script/saveFlightScriptChatContent.tsx` | Save-chat modal content for flight-script conversations |
+| `your-plots/` | Full-page plots view: `MapOverview` + `PlotList` side by side; wraps in `MapFocusProvider` |
+| `camera-sensors/` | Full-page camera sensors management using `CameraList` |
+| `mission-types/` | Full-page mission types management using `MissionList` |
+| `flight-history/` | Full-page flight history using `FlightHistoryPanel` |
+| `flight-script/` | Thin route wrapper for `FlightScriptChat` |
 | `saved-chats/` | Browse, load, delete, and sync saved flight-script chats (local + Firebase) |
-| `live-missions/` | Live drone telemetry: WebSocket connect, map, console |
-| `live-missions/liveMissionMap.tsx` | Map for live mission tracking |
-| `live-missions/telemetryConsole.tsx` | Scrollable telemetry log |
-| `live-missions/useWebSocketTelemetry.ts` | Hook for parsing live WS telemetry messages |
+| `live-missions/` | Thin route wrapper for `LiveMissionsPanel` |
 | `websocket-connect/` | Simple page to connect/disconnect the global WebSocket |
-| `dev-ws-chat/` | Developer sandbox: full AI chat + WS flight execution with detailed timing/safety logging |
-| `voice-command/` | Placeholder page (voice is driven from overview sidebar mic) |
+| `dev-ws-chat/` | Developer sandbox: full AI chat + WS flight execution with detailed timing/safety logging (hidden in production) |
+| `voice-command/` | Placeholder page |
 
 ### `app/components/` — Shared React UI & state
 
 | Path | Description |
 |------|-------------|
-| `providers.tsx` | Wraps app in Modal, Plots, VoiceCommand, and WebSocket providers |
-| `sidebar.tsx` | Collapsible nav + global voice-command trigger |
+| `providers.tsx` | Wraps app in Modal, Plots, and WebSocket providers |
+| `sidebar.tsx` | Collapsible nav with grouped sections (Home / Setup / Operations / History / Dev) |
 | `webSocketContext.tsx` | Global WebSocket connection state and send helpers |
-| `plotsContext.tsx` | Shared plots data for map/widgets |
-| `voiceCommandContext.tsx` | Triggers auto-record from anywhere in the app |
-| `draggablePanes_overview.tsx` | react-grid-layout wrapper for overview widgets |
+| `plotsContext.tsx` | Shared plots data (Firestore real-time) for map and list components |
+| `draggablePanes_overview.tsx` | react-grid-layout wrapper for the Overview dashboard grid |
 | `scrollableList.tsx` | Reusable scrollable list component |
 | `saveChatModalContent.tsx` | Generic save-chat modal UI |
 | **`modal/`** | |
@@ -135,6 +187,9 @@ The primary landing page. A draggable grid of widgets plus a floating voice reco
 | `droneCommandTool.ts` | Sends single low-level drone commands over WebSocket |
 | **`tools/execute/`** | |
 | `route.ts` | Direct tool executor for Python experiments (bypasses OpenAI) |
+| **`auth/`** | |
+| `session/route.ts` | Session cookie create/delete |
+| `voice/verify/route.ts` | Voice authentication verification |
 
 ---
 
@@ -150,6 +205,11 @@ The primary landing page. A draggable grid of widgets plus a floating voice reco
 | `flightScriptSavedChatsStorage.ts` | LocalStorage persistence for saved chats |
 | `flightScriptSavedChatsFirebase.ts` | Firestore sync for saved chats |
 | `exportFlightScriptChatToXlsx.ts` | Export chat + tool-call logs to Excel |
+| **`auth/`** | |
+| `factors/voice/useVoiceAuth.ts` | Voice authentication hook |
+| `factors/face/faceAuthConfig.ts` | Face auth configuration |
+| `factors/types.ts` | Auth factor types |
+| `sessionConstants.ts` | Session key/cookie constants |
 | **`chatSave/`** | |
 | `savedChatRecord.ts` | Type/shape for a saved chat record |
 | `toolCallLogExcel.ts` | Excel formatting for tool-call logs |
@@ -241,8 +301,9 @@ User voice/text
 
 If you're catching up after time away, start here:
 
-1. **`app/overview/`** — main UX and widgets
-2. **`app/api/flight-assistant/route.ts`** — AI brain and tool wiring
-3. **`app/components/webSocketContext.tsx`** — how the app talks to the drone
-4. **`lib/firestore.ts`** — where data lives
-5. **`websocket-for-soysan-logging.py`** — safe local WS testing without flying
+1. **`features/`** — domain UI (plots, cameras, missions, map) shared across pages
+2. **`app/overview/`** — main dashboard, composes `features/` panels into a draggable grid
+3. **`app/api/flight-assistant/route.ts`** — AI brain and tool wiring
+4. **`app/components/webSocketContext.tsx`** — how the app talks to the drone
+5. **`lib/firestore.ts`** — where data lives
+6. **`websocket-for-soysan-logging.py`** — safe local WS testing without flying

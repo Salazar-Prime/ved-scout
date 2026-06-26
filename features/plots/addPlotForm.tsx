@@ -2,8 +2,8 @@
 
 import { useState, useRef, useCallback } from "react";
 import { Upload, Plus, Trash2, X, Loader2, FileCheck, MapPin } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { parseKml, type ParsedPolygon } from "../../../lib/kmlParser";
+import { useModal } from "@/app/components/modal/modalContext";
+import { parseKml, type ParsedPolygon } from "@/lib/kmlParser";
 
 interface CornerCoordinate {
   id: string;
@@ -15,7 +15,7 @@ function createCorner(index: number): CornerCoordinate {
   return { id: `corner-${Date.now()}-${index}`, lat: "", lng: "" };
 }
 
-export default function AddPlotContent() {
+export default function AddPlotForm() {
   const { closeModal } = useModal();
   const [plotName, setPlotName] = useState("");
   const [kmlFile, setKmlFile] = useState<File | null>(null);
@@ -28,7 +28,6 @@ export default function AddPlotContent() {
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  /* ---- KML file handling ---- */
   const handleFileChange = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     setKmlFile(file);
@@ -40,12 +39,10 @@ export default function AddPlotContent() {
     try {
       const text = await file.text();
       const polygons = parseKml(text);
-
       if (polygons.length === 0) {
         setKmlError("No polygon Placemarks found in this KML file.");
         return;
       }
-
       setKmlPolygons(polygons);
     } catch (err) {
       console.error("KML parse error:", err);
@@ -60,7 +57,6 @@ export default function AddPlotContent() {
     if (fileInputRef.current) fileInputRef.current.value = "";
   }, []);
 
-  /* ---- Manual corner handling ---- */
   const handleCornerChange = useCallback(
     (id: string, field: "lat" | "lng", value: string) => {
       setCorners((prev) =>
@@ -78,11 +74,9 @@ export default function AddPlotContent() {
     setCorners((prev) => (prev.length <= 3 ? prev : prev.filter((c) => c.id !== id)));
   }, []);
 
-  /* ---- Submit ---- */
   const handleSubmit = useCallback(async () => {
     setError(null);
 
-    // ---- Path A: KML file with parsed polygons ----
     if (kmlPolygons.length > 0) {
       setIsSaving(true);
       try {
@@ -104,16 +98,13 @@ export default function AddPlotContent() {
         closeModal();
       } catch (err) {
         console.error("Failed to save KML plots:", err);
-        setError(
-          err instanceof Error ? err.message : "Failed to save plots. Please try again."
-        );
+        setError(err instanceof Error ? err.message : "Failed to save plots. Please try again.");
       } finally {
         setIsSaving(false);
       }
       return;
     }
 
-    // ---- Path B: Manual coordinates ----
     if (plotName.trim() === "") {
       setError("Please enter a plot name.");
       return;
@@ -148,11 +139,7 @@ export default function AddPlotContent() {
       const res = await fetch("/api/plots", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "add",
-          name: plotName.trim(),
-          corners: parsed,
-        }),
+        body: JSON.stringify({ action: "add", name: plotName.trim(), corners: parsed }),
       });
       if (!res.ok) {
         const errData = await res.json();
@@ -161,9 +148,7 @@ export default function AddPlotContent() {
       closeModal();
     } catch (err) {
       console.error("Failed to save plot:", err);
-      setError(
-        err instanceof Error ? err.message : "Failed to save plot. Please try again."
-      );
+      setError(err instanceof Error ? err.message : "Failed to save plot. Please try again.");
     } finally {
       setIsSaving(false);
     }
@@ -174,7 +159,6 @@ export default function AddPlotContent() {
   return (
     <>
       <div className="px-5 py-4 space-y-6">
-        {/* KML File Upload */}
         <section>
           <h3 className="text-sm font-semibold text-zinc-300 mb-3">Upload KML File</h3>
           <div
@@ -188,10 +172,7 @@ export default function AddPlotContent() {
                   {kmlFile.name}
                 </span>
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleRemoveFile();
-                  }}
+                  onClick={(e) => { e.stopPropagation(); handleRemoveFile(); }}
                   className="p-0.5 rounded text-zinc-500 hover:text-red-400 transition-colors"
                 >
                   <X size={14} />
@@ -211,12 +192,8 @@ export default function AddPlotContent() {
             />
           </div>
 
-          {/* KML parse error */}
-          {kmlError && (
-            <p className="mt-2 text-sm text-red-400">{kmlError}</p>
-          )}
+          {kmlError && <p className="mt-2 text-sm text-red-400">{kmlError}</p>}
 
-          {/* KML parsed polygons preview */}
           {hasKmlData && (
             <div className="mt-3 space-y-2">
               <div className="flex items-center gap-2">
@@ -243,7 +220,6 @@ export default function AddPlotContent() {
           )}
         </section>
 
-        {/* Divider */}
         {!hasKmlData && (
           <>
             <div className="flex items-center gap-3">
@@ -252,7 +228,6 @@ export default function AddPlotContent() {
               <div className="flex-1 h-px bg-zinc-800" />
             </div>
 
-            {/* Plot Name */}
             <section>
               <h3 className="text-sm font-semibold text-zinc-300 mb-3">Plot Name</h3>
               <input
@@ -264,7 +239,6 @@ export default function AddPlotContent() {
               />
             </section>
 
-            {/* Corner Coordinates */}
             <section>
               <h3 className="text-sm font-semibold text-zinc-300 mb-3">Corner Coordinates</h3>
               <div className="space-y-3">
@@ -310,11 +284,8 @@ export default function AddPlotContent() {
         )}
       </div>
 
-      {/* Footer */}
       <div className="px-5 py-4 border-t border-zinc-800 space-y-3">
-        {error && (
-          <p className="text-sm text-red-400">{error}</p>
-        )}
+        {error && <p className="text-sm text-red-400">{error}</p>}
         <div className="flex items-center justify-end gap-3">
           <button
             onClick={closeModal}

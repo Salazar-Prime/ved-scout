@@ -3,15 +3,11 @@
 import { useState, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Plus, Crosshair, Loader2, Pencil } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { db } from "../../../lib/firebase";
-import { collections } from "../../../lib/firestore";
-import AddMissionContent, { missionTypeLabels, type MissionType, type EditableMission } from "./addMissionModal";
-import ScrollableList, { type ListItem } from "../../components/scrollableList";
-
-/* ------------------------------------------------------------------ */
-/*  Types                                                              */
-/* ------------------------------------------------------------------ */
+import { useModal } from "@/app/components/modal/modalContext";
+import { db } from "@/lib/firebase";
+import { collections } from "@/lib/firestore";
+import AddMissionForm, { missionTypeLabels, type MissionType, type EditableMission } from "./addMissionForm";
+import ScrollableList, { type ListItem } from "@/app/components/scrollableList";
 
 interface MissionDoc {
   id: string;
@@ -26,7 +22,7 @@ interface MissionDoc {
   createdAt?: string;
 }
 
-export default function MissionTypes() {
+export default function MissionList() {
   const { openModal } = useModal();
   const [missions, setMissions] = useState<MissionDoc[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +55,7 @@ export default function MissionTypes() {
   const handleAddMission = () => {
     openModal({
       title: "Add Mission Type",
-      content: <AddMissionContent />,
+      content: <AddMissionForm />,
       size: "lg",
     });
   };
@@ -78,12 +74,11 @@ export default function MissionTypes() {
     };
     openModal({
       title: "Edit Mission Type",
-      content: <AddMissionContent editMission={editData} />,
+      content: <AddMissionForm editMission={editData} />,
       size: "lg",
     });
   };
 
-  /* ---- Map docs → list items ---- */
   const listItems: ListItem[] = missions.map((m) => {
     const typeLabel = missionTypeLabels[m.type] ?? m.type;
     const subtitle = [
@@ -120,13 +115,9 @@ export default function MissionTypes() {
           <Loader2 size={20} className="animate-spin text-zinc-500" />
         </div>
       ) : (
-        <ScrollableList
-          items={listItems}
-          emptyMessage="No mission types yet"
-        />
+        <ScrollableList items={listItems} emptyMessage="No mission types yet" />
       )}
 
-      {/* Floating add button */}
       <button
         onClick={handleAddMission}
         className="absolute bottom-2 right-2 p-2 rounded-full bg-[#cfb991] text-zinc-900 shadow-lg hover:bg-[#cfb991]/80 transition-colors z-10"

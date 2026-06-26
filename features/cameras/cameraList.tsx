@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Plus, Camera, Loader2, Pencil } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { db } from "../../../lib/firebase";
-import { collections } from "../../../lib/firestore";
-import AddCameraContent, { type EditableCamera } from "./addCameraModal";
-import ScrollableList, { type ListItem } from "../../components/scrollableList";
+import { useModal } from "@/app/components/modal/modalContext";
+import { db } from "@/lib/firebase";
+import { collections } from "@/lib/firestore";
+import AddCameraForm, { type EditableCamera } from "./addCameraForm";
+import ScrollableList, { type ListItem } from "@/app/components/scrollableList";
 
 interface CameraSensor {
   id: string;
@@ -19,7 +19,7 @@ interface CameraSensor {
   createdAt?: string;
 }
 
-export default function CameraSensors() {
+export default function CameraList() {
   const { openModal } = useModal();
   const [cameras, setCameras] = useState<CameraSensor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +52,7 @@ export default function CameraSensors() {
   const handleAddCamera = () => {
     openModal({
       title: "Add Camera Sensor",
-      content: <AddCameraContent />,
+      content: <AddCameraForm />,
       size: "md",
     });
   };
@@ -68,7 +68,7 @@ export default function CameraSensors() {
     };
     openModal({
       title: "Edit Camera Sensor",
-      content: <AddCameraContent editCamera={editData} />,
+      content: <AddCameraForm editCamera={editData} />,
       size: "md",
     });
   };
@@ -99,13 +99,9 @@ export default function CameraSensors() {
           <Loader2 size={20} className="animate-spin text-zinc-500" />
         </div>
       ) : (
-        <ScrollableList
-          items={listItems}
-          emptyMessage="No camera sensors yet"
-        />
+        <ScrollableList items={listItems} emptyMessage="No camera sensors yet" />
       )}
 
-      {/* Floating add button */}
       <button
         onClick={handleAddCamera}
         className="absolute bottom-2 right-2 p-2 rounded-full bg-[#cfb991] text-zinc-900 shadow-lg hover:bg-[#cfb991]/80 transition-colors z-10"

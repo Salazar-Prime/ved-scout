@@ -195,7 +195,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Collapsed sidebar — always in flow, never resizes content */}
-      <aside className="flex flex-col w-16 shrink-0 h-screen bg-zinc-900 text-zinc-300 border-r border-zinc-800">
+      <aside className="relative z-20 flex flex-col w-16 shrink-0 h-screen bg-zinc-900 text-zinc-300 border-r border-zinc-800">
         {sidebarContent(false)}
       </aside>
 

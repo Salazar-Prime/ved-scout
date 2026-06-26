@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { useWebSocketConnection } from "../components/webSocketContext";
+import { useWebSocketConnection } from "@/app/components/webSocketContext";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

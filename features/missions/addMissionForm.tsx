@@ -2,12 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Loader2, ChevronDown } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { addDocument, updateDocument, fetchCollection, collections } from "../../../lib/firestore";
-
-/* ------------------------------------------------------------------ */
-/*  Types                                                              */
-/* ------------------------------------------------------------------ */
+import { useModal } from "@/app/components/modal/modalContext";
+import { addDocument, updateDocument, fetchCollection, collections } from "@/lib/firestore";
 
 export type MissionType = "mapping" | "dsm" | "imagePoint" | "recordVideo";
 
@@ -55,15 +51,11 @@ const initialFormData: MissionFormData = {
   flightSpeed: "",
 };
 
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
-
-interface AddMissionContentProps {
+interface AddMissionFormProps {
   editMission?: EditableMission;
 }
 
-export default function AddMissionContent({ editMission }: AddMissionContentProps) {
+export default function AddMissionForm({ editMission }: AddMissionFormProps) {
   const isEditing = !!editMission;
   const { closeModal } = useModal();
   const [formData, setFormData] = useState<MissionFormData>(() =>
@@ -167,7 +159,6 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
   return (
     <>
       <div className="px-5 py-4 space-y-4">
-        {/* Mission Name */}
         <section>
           <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
             Mission Name
@@ -181,7 +172,6 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
           />
         </section>
 
-        {/* Camera Sensor */}
         <section>
           <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
             Camera Sensor
@@ -192,9 +182,7 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
               onChange={(e) => handleChange("cameraId", e.target.value)}
               className="w-full appearance-none rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 pr-8 text-sm text-zinc-200 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
             >
-              <option value="" disabled>
-                Select a camera…
-              </option>
+              <option value="" disabled>Select a camera…</option>
               {cameras.map((cam) => (
                 <option key={cam.id} value={cam.id}>
                   {cam.name}
@@ -213,11 +201,8 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
           )}
         </section>
 
-        {/* Mission Type */}
         <section>
-          <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
-            Type
-          </label>
+          <label className="block text-sm font-semibold text-zinc-300 mb-1.5">Type</label>
           <div className="relative">
             <select
               value={formData.type}
@@ -239,67 +224,30 @@ export default function AddMissionContent({ editMission }: AddMissionContentProp
           </div>
         </section>
 
-        {/* Numeric fields – two per row */}
         <div className="grid grid-cols-2 gap-4">
-          <section>
-            <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
-              Front Overlap
-              <span className="ml-1 text-xs text-zinc-500 font-normal">(%)</span>
-            </label>
-            <input
-              type="number"
-              placeholder="e.g. 80"
-              value={formData.frontOverlap}
-              onChange={(e) => handleChange("frontOverlap", e.target.value)}
-              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
-            />
-          </section>
-
-          <section>
-            <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
-              Side Overlap
-              <span className="ml-1 text-xs text-zinc-500 font-normal">(%)</span>
-            </label>
-            <input
-              type="number"
-              placeholder="e.g. 80"
-              value={formData.sideOverlap}
-              onChange={(e) => handleChange("sideOverlap", e.target.value)}
-              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
-            />
-          </section>
-
-          <section>
-            <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
-              Flight Height
-              <span className="ml-1 text-xs text-zinc-500 font-normal">(m)</span>
-            </label>
-            <input
-              type="number"
-              placeholder="e.g. 10"
-              value={formData.flightHeight}
-              onChange={(e) => handleChange("flightHeight", e.target.value)}
-              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
-            />
-          </section>
-
-          <section>
-            <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
-              Flight Speed
-              <span className="ml-1 text-xs text-zinc-500 font-normal">(m/s)</span>
-            </label>
-            <input
-              type="number"
-              placeholder="e.g. 1"
-              value={formData.flightSpeed}
-              onChange={(e) => handleChange("flightSpeed", e.target.value)}
-              className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
-            />
-          </section>
+          {[
+            { key: "frontOverlap" as const, label: "Front Overlap", unit: "%", placeholder: "e.g. 80" },
+            { key: "sideOverlap" as const, label: "Side Overlap", unit: "%", placeholder: "e.g. 80" },
+            { key: "flightHeight" as const, label: "Flight Height", unit: "m", placeholder: "e.g. 10" },
+            { key: "flightSpeed" as const, label: "Flight Speed", unit: "m/s", placeholder: "e.g. 1" },
+          ].map(({ key, label, unit, placeholder }) => (
+            <section key={key}>
+              <label className="block text-sm font-semibold text-zinc-300 mb-1.5">
+                {label}
+                <span className="ml-1 text-xs text-zinc-500 font-normal">({unit})</span>
+              </label>
+              <input
+                type="number"
+                placeholder={placeholder}
+                value={formData[key]}
+                onChange={(e) => handleChange(key, e.target.value)}
+                className="w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-[#cfb991]/50 transition-colors"
+              />
+            </section>
+          ))}
         </div>
       </div>
 
-      {/* Footer */}
       <div className="px-5 py-4 border-t border-zinc-800 space-y-3">
         {error && <p className="text-sm text-red-400">{error}</p>}
         <div className="flex items-center justify-end gap-3">

@@ -6,7 +6,7 @@ const MapRenderer = dynamic(() => import("./mapRenderer"), { ssr: false });
 
 export default function MapOverview() {
   return (
-    <div className="h-full w-full">
+    <div className="leafletMapRoot h-full w-full">
       <MapRenderer />
     </div>
   );

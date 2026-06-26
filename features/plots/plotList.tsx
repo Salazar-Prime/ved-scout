@@ -1,23 +1,23 @@
 "use client";
 
 import { Plus, MapPin, Loader2, Pencil } from "lucide-react";
-import { useModal } from "../../components/modal/modalContext";
-import { usePlots, type PlotDoc } from "../../components/plotsContext";
-import { getPlotColor } from "../../../lib/plotColors";
-import AddPlotContent from "./addPlotModal";
-import EditPlotContent from "./editPlotModal";
-import ScrollableList, { type ListItem } from "../../components/scrollableList";
-import { useMapOverviewFocusOptional } from "../mapOverviewFocusContext";
+import { useModal } from "@/app/components/modal/modalContext";
+import { usePlots, type PlotDoc } from "@/app/components/plotsContext";
+import { getPlotColor } from "@/lib/plotColors";
+import AddPlotForm from "./addPlotForm";
+import EditPlotForm from "./editPlotForm";
+import ScrollableList, { type ListItem } from "@/app/components/scrollableList";
+import { useMapFocusOptional } from "@/features/map/mapFocusContext";
 
-export default function YourPlots() {
+export default function PlotList() {
   const { openModal } = useModal();
   const { plots, isLoading } = usePlots();
-  const mapFocus = useMapOverviewFocusOptional();
+  const mapFocus = useMapFocusOptional();
 
   const handleAddPlot = () => {
     openModal({
       title: "Add New Plot",
-      content: <AddPlotContent />,
+      content: <AddPlotForm />,
       size: "lg",
     });
   };
@@ -25,12 +25,11 @@ export default function YourPlots() {
   const handleEditPlot = (plot: PlotDoc) => {
     openModal({
       title: "Edit Plot",
-      content: <EditPlotContent plot={plot} />,
+      content: <EditPlotForm plot={plot} />,
       size: "lg",
     });
   };
 
-  // Map Firestore docs → ListItem[]
   const listItems: ListItem[] = plots.map((plot, index) => {
     const cornerCount = plot.corners?.length ?? 0;
     const plotName = plot.name?.trim() || "Unnamed Plot";
@@ -57,9 +56,7 @@ export default function YourPlots() {
       trailing: <Pencil size={14} className="text-zinc-500" aria-hidden />,
       onClick: () => handleEditPlot(plot),
       ...(mapFocus
-        ? {
-            onMapFocus: () => mapFocus.requestZoomToPlot(plot.id),
-          }
+        ? { onMapFocus: () => mapFocus.requestZoomToPlot(plot.id) }
         : {}),
     };
   });
@@ -71,13 +68,9 @@ export default function YourPlots() {
           <Loader2 size={20} className="animate-spin text-zinc-500" />
         </div>
       ) : (
-        <ScrollableList
-          items={listItems}
-          emptyMessage="No plots yet"
-        />
+        <ScrollableList items={listItems} emptyMessage="No plots yet" />
       )}
 
-      {/* Floating add button */}
       <button
         onClick={handleAddPlot}
         className="absolute bottom-2 right-2 p-2 rounded-full bg-[#cfb991] text-zinc-900 shadow-lg hover:bg-[#cfb991]/80 transition-colors z-10"

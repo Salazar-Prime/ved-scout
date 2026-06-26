@@ -1,29 +1,29 @@
 "use client";
 
 import DraggableGrid from "../components/draggablePanes_overview";
-import MapOverview from "./widgets/mapOverview";
-import YourPlots from "./widgets/yourPlots";
-import FlightHistory from "./widgets/flightHistory";
-import MissionTypes from "./widgets/missionTypes";
-import CameraSensors from "./widgets/cameraSensors";
+import MapOverview from "@/features/map/mapOverview";
+import PlotList from "@/features/plots/plotList";
+import FlightHistoryPanel from "@/features/flightHistory/flightHistoryPanel";
+import MissionList from "@/features/missions/missionList";
+import CameraList from "@/features/cameras/cameraList";
 import VoiceRecorder from "./widgets/voiceRecorder";
-import { MapOverviewFocusProvider } from "./mapOverviewFocusContext";
+import { MapFocusProvider } from "@/features/map/mapFocusContext";
 
 const widgets = [
   { id: "mapOverview", title: "Map Overview", component: <MapOverview />, hideTitle: true },
-  { id: "yourPlots", title: "Your Plots", component: <YourPlots /> },
-  { id: "flightHistory", title: "Flight History", component: <FlightHistory /> },
-  { id: "missionTypes", title: "Mission Types", component: <MissionTypes /> },
-  { id: "cameraSensors", title: "Camera Sensors", component: <CameraSensors /> },
+  { id: "yourPlots", title: "Your Plots", component: <PlotList /> },
+  { id: "flightHistory", title: "Flight History", component: <FlightHistoryPanel /> },
+  { id: "missionTypes", title: "Mission Types", component: <MissionList /> },
+  { id: "cameraSensors", title: "Camera Sensors", component: <CameraList /> },
 ];
 
 export default function OverviewPage() {
   return (
-    <MapOverviewFocusProvider>
+    <MapFocusProvider>
       <div className="p-4 h-full">
         <VoiceRecorder />
         <DraggableGrid widgets={widgets} />
       </div>
-    </MapOverviewFocusProvider>
+    </MapFocusProvider>
   );
 }
