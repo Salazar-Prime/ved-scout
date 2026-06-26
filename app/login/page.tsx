@@ -6,6 +6,7 @@ import { ScanFace, Mic, Shield } from "lucide-react";
 import { useFaceAuth } from "@/lib/auth/factors/face/useFaceAuth";
 import { useVoiceAuth } from "@/lib/auth/factors/voice/useVoiceAuth";
 import FaceAuthCapture from "./components/FaceAuthCapture";
+import VoiceAuthCapture from "./components/VoiceAuthCapture";
 
 type VaultState = "locked" | "opening" | "open";
 
@@ -15,11 +16,12 @@ export default function LoginPage() {
   const voiceAuth = useVoiceAuth();
 
   const [showFaceCapture, setShowFaceCapture] = useState(false);
+  const [showVoiceCapture, setShowVoiceCapture] = useState(false);
   const [vaultState, setVaultState] = useState<VaultState>("locked");
   const sessionCreated = useRef(false);
 
   const faceAuthenticated = faceAuth.factorState.status === "authenticated";
-  const voiceAuthenticated = voiceAuth.status === "authenticated";
+  const voiceAuthenticated = voiceAuth.factorState.status === "authenticated";
   const allAuthenticated = faceAuthenticated && voiceAuthenticated;
 
   const createSessionAndRedirect = useCallback(async () => {
@@ -47,18 +49,34 @@ export default function LoginPage() {
       faceAuth.stopCapture();
       setShowFaceCapture(false);
     } else {
+      setShowVoiceCapture(false);
       setShowFaceCapture(true);
-      // startCapture() is called inside FaceAuthCapture on mount,
-      // after the <video> element is in the DOM
     }
   };
 
-  // Auto-close capture panel when face is authenticated
+  const handleVoiceIconClick = () => {
+    if (voiceAuthenticated) return;
+    if (showVoiceCapture) {
+      setShowVoiceCapture(false);
+    } else {
+      setShowFaceCapture(false);
+      faceAuth.stopCapture();
+      setShowVoiceCapture(true);
+    }
+  };
+
+  // Auto-close capture panels when each factor authenticates
   useEffect(() => {
     if (faceAuthenticated && showFaceCapture) {
       setShowFaceCapture(false);
     }
   }, [faceAuthenticated, showFaceCapture]);
+
+  useEffect(() => {
+    if (voiceAuthenticated && showVoiceCapture) {
+      setShowVoiceCapture(false);
+    }
+  }, [voiceAuthenticated, showVoiceCapture]);
 
   return (
     <div className="relative w-full h-screen bg-zinc-950 overflow-hidden flex flex-col items-center justify-center">
@@ -133,22 +151,36 @@ export default function LoginPage() {
             </span>
           </button>
 
-          {/* Voice factor (placeholder — always authenticated) */}
-          <div
-            className="flex flex-col items-center gap-2"
-            title="Voice authentication active"
+          {/* Voice factor */}
+          <button
+            onClick={handleVoiceIconClick}
+            disabled={voiceAuthenticated || voiceAuth.factorState.status === "pending"}
+            className="flex flex-col items-center gap-2 group focus:outline-none disabled:cursor-default"
+            title={voiceAuthenticated ? "Voice authenticated" : "Click to authenticate with voice"}
           >
-            <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#cfb991]/15 border-2 border-[#cfb991]/60 shadow-[0_0_24px_rgba(207,185,145,0.25)] transition-all duration-300">
+            <div
+              className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300
+                ${voiceAuthenticated
+                  ? "bg-[#cfb991]/15 border-2 border-[#cfb991]/60 shadow-[0_0_24px_rgba(207,185,145,0.25)]"
+                  : showVoiceCapture
+                    ? "bg-zinc-800 border-2 border-zinc-600"
+                    : "bg-zinc-900 border-2 border-zinc-700 group-hover:border-zinc-500 group-hover:bg-zinc-800"
+                }`}
+            >
               <Mic
                 size={32}
-                className="text-[#cfb991]"
-                strokeWidth={1.5}
+                className={`transition-colors duration-300 ${
+                  voiceAuthenticated ? "text-[#cfb991]" : "text-zinc-500 group-hover:text-zinc-300"
+                }`}
+                strokeWidth={voiceAuthenticated ? 1.5 : 1.25}
               />
             </div>
-            <span className="text-xs font-medium tracking-wide text-[#cfb991]">
-              Voice ✓
+            <span className={`text-xs font-medium tracking-wide transition-colors ${
+              voiceAuthenticated ? "text-[#cfb991]" : "text-zinc-500"
+            }`}>
+              {voiceAuthenticated ? "Voice ✓" : "Voice"}
             </span>
-          </div>
+          </button>
 
         </div>
 
@@ -157,10 +189,15 @@ export default function LoginPage() {
           <FaceAuthCapture hook={faceAuth} />
         )}
 
+        {/* Voice capture panel */}
+        {showVoiceCapture && !voiceAuthenticated && (
+          <VoiceAuthCapture hook={voiceAuth} />
+        )}
+
         {/* Hint text */}
-        {!showFaceCapture && !allAuthenticated && (
+        {!showFaceCapture && !showVoiceCapture && !allAuthenticated && (
           <p className="text-xs text-zinc-600 text-center">
-            Click Face ID to authenticate
+            Click Face ID or Voice to authenticate
           </p>
         )}
 

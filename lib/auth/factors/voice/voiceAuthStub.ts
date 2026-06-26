@@ -11,4 +11,4 @@
  * 3. Compare the transcript (or a voice embedding) to a registered profile.
  * 4. Return authenticated: true only on a confident match.
  */
-export const VOICE_AUTH_STUB_ALWAYS_AUTHENTICATED = true;
+export const VOICE_AUTH_STUB_ALWAYS_AUTHENTICATED = false;
