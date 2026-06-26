@@ -54,6 +54,12 @@ interface FlightConfirmationData {
   status: "pending" | "confirmed" | "cancelled";
 }
 
+interface DroneCommandConfirmationData {
+  command: string;
+  parameters: Record<string, unknown>;
+  status: "pending" | "confirmed" | "cancelled";
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
@@ -64,6 +70,7 @@ interface Message {
   receivedAt?: string;
   ackRoundTripMs?: number;
   flightConfirmation?: FlightConfirmationData;
+  droneCommandConfirmation?: DroneCommandConfirmationData;
 }
 
 interface ToolCallEntry {
@@ -89,6 +96,15 @@ interface PendingFlightConfirmation {
   plot: Record<string, unknown>;
   mission: Record<string, unknown>;
   camera: Record<string, unknown>;
+  timingSteps: TimingStep[];
+  t0: number;
+  prefixMs: number;
+}
+
+interface PendingDroneCommand {
+  messageId: string;
+  command: string;
+  parameters: Record<string, unknown>;
   timingSteps: TimingStep[];
   t0: number;
   prefixMs: number;
@@ -123,6 +139,8 @@ export default function DevWsChatPage() {
   const [chatHydrated, setChatHydrated] = useState(false);
   const [pendingFlightConfirmation, setPendingFlightConfirmation] =
     useState<PendingFlightConfirmation | null>(null);
+  const [pendingDroneCommand, setPendingDroneCommand] =
+    useState<PendingDroneCommand | null>(null);
 
   const { openModal } = useModal();
 
@@ -139,6 +157,7 @@ export default function DevWsChatPage() {
           const ts = new Date(typeof m.timestamp === "string" ? m.timestamp : Date.now());
           const raw = m as Record<string, unknown>;
           const fc = raw.flightConfirmation as FlightConfirmationData | undefined;
+          const dc = raw.droneCommandConfirmation as DroneCommandConfirmationData | undefined;
           return {
             id: typeof m.id === "string" ? m.id : `msg-${Date.now()}`,
             role: m.role === "user" || m.role === "assistant" ? m.role : "assistant",
@@ -148,13 +167,19 @@ export default function DevWsChatPage() {
             receivedAt: typeof raw.receivedAt === "string" ? raw.receivedAt : undefined,
             ackRoundTripMs: typeof raw.ackRoundTripMs === "number" ? raw.ackRoundTripMs : undefined,
             timestamp: isNaN(ts.getTime()) ? new Date() : ts,
-            // Restore confirmation card — any "pending" card becomes "cancelled" on
+            // Restore confirmation cards — any "pending" card becomes "cancelled" on
             // reload since the WS session is gone and the operator can't confirm it.
             ...(fc && {
               flightConfirmation: {
                 ...fc,
                 status: fc.status === "pending" ? "cancelled" : fc.status,
               } as FlightConfirmationData,
+            }),
+            ...(dc && {
+              droneCommandConfirmation: {
+                ...dc,
+                status: dc.status === "pending" ? "cancelled" : dc.status,
+              } as DroneCommandConfirmationData,
             }),
           };
         });
@@ -202,6 +227,7 @@ export default function DevWsChatPage() {
           ackRoundTripMs: m.ackRoundTripMs,
           timestamp: m.timestamp.toISOString(),
           ...(m.flightConfirmation && { flightConfirmation: m.flightConfirmation }),
+          ...(m.droneCommandConfirmation && { droneCommandConfirmation: m.droneCommandConfirmation }),
         })),
         toolCallLog: toolCallLog.map((tc) => ({
           id: tc.id,
@@ -389,6 +415,39 @@ export default function DevWsChatPage() {
               prefixMs,
             });
           }
+
+          const droneCommandCall = data.toolCalls.find(
+            (tc: ToolCallResult) => tc.toolName === "droneCommand"
+          );
+
+          if (droneCommandCall) {
+            const args = droneCommandCall.args as Record<string, unknown>;
+            const command = args.command as string;
+            const parameters = (args.parameters as Record<string, unknown> | undefined) ?? {};
+
+            const cmdMsgId = `drone-cmd-${Date.now()}`;
+            const cmdMsg: Message = {
+              id: cmdMsgId,
+              role: "assistant",
+              content: "",
+              timestamp: new Date(),
+              droneCommandConfirmation: {
+                command,
+                parameters,
+                status: "pending",
+              },
+            };
+            setMessages((prev) => [...prev, cmdMsg]);
+
+            setPendingDroneCommand({
+              messageId: cmdMsgId,
+              command,
+              parameters,
+              timingSteps,
+              t0,
+              prefixMs,
+            });
+          }
         }
       } catch (err) {
         const tErr = performance.now();
@@ -457,7 +516,7 @@ export default function DevWsChatPage() {
           camera,
           parameters: {},
         },
-        60000
+        600000
       );
 
       const tWsDone = performance.now();
@@ -536,6 +595,102 @@ export default function DevWsChatPage() {
     updateConfirmMsg(pendingFlightConfirmation.messageId, { status: "cancelled" });
     setPendingFlightConfirmation(null);
   }, [pendingFlightConfirmation, updateConfirmMsg]);
+
+  const updateDroneCommandMsg = useCallback(
+    (msgId: string, patch: Partial<DroneCommandConfirmationData>) => {
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === msgId && m.droneCommandConfirmation
+            ? { ...m, droneCommandConfirmation: { ...m.droneCommandConfirmation, ...patch } }
+            : m
+        )
+      );
+    },
+    []
+  );
+
+  const handleConfirmDroneCommand = useCallback(async () => {
+    if (!pendingDroneCommand) return;
+    const { messageId, command, parameters, timingSteps, t0, prefixMs } = pendingDroneCommand;
+    setPendingDroneCommand(null);
+    updateDroneCommandMsg(messageId, { status: "confirmed" });
+
+    const tWsSendStart = performance.now();
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: `waiting-cmd-${Date.now()}`,
+        role: "assistant",
+        content: `Sending command "${command}" to drone...`,
+        timestamp: new Date(),
+      },
+    ]);
+
+    try {
+      const privateKey = process.env.NEXT_PUBLIC_DRONE_PRIVATE_KEY || "";
+
+      const response = await sendCommandAndWait(
+        {
+          type: "single_command",
+          command,
+          parameters,
+          privateKey,
+        },
+        300000
+      );
+
+      const tWsDone = performance.now();
+      const roundTripMs = tWsDone - tWsSendStart;
+
+      const isCompleted = response.status === "completed";
+      const isAck = response.status === "acknowledged";
+
+      const wsTimings: TimingStep[] = [
+        ...timingSteps,
+        { label: "WS round-trip", ms: roundTripMs },
+        { label: "Total", ms: prefixMs + (tWsDone - t0) },
+      ];
+
+      const completionContent =
+        isCompleted || isAck
+          ? `Command "${command}" executed successfully${response.message ? `: ${response.message}` : ""}.`
+          : `Command "${command}" failed${response.error ? `: ${response.error}` : ""}.`;
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `cmd-completion-${Date.now()}`,
+          role: "assistant",
+          content: completionContent,
+          timestamp: new Date(),
+          timings: wsTimings,
+        },
+      ]);
+    } catch (err) {
+      const tWsErr = performance.now();
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `cmd-ws-error-${Date.now()}`,
+          role: "assistant",
+          content: `WebSocket error: ${err instanceof Error ? err.message : "Command failed"}`,
+          timestamp: new Date(),
+          timings: [
+            ...timingSteps,
+            { label: "WS error", ms: tWsErr - tWsSendStart },
+            { label: "Total", ms: prefixMs + (tWsErr - t0) },
+          ],
+        },
+      ]);
+    }
+  }, [pendingDroneCommand, sendCommandAndWait, updateDroneCommandMsg]);
+
+  const handleCancelDroneCommand = useCallback(() => {
+    if (!pendingDroneCommand) return;
+    updateDroneCommandMsg(pendingDroneCommand.messageId, { status: "cancelled" });
+    setPendingDroneCommand(null);
+  }, [pendingDroneCommand, updateDroneCommandMsg]);
 
   const handleSubmit = useCallback(
     (e?: React.FormEvent) => {
@@ -985,6 +1140,73 @@ export default function DevWsChatPage() {
                               {allPassed ? "Confirm & Execute" : "Override & Execute"}
                             </button>
                           </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Drone command confirmation card
+              if (msg.droneCommandConfirmation) {
+                const dc = msg.droneCommandConfirmation;
+                const isPending = dc.status === "pending";
+                const isConfirmed = dc.status === "confirmed";
+                const isCancelled = dc.status === "cancelled";
+                const hasParams = Object.keys(dc.parameters).length > 0;
+                return (
+                  <div key={msg.id} className="flex gap-3 justify-start">
+                    <div className="w-7 h-7 rounded-full bg-[#cfb991]/15 flex items-center justify-center shrink-0 mt-0.5">
+                      <Wrench size={14} className="text-[#cfb991]" />
+                    </div>
+                    <div className="max-w-[80%] rounded-xl border bg-zinc-900 overflow-hidden border-zinc-700">
+                      {/* Card header */}
+                      <div className={`flex items-center gap-2 px-4 py-2.5 border-b border-zinc-700 ${isCancelled ? "bg-zinc-800/30" : "bg-zinc-800/60"}`}>
+                        <Wrench size={14} className={`shrink-0 ${isCancelled ? "text-zinc-500" : "text-[#cfb991]"}`} />
+                        <span className={`text-sm font-semibold ${isCancelled ? "text-zinc-500" : "text-zinc-100"}`}>
+                          Drone Command
+                        </span>
+                        <span className="ml-auto flex items-center gap-2 text-[11px] font-mono text-zinc-400">
+                          {dc.command}
+                          {isConfirmed && (
+                            <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/25 text-emerald-400">confirmed</span>
+                          )}
+                          {isCancelled && (
+                            <span className="px-1.5 py-0.5 rounded bg-zinc-700/50 border border-zinc-600 text-zinc-500">cancelled</span>
+                          )}
+                        </span>
+                      </div>
+
+                      {/* Parameters (if any) */}
+                      {hasParams && (
+                        <div className={`px-4 py-3 border-b border-zinc-700/60 text-xs ${isCancelled ? "opacity-50" : ""}`}>
+                          <p className="text-[10px] uppercase tracking-wider text-zinc-500 mb-1.5">Parameters</p>
+                          {Object.entries(dc.parameters).map(([k, v]) => (
+                            <div key={k} className="flex gap-2">
+                              <span className="text-zinc-500">{k}:</span>
+                              <span className="text-zinc-200 font-mono">{String(v)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Action buttons */}
+                      {isPending && (
+                        <div className="flex items-center justify-end gap-2 px-4 py-3">
+                          <button
+                            type="button"
+                            onClick={handleCancelDroneCommand}
+                            className="px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-700/50 text-zinc-300 border border-zinc-600 hover:bg-zinc-700 transition-colors cursor-pointer"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleConfirmDroneCommand}
+                            className="px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors cursor-pointer bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30"
+                          >
+                            Execute
+                          </button>
                         </div>
                       )}
                     </div>

@@ -5,6 +5,7 @@ import { plotManagementTool } from "../tools/plotManagementTool";
 import { executeFlightScriptTool } from "../tools/executeFlightScriptTool";
 import { missionManagementTool } from "../tools/missionManagementTool";
 import { cameraSensorsTool } from "../tools/cameraSensorsTool";
+import { droneCommandTool } from "../tools/droneCommandTool";
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -45,6 +46,18 @@ You have access to four tools:
      - "orthomosaic-field-mission" — orthomosaic mapping mission for a field (use when the user wants to fly the field orthomosaic mission)
    - Prefer "orthomosaic-field-mission" when the user asks to run, start, or execute the orthomosaic / field mapping mission
 
+5. **droneCommand** - Send a single drone command via WebSocket
+   - **CRITICAL**: This tool can ONLY be used when WebSocket is connected
+   - Use for individual control commands, NOT full flight missions
+   - Commands:
+     - "motors_on" — arm and spin up motors
+     - "motors_off" — disarm and stop motors
+     - "takeoff" — autonomous takeoff (optional: altitude in meters via parameters)
+     - "land" — land in place immediately
+     - "return_to_home" — fly back to home point and land
+     - "goto_waypoint" — fly to a GPS coordinate (REQUIRED: ask user for lat/lng if not provided; optional: altitude)
+   - Do NOT guess coordinates. Always confirm with the user before sending goto_waypoint.
+
 Be concise but helpful. Confirm actions after performing them.`;
 
 export async function POST(request: NextRequest) {
@@ -82,6 +95,7 @@ ${!isWebSocketConnected ? "- Flight script execution is DISABLED until WebSocket
         missionManagement: missionManagementTool,
         cameraSensors: cameraSensorsTool,
         executeFlightScript: executeFlightScriptTool,
+        droneCommand: droneCommandTool,
       },
       stopWhen: stepCountIs(20),
       providerOptions: {

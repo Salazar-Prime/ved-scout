@@ -82,11 +82,19 @@ class SoysanWebSocketServer:
             camera      = data.get('camera', {})
 
             # --- Validate required envelope fields ---
-            if not all([messageType, scriptName, privateKey, commandId]):
+            if not all([messageType, privateKey, commandId]):
                 await self.sendResponse(websocket, {
                     'commandId': commandId or 'unknown',
                     'status': 'failed',
-                    'error': 'Missing required fields: type, scriptName, privateKey, commandId',
+                    'error': 'Missing required fields: type, privateKey, commandId',
+                })
+                return
+
+            if messageType == 'flight_script' and not scriptName:
+                await self.sendResponse(websocket, {
+                    'commandId': commandId,
+                    'status': 'failed',
+                    'error': 'Missing required field: scriptName (required for flight_script)',
                 })
                 return
 
@@ -104,6 +112,8 @@ class SoysanWebSocketServer:
                     websocket, commandId, scriptName,
                     plot, mission, camera, parameters,
                 )
+            elif messageType == 'single_command':
+                await self.handleSingleCommand(websocket, commandId, data)
             else:
                 await self.sendResponse(websocket, {
                     'commandId': commandId,
@@ -225,6 +235,38 @@ class SoysanWebSocketServer:
         })
 
         return checks
+
+    async def handleSingleCommand(self, websocket, commandId: str, data: dict):
+        """Acknowledge a single drone command (no safety checks required)."""
+        command    = data.get('command', '')
+        parameters = data.get('parameters', {})
+
+        if not command:
+            await self.sendResponse(websocket, {
+                'commandId': commandId,
+                'status': 'failed',
+                'error': 'Missing required field: command',
+            })
+            return
+
+        receivedAt = datetime.now(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
+
+        print(
+            f"\n[soysan] ── Single command received ───────────────────────\n"
+            f"  receivedAt : {receivedAt}\n"
+            f"  commandId  : {commandId}\n"
+            f"  command    : {command}\n"
+            f"  parameters : {json.dumps(parameters, indent=4)}\n"
+            f"────────────────────────────────────────────────────────────\n"
+        )
+
+        await self.sendResponse(websocket, {
+            'commandId':  commandId,
+            'status':     'acknowledged',
+            'receivedAt': receivedAt,
+            'command':    command,
+            'parameters': parameters,
+        })
 
     async def handleFlightScriptAck(
         self, websocket, commandId, scriptName,
