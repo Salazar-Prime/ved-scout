@@ -18,6 +18,34 @@ mission-state telemetry back to web/mobile
 
 A DJI KMZ should remain a review/export artifact; OSDK needs the generated points converted into Waypoint V2 structures and uploaded through `vehicle->waypointV2Mission`.
 
+## Implementation status — August 5, 2026
+
+The software integration described below is implemented. The web, DevChat, and
+mobile clients now prepare a plan before confirmation and execute only the
+reviewed `planId`/SHA-256 pair. Soysan runs the pinned HOT planner, stores an
+immutable canonical plan plus KML/KMZ review artifacts, and adapts the plan to
+DJI M300 Waypoint V2 camera/gimbal actions. Mission state callbacks are streamed
+back to clients, and stop/pause/resume are supported by the OSDK adapter.
+
+Soysan's command service is installed on its Tailscale address at port `8765`,
+but `SOYSAN_LIVE_FLIGHT_ENABLED=0` remains enforced. Dummy end-to-end execution
+uses the real planner and intentionally stops at the OSDK boundary. Before live
+flight is enabled, the remaining gates are a shared server-side command-signing
+secret, a props-off upload test, DJI simulator testing where available, and a
+small operator-supervised hardware flight.
+
+The live C++ preflight rejects execution unless both M300 batteries are healthy
+and at least 50%, GPS control level is at least 4, a valid home point exists, a
+connected RTK unit has a fixed solution, and the camera at payload index 0
+accepts shoot-photo mode. OSDK 4.1 does not expose an SD-card state API, so
+camera storage remains an explicit operator checklist item rather than a claim
+made by the automated preflight.
+
+Rollback checkpoints:
+
+- Monorepo: commit `0ebbe34`, tag `pre-flightplan-integration-20260805`.
+- Soysan: commit `afb0721`, tag `pre-flightplan-integration-20260805`.
+
 ## SSH access completed
 
 I created and installed a dedicated Ed25519 key:
