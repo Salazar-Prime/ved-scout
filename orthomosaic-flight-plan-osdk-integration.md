@@ -18,6 +18,11 @@ mission-state telemetry back to web/mobile
 
 A DJI KMZ should remain a review/export artifact; OSDK needs the generated points converted into Waypoint V2 structures and uploaded through `vehicle->waypointV2Mission`.
 
+The M300 Waypoint V2 simulator path was validated on 2026-08-14 with the
+four-waypoint plot 720 route. Soysan requires both its OSDK UART and the E-Port
+USB ACM link; the `0xFFFFFFFF`/request-timeout failures and recovery are in
+[M300 Waypoint V2 USB ACM troubleshooting](waypoint-v2-usb-acm-troubleshooting.md).
+
 ## Implementation status — August 5, 2026
 
 The software integration described below is implemented. The web, DevChat, and

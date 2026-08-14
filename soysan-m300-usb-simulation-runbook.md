@@ -10,6 +10,11 @@ This runbook documents both supported DJI Assistant simulator connections:
 Use one method at a time. Soysan retains its separate OSDK serial connection
 for Ved Scout commands and telemetry in either method.
 
+Native M300 Waypoint V2 additionally requires the OSDK expansion module's USB
+ACM connection to Soysan. This is separate from the aircraft maintenance USB
+used by DJI Assistant. See
+[M300 Waypoint V2 USB ACM troubleshooting](waypoint-v2-usb-acm-troubleshooting.md).
+
 ## What "simulation" means here
 
 The connection name is a working label. VirtualHere does **not** emulate an
@@ -38,6 +43,17 @@ dummy mode is active.
 
 Do not move the USB cable or switch hosts during a simulator test. Stop the
 simulator and quit DJI Assistant before switching methods.
+
+### Waypoint V2 USB ownership
+
+For native Waypoint V2 with DJI Assistant on Alienware, keep the maintenance
+USB on Alienware and the E-Port USB on Soysan. Stop `virtualhere.service` so
+Soysan owns the E-Port `cdc_acm` interface as `/dev/dji_ACM`.
+
+The current VirtualHere setup exports the entire `2ca3:001f` device. While a
+Mac client owns it, Soysan cannot use that same device as its local Waypoint V2
+ACM transport. Ground the simulator and switch modes deliberately; see
+[M300 Waypoint V2 USB ACM troubleshooting](waypoint-v2-usb-acm-troubleshooting.md).
 
 ## Alienware direct USB through Moonlight
 
@@ -115,7 +131,7 @@ require a special physical-plug trigger after a clean re-enumeration.
 | Tailscale address | `100.83.255.62` |
 | VirtualHere executable | `/usr/local/sbin/vhusbdarm64` |
 | VirtualHere version | `4.8.8` |
-| Service | `virtualhere.service`, enabled at boot |
+| Service | `virtualhere.service`, enabled at boot; stop it during local ACM/Waypoint V2 tests |
 | Service unit | `/etc/systemd/system/virtualhere.service` |
 | Server configuration | `/usr/local/etc/virtualhere/config.ini` |
 | TCP listener | `7575` |
