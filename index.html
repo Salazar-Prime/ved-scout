@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore VED-SCOUT tool-call questions, speech-recognition outputs, and model-generated UAV flight paths."
+    />
+    <meta name="theme-color" content="#102a31" />
+    <title>VED-SCOUT Evaluation Fieldbook</title>
+    <link rel="icon" href="assets/field-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script defer src="assets/experiment-data.js"></script>
+    <script defer src="assets/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to results</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="VED-SCOUT evaluation home">
+        <svg aria-hidden="true" viewBox="0 0 42 42">
+          <path d="M6 31 21 7l15 24H6Z" />
+          <path d="M12 28h18M16 22h10M20 16h2" />
+        </svg>
+        <span><b>VED—SCOUT</b><small>Evaluation fieldbook</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#flight-plots">Flight plots</a>
+        <a href="#question-set">Question set</a>
+        <a href="#asr-results">ASR output</a>
+      </nav>
+      <a
+        class="github-link"
+        href="https://github.com/Salazar-Prime/ved-scout"
+        aria-label="Open the VED-SCOUT GitHub repository"
+      >
+        GitHub
+        <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m5 3 5 5-5 5" /></svg>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Public evaluation record · 2026</p>
+          <h1 id="hero-title">From spoken intent<br />to <em>flight geometry.</em></h1>
+          <p class="hero-intro">
+            A browsable record of VED-SCOUT’s tool-use prompts, speech-recognition
+            output, and model-generated UAV survey paths.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#flight-plots">Explore flight plans</a>
+            <a class="text-link" href="#question-set">Read the question set <span>↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-instrument" aria-label="Representative lawnmower flight path">
+          <div class="instrument-topline">
+            <span>Route preview</span><span>40.4727° N / 86.9939° W</span>
+          </div>
+          <svg viewBox="0 0 620 390" role="img" aria-labelledby="hero-plot-title">
+            <title id="hero-plot-title">A rectangular lawnmower flight path</title>
+            <defs>
+              <pattern id="hero-grid" width="31" height="31" patternUnits="userSpaceOnUse">
+                <path d="M31 0H0V31" fill="none" stroke="currentColor" stroke-width="1" />
+              </pattern>
+            </defs>
+            <rect class="hero-grid" x="0" y="0" width="620" height="390" fill="url(#hero-grid)" />
+            <path class="hero-boundary" d="M110 72H510V318H110Z" />
+            <path
+              class="hero-route"
+              d="M122 304H498V278H122V252H498V226H122V200H498V174H122V148H498V122H122V96H498"
+            />
+            <circle class="hero-origin" cx="122" cy="304" r="7" />
+            <circle class="hero-destination" cx="498" cy="96" r="7" />
+          </svg>
+          <div class="instrument-readout">
+            <div><b data-stat="questions">30</b><span>tool-use questions</span></div>
+            <div><b data-stat="asr">10</b><span>ASR samples</span></div>
+            <div><b data-stat="trials">33</b><span>route trials</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="source-rail" aria-label="Dataset sources">
+        <p>Source material</p>
+        <a href="assets/source/tool-call-question-set.xlsx" download>
+          <span>01</span> Tool-call evaluation <small>.xlsx</small>
+        </a>
+        <a href="assets/source/asr-eval-log.xlsx" download>
+          <span>02</span> ASR evaluation log <small>.xlsx</small>
+        </a>
+        <a href="assets/source/easy-plot.kml" download>
+          <span>03</span> Easy plot <small>.kml</small>
+        </a>
+        <a href="assets/source/hard-plot.kml" download>
+          <span>04</span> Hard plot <small>.kml</small>
+        </a>
+      </section>
+
+      <section class="content-section plots-section" id="flight-plots" aria-labelledby="plots-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Flight-path trials</p>
+            <h2 id="plots-title">Inspect every route,<br />one decision at a time.</h2>
+          </div>
+          <p>
+            Switch plot difficulty, then browse by model or run. Every line is
+            drawn directly from the ordered coordinates in the source KML.
+          </p>
+        </div>
+
+        <div class="plot-explorer">
+          <aside class="plot-controls" aria-label="Flight plot controls">
+            <fieldset>
+              <legend>Plot difficulty</legend>
+              <div class="segmented" id="difficulty-control">
+                <button type="button" data-value="easy" aria-pressed="true">Easy</button>
+                <button type="button" data-value="hard" aria-pressed="false">Hard</button>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Browse first by</legend>
+              <div class="segmented" id="view-control">
+                <button type="button" data-value="model" aria-pressed="true">Model</button>
+                <button type="button" data-value="run" aria-pressed="false">Run</button>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend id="primary-label">Model type</legend>
+              <div class="choice-stack" id="primary-control"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend id="secondary-label">Run number</legend>
+              <div class="choice-grid" id="secondary-control"></div>
+            </fieldset>
+          </aside>
+
+          <div class="plot-stage">
+            <div class="plot-stage-header">
+              <div>
+                <p id="plot-kicker">Easy plot · run 1</p>
+                <h3 id="plot-name">naive-5.2</h3>
+              </div>
+              <div class="plot-legend" aria-label="Plot legend">
+                <span><i class="legend-route"></i>Generated route</span>
+                <span><i class="legend-field"></i>Target field</span>
+              </div>
+            </div>
+
+            <div class="map-frame">
+              <svg
+                id="route-map"
+                viewBox="0 0 960 560"
+                role="img"
+                aria-labelledby="route-map-title route-map-description"
+              >
+                <title id="route-map-title">Generated flight route</title>
+                <desc id="route-map-description">Selected UAV flight route and target field boundary.</desc>
+                <defs>
+                  <pattern id="map-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+                    <path d="M48 0H0V48" fill="none" stroke="currentColor" stroke-width="1" />
+                  </pattern>
+                  <filter id="route-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity=".15" />
+                  </filter>
+                </defs>
+                <rect class="map-grid" width="960" height="560" fill="url(#map-grid)" />
+                <g id="map-content"></g>
+              </svg>
+              <div class="map-north" aria-hidden="true"><span>N</span><i></i></div>
+              <p class="map-scale" id="map-scale">Coordinate extent</p>
+            </div>
+
+            <dl class="trial-readout">
+              <div><dt>Waypoints</dt><dd id="metric-waypoints">—</dd></div>
+              <div><dt>Response time</dt><dd id="metric-duration">—</dd></div>
+              <div><dt>Output tokens</dt><dd id="metric-tokens">—</dd></div>
+              <div><dt>Est. cost</dt><dd id="metric-cost">—</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="data-note" id="plot-source-note">
+          Coordinates preserve the order and altitude values stored in the KML source.
+        </p>
+      </section>
+
+      <section class="content-section questions-section" id="question-set" aria-labelledby="questions-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <p class="eyebrow"><span></span> Tool-call question set</p>
+            <h2 id="questions-title">Thirty prompts.<br />Three levels of work.</h2>
+          </div>
+          <p>
+            Open any record to see its follow-up turns, expected tool sequence,
+            and computation notes exactly as documented in the workbook.
+          </p>
+        </div>
+
+        <div class="question-toolbar">
+          <div class="filter-pills" id="question-tier-filter" aria-label="Filter questions by tier">
+            <button type="button" data-value="all" aria-pressed="true">All <span>30</span></button>
+            <button type="button" data-value="easy" aria-pressed="false">Easy <span>10</span></button>
+            <button type="button" data-value="medium" aria-pressed="false">Medium <span>10</span></button>
+            <button type="button" data-value="hard" aria-pressed="false">Hard <span>10</span></button>
+          </div>
+          <label class="search-field">
+            <span class="sr-only">Search questions</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
+            <input id="question-search" type="search" placeholder="Search prompts or tools" autocomplete="off" />
+          </label>
+        </div>
+        <p class="result-count" id="question-count" aria-live="polite">Showing 30 questions</p>
+        <div class="question-list" id="question-list"></div>
+      </section>
+
+      <section class="content-section asr-section" id="asr-results" aria-labelledby="asr-title">
+        <div class="section-heading section-heading-compact">
+          <div>
+            <p class="eyebrow"><span></span> Automatic speech recognition</p>
+            <h2 id="asr-title">What was said.<br /><em>What was heard.</em></h2>
+          </div>
+          <p>
+            Ground truth sits beside the recorded Whisper response so errors in
+            product names, units, and operational language remain visible.
+          </p>
+        </div>
+
+        <div class="asr-toolbar">
+          <div class="filter-pills" id="asr-tier-filter" aria-label="Filter ASR records by tier">
+            <button type="button" data-value="all" aria-pressed="true">All <span>10</span></button>
+            <button type="button" data-value="easy" aria-pressed="false">Easy <span>4</span></button>
+            <button type="button" data-value="medium" aria-pressed="false">Medium <span>3</span></button>
+            <button type="button" data-value="hard" aria-pressed="false">Hard <span>3</span></button>
+          </div>
+          <p><i></i> “OK” is the processing status recorded in the log, not an accuracy score.</p>
+        </div>
+        <div class="asr-list" id="asr-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 42"><path d="M6 31 21 7l15 24H6Z" /><path d="M12 28h18M16 22h10M20 16h2" /></svg>
+      </div>
+      <p><b>VED—SCOUT</b><br />Voice-enabled autonomous drone weed scouting.</p>
+      <p class="footer-meta">
+        Static evaluation fieldbook · No analytics or background requests<br />
+        Data generated <span id="generated-date">from repository sources</span>
+      </p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>

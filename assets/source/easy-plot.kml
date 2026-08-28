@@ -1,0 +1,5773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Experiments log - easy plot</name>
+	<visibility>0</visibility>
+	<open>1</open>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.6.10441"></atom:link>
+	<Folder>
+		<name>naive-5.2-run1</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.4726542,9.999999999999998 -86.99422199999999,40.4726542,9.999999999999998 -86.99422199999999,40.4726614,9.999999999999998 -86.993606,40.4726614,9.999999999999998 -86.993606,40.4726686,9.999999999999998 -86.99422199999999,40.4726686,9.999999999999998 -86.99422199999999,40.4726758,9.999999999999998 -86.993606,40.4726758,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.99422199999999,40.4726902,9.999999999999998 -86.993606,40.4726902,9.999999999999998 -86.993606,40.4726974,9.999999999999998 -86.99422199999999,40.4726974,9.999999999999998 -86.99422199999999,40.4727046,9.999999999999998 -86.993606,40.4727046,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-run1 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-run1</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:02:56.731168</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>323</td></tr><tr><th>Est. cost ($)</th><td>0.004884</td></tr><tr><th>Time (s)</th><td>5.57</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654200, -86.993606000, 10
+40.472654200, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472668600, -86.993606000, 10
+40.472668600, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472683000, -86.993606000, 10
+40.472683000, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472697400, -86.993606000, 10
+40.472697400, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-run2</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264772,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264772,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264844,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264844,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264916,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264916,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264988,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264988,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726506,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726506,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265132,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265132,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265276,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265276,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265348,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265348,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>21</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>22</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>23</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>24</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>25</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265564,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>26</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265564,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>27</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265636,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>28</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265636,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>29</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265708,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>30</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265708,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>31</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726578,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>32</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726578,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>33</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265852,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>34</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265852,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>35</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265924,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>36</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265924,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>37</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265996,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>38</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265996,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>39</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266068,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>40</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266068,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>41</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>42</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>43</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266212,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>44</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266212,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266284,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>46</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266284,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>47</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266356,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>48</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266356,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>49</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266428,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>50</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266428,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>51</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>52</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>53</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266572,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>54</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266572,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>55</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266644,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>56</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266644,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>57</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266716,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>58</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266716,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>59</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266788,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>60</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266788,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>61</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>62</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>63</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>64</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>65</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267004,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>66</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267004,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>67</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267076,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>68</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267076,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>69</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267148,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>70</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267148,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>71</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726722,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>72</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726722,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>73</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267292,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>74</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267292,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>75</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267364,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>76</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267364,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>77</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267436,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>78</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267436,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>79</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267508,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>80</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267508,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>81</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>82</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>83</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267652,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>84</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267652,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>85</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267724,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>86</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267724,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>87</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267796,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>88</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267796,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>89</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267868,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>90</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267868,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>91</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>92</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>93</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>94</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>95</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268084,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>96</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268084,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>97</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268156,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>98</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268156,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>99</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268228,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>100</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268228,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>101</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>102</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>103</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268372,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>104</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268372,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>105</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268444,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>106</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268444,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>107</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268516,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>108</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268516,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>109</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268588,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>110</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268588,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>111</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726866,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>112</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726866,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>113</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268732,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>114</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268732,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>115</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268804,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>116</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268804,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>117</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268876,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>118</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268876,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>119</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268948,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>120</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268948,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>121</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>122</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>123</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269092,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>124</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269092,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>125</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269164,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>126</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269164,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>127</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269236,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>128</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269236,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>129</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269308,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>130</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269308,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>131</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726938,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>132</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726938,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>133</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>134</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>135</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269524,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>136</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269524,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>137</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>138</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>139</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>140</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>141</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>142</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>143</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269812,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>144</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269812,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>145</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269884,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>146</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269884,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>147</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269956,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>148</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269956,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>149</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270028,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>150</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270028,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>151</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>152</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>153</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270172,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>154</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270172,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>155</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270244,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>156</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270244,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>157</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270316,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>158</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270316,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>159</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270388,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>160</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270388,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>161</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>162</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>163</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270532,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>164</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270532,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>165</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270604,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>166</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270604,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>167</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270676,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>168</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270676,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>169</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270748,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>170</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270748,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>171</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727082,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>172</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727082,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>173</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270892,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>174</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270892,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>175</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270964,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>176</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270964,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>177</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>178</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47264772,9.999999999999998 -86.99422199999999,40.47264772,9.999999999999998 -86.99422199999999,40.47264844,9.999999999999998 -86.993606,40.47264844,9.999999999999998 -86.993606,40.47264916,9.999999999999998 -86.99422199999999,40.47264916,9.999999999999998 -86.99422199999999,40.47264988,9.999999999999998 -86.993606,40.47264988,9.999999999999998 -86.993606,40.4726506,9.999999999999998 -86.99422199999999,40.4726506,9.999999999999998 -86.99422199999999,40.47265132,9.999999999999998 -86.993606,40.47265132,9.999999999999998 -86.993606,40.47265204,9.999999999999998 -86.99422199999999,40.47265204,9.999999999999998 -86.99422199999999,40.47265276,9.999999999999998 -86.993606,40.47265276,9.999999999999998 -86.993606,40.47265348,9.999999999999998 -86.99422199999999,40.47265348,9.999999999999998 -86.99422199999999,40.4726542,9.999999999999998 -86.993606,40.4726542,9.999999999999998 -86.993606,40.47265492,9.999999999999998 -86.99422199999999,40.47265492,9.999999999999998 -86.99422199999999,40.47265564,9.999999999999998 -86.993606,40.47265564,9.999999999999998 -86.993606,40.47265636,9.999999999999998 -86.99422199999999,40.47265636,9.999999999999998 -86.99422199999999,40.47265708,9.999999999999998 -86.993606,40.47265708,9.999999999999998 -86.993606,40.4726578,9.999999999999998 -86.99422199999999,40.4726578,9.999999999999998 -86.99422199999999,40.47265852,9.999999999999998 -86.993606,40.47265852,9.999999999999998 -86.993606,40.47265924,9.999999999999998 -86.99422199999999,40.47265924,9.999999999999998 -86.99422199999999,40.47265996,9.999999999999998 -86.993606,40.47265996,9.999999999999998 -86.993606,40.47266068,9.999999999999998 -86.99422199999999,40.47266068,9.999999999999998 -86.99422199999999,40.4726614,9.999999999999998 -86.993606,40.4726614,9.999999999999998 -86.993606,40.47266212,9.999999999999998 -86.99422199999999,40.47266212,9.999999999999998 -86.99422199999999,40.47266284,9.999999999999998 -86.993606,40.47266284,9.999999999999998 -86.993606,40.47266356,9.999999999999998 -86.99422199999999,40.47266356,9.999999999999998 -86.99422199999999,40.47266428,9.999999999999998 -86.993606,40.47266428,9.999999999999998 -86.993606,40.472665,9.999999999999998 -86.99422199999999,40.472665,9.999999999999998 -86.99422199999999,40.47266572,9.999999999999998 -86.993606,40.47266572,9.999999999999998 -86.993606,40.47266644,9.999999999999998 -86.99422199999999,40.47266644,9.999999999999998 -86.99422199999999,40.47266716,9.999999999999998 -86.993606,40.47266716,9.999999999999998 -86.993606,40.47266788,9.999999999999998 -86.99422199999999,40.47266788,9.999999999999998 -86.99422199999999,40.4726686,9.999999999999998 -86.993606,40.4726686,9.999999999999998 -86.993606,40.47266932,9.999999999999998 -86.99422199999999,40.47266932,9.999999999999998 -86.99422199999999,40.47267004,9.999999999999998 -86.993606,40.47267004,9.999999999999998 -86.993606,40.47267076,9.999999999999998 -86.99422199999999,40.47267076,9.999999999999998 -86.99422199999999,40.47267148,9.999999999999998 -86.993606,40.47267148,9.999999999999998 -86.993606,40.4726722,9.999999999999998 -86.99422199999999,40.4726722,9.999999999999998 -86.99422199999999,40.47267292,9.999999999999998 -86.993606,40.47267292,9.999999999999998 -86.993606,40.47267364,9.999999999999998 -86.99422199999999,40.47267364,9.999999999999998 -86.99422199999999,40.47267436,9.999999999999998 -86.993606,40.47267436,9.999999999999998 -86.993606,40.47267508,9.999999999999998 -86.99422199999999,40.47267508,9.999999999999998 -86.99422199999999,40.4726758,9.999999999999998 -86.993606,40.4726758,9.999999999999998 -86.993606,40.47267652,9.999999999999998 -86.99422199999999,40.47267652,9.999999999999998 -86.99422199999999,40.47267724,9.999999999999998 -86.993606,40.47267724,9.999999999999998 -86.993606,40.47267796,9.999999999999998 -86.99422199999999,40.47267796,9.999999999999998 -86.99422199999999,40.47267868,9.999999999999998 -86.993606,40.47267868,9.999999999999998 -86.993606,40.4726794,9.999999999999998 -86.99422199999999,40.4726794,9.999999999999998 -86.99422199999999,40.47268012,9.999999999999998 -86.993606,40.47268012,9.999999999999998 -86.993606,40.47268084,9.999999999999998 -86.99422199999999,40.47268084,9.999999999999998 -86.99422199999999,40.47268156,9.999999999999998 -86.993606,40.47268156,9.999999999999998 -86.993606,40.47268228,9.999999999999998 -86.99422199999999,40.47268228,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.993606,40.47268372,9.999999999999998 -86.99422199999999,40.47268372,9.999999999999998 -86.99422199999999,40.47268444,9.999999999999998 -86.993606,40.47268444,9.999999999999998 -86.993606,40.47268516,9.999999999999998 -86.99422199999999,40.47268516,9.999999999999998 -86.99422199999999,40.47268588,9.999999999999998 -86.993606,40.47268588,9.999999999999998 -86.993606,40.4726866,9.999999999999998 -86.99422199999999,40.4726866,9.999999999999998 -86.99422199999999,40.47268732,9.999999999999998 -86.993606,40.47268732,9.999999999999998 -86.993606,40.47268804,9.999999999999998 -86.99422199999999,40.47268804,9.999999999999998 -86.99422199999999,40.47268876,9.999999999999998 -86.993606,40.47268876,9.999999999999998 -86.993606,40.47268948,9.999999999999998 -86.99422199999999,40.47268948,9.999999999999998 -86.99422199999999,40.4726902,9.999999999999998 -86.993606,40.4726902,9.999999999999998 -86.993606,40.47269092,9.999999999999998 -86.99422199999999,40.47269092,9.999999999999998 -86.99422199999999,40.47269164,9.999999999999998 -86.993606,40.47269164,9.999999999999998 -86.993606,40.47269236,9.999999999999998 -86.99422199999999,40.47269236,9.999999999999998 -86.99422199999999,40.47269308,9.999999999999998 -86.993606,40.47269308,9.999999999999998 -86.993606,40.4726938,9.999999999999998 -86.99422199999999,40.4726938,9.999999999999998 -86.99422199999999,40.47269452,9.999999999999998 -86.993606,40.47269452,9.999999999999998 -86.993606,40.47269524,9.999999999999998 -86.99422199999999,40.47269524,9.999999999999998 -86.99422199999999,40.47269596,9.999999999999998 -86.993606,40.47269596,9.999999999999998 -86.993606,40.47269668,9.999999999999998 -86.99422199999999,40.47269668,9.999999999999998 -86.99422199999999,40.4726974,9.999999999999998 -86.993606,40.4726974,9.999999999999998 -86.993606,40.47269812,9.999999999999998 -86.99422199999999,40.47269812,9.999999999999998 -86.99422199999999,40.47269884,9.999999999999998 -86.993606,40.47269884,9.999999999999998 -86.993606,40.47269956,9.999999999999998 -86.99422199999999,40.47269956,9.999999999999998 -86.99422199999999,40.47270028,9.999999999999998 -86.993606,40.47270028,9.999999999999998 -86.993606,40.472701,9.999999999999998 -86.99422199999999,40.472701,9.999999999999998 -86.99422199999999,40.47270172,9.999999999999998 -86.993606,40.47270172,9.999999999999998 -86.993606,40.47270244,9.999999999999998 -86.99422199999999,40.47270244,9.999999999999998 -86.99422199999999,40.47270316,9.999999999999998 -86.993606,40.47270316,9.999999999999998 -86.993606,40.47270388,9.999999999999998 -86.99422199999999,40.47270388,9.999999999999998 -86.99422199999999,40.4727046,9.999999999999998 -86.993606,40.4727046,9.999999999999998 -86.993606,40.47270532,9.999999999999998 -86.99422199999999,40.47270532,9.999999999999998 -86.99422199999999,40.47270604,9.999999999999998 -86.993606,40.47270604,9.999999999999998 -86.993606,40.47270676,9.999999999999998 -86.99422199999999,40.47270676,9.999999999999998 -86.99422199999999,40.47270748,9.999999999999998 -86.993606,40.47270748,9.999999999999998 -86.993606,40.4727082,9.999999999999998 -86.99422199999999,40.4727082,9.999999999999998 -86.99422199999999,40.47270892,9.999999999999998 -86.993606,40.47270892,9.999999999999998 -86.993606,40.47270964,9.999999999999998 -86.99422199999999,40.47270964,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-run2 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-run2</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:04:41.554398</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>2851</td></tr><tr><th>Est. cost ($)</th><td>0.040276</td></tr><tr><th>Time (s)</th><td>33.24</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472647720, -86.993606000, 10
+40.472647720, -86.994222000, 10
+40.472648440, -86.994222000, 10
+40.472648440, -86.993606000, 10
+40.472649160, -86.993606000, 10
+40.472649160, -86.994222000, 10
+40.472649880, -86.994222000, 10
+40.472649880, -86.993606000, 10
+40.472650600, -86.993606000, 10
+40.472650600, -86.994222000, 10
+40.472651320, -86.994222000, 10
+40.472651320, -86.993606000, 10
+40.472652040, -86.993606000, 10
+40.472652040, -86.994222000, 10
+40.472652760, -86.994222000, 10
+40.472652760, -86.993606000, 10
+40.472653480, -86.993606000, 10
+40.472653480, -86.994222000, 10
+40.472654200, -86.994222000, 10
+40.472654200, -86.993606000, 10
+40.472654920, -86.993606000, 10
+40.472654920, -86.994222000, 10
+40.472655640, -86.994222000, 10
+40.472655640, -86.993606000, 10
+40.472656360, -86.993606000, 10
+40.472656360, -86.994222000, 10
+40.472657080, -86.994222000, 10
+40.472657080, -86.993606000, 10
+40.472657800, -86.993606000, 10
+40.472657800, -86.994222000, 10
+40.472658520, -86.994222000, 10
+40.472658520, -86.993606000, 10
+40.472659240, -86.993606000, 10
+40.472659240, -86.994222000, 10
+40.472659960, -86.994222000, 10
+40.472659960, -86.993606000, 10
+40.472660680, -86.993606000, 10
+40.472660680, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472662120, -86.993606000, 10
+40.472662120, -86.994222000, 10
+40.472662840, -86.994222000, 10
+40.472662840, -86.993606000, 10
+40.472663560, -86.993606000, 10
+40.472663560, -86.994222000, 10
+40.472664280, -86.994222000, 10
+40.472664280, -86.993606000, 10
+40.472665000, -86.993606000, 10
+40.472665000, -86.994222000, 10
+40.472665720, -86.994222000, 10
+40.472665720, -86.993606000, 10
+40.472666440, -86.993606000, 10
+40.472666440, -86.994222000, 10
+40.472667160, -86.994222000, 10
+40.472667160, -86.993606000, 10
+40.472667880, -86.993606000, 10
+40.472667880, -86.994222000, 10
+40.472668600, -86.994222000, 10
+40.472668600, -86.993606000, 10
+40.472669320, -86.993606000, 10
+40.472669320, -86.994222000, 10
+40.472670040, -86.994222000, 10
+40.472670040, -86.993606000, 10
+40.472670760, -86.993606000, 10
+40.472670760, -86.994222000, 10
+40.472671480, -86.994222000, 10
+40.472671480, -86.993606000, 10
+40.472672200, -86.993606000, 10
+40.472672200, -86.994222000, 10
+40.472672920, -86.994222000, 10
+40.472672920, -86.993606000, 10
+40.472673640, -86.993606000, 10
+40.472673640, -86.994222000, 10
+40.472674360, -86.994222000, 10
+40.472674360, -86.993606000, 10
+40.472675080, -86.993606000, 10
+40.472675080, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472676520, -86.993606000, 10
+40.472676520, -86.994222000, 10
+40.472677240, -86.994222000, 10
+40.472677240, -86.993606000, 10
+40.472677960, -86.993606000, 10
+40.472677960, -86.994222000, 10
+40.472678680, -86.994222000, 10
+40.472678680, -86.993606000, 10
+40.472679400, -86.993606000, 10
+40.472679400, -86.994222000, 10
+40.472680120, -86.994222000, 10
+40.472680120, -86.993606000, 10
+40.472680840, -86.993606000, 10
+40.472680840, -86.994222000, 10
+40.472681560, -86.994222000, 10
+40.472681560, -86.993606000, 10
+40.472682280, -86.993606000, 10
+40.472682280, -86.994222000, 10
+40.472683000, -86.994222000, 10
+40.472683000, -86.993606000, 10
+40.472683720, -86.993606000, 10
+40.472683720, -86.994222000, 10
+40.472684440, -86.994222000, 10
+40.472684440, -86.993606000, 10
+40.472685160, -86.993606000, 10
+40.472685160, -86.994222000, 10
+40.472685880, -86.994222000, 10
+40.472685880, -86.993606000, 10
+40.472686600, -86.993606000, 10
+40.472686600, -86.994222000, 10
+40.472687320, -86.994222000, 10
+40.472687320, -86.993606000, 10
+40.472688040, -86.993606000, 10
+40.472688040, -86.994222000, 10
+40.472688760, -86.994222000, 10
+40.472688760, -86.993606000, 10
+40.472689480, -86.993606000, 10
+40.472689480, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472690920, -86.993606000, 10
+40.472690920, -86.994222000, 10
+40.472691640, -86.994222000, 10
+40.472691640, -86.993606000, 10
+40.472692360, -86.993606000, 10
+40.472692360, -86.994222000, 10
+40.472693080, -86.994222000, 10
+40.472693080, -86.993606000, 10
+40.472693800, -86.993606000, 10
+40.472693800, -86.994222000, 10
+40.472694520, -86.994222000, 10
+40.472694520, -86.993606000, 10
+40.472695240, -86.993606000, 10
+40.472695240, -86.994222000, 10
+40.472695960, -86.994222000, 10
+40.472695960, -86.993606000, 10
+40.472696680, -86.993606000, 10
+40.472696680, -86.994222000, 10
+40.472697400, -86.994222000, 10
+40.472697400, -86.993606000, 10
+40.472698120, -86.993606000, 10
+40.472698120, -86.994222000, 10
+40.472698840, -86.994222000, 10
+40.472698840, -86.993606000, 10
+40.472699560, -86.993606000, 10
+40.472699560, -86.994222000, 10
+40.472700280, -86.994222000, 10
+40.472700280, -86.993606000, 10
+40.472701000, -86.993606000, 10
+40.472701000, -86.994222000, 10
+40.472701720, -86.994222000, 10
+40.472701720, -86.993606000, 10
+40.472702440, -86.993606000, 10
+40.472702440, -86.994222000, 10
+40.472703160, -86.994222000, 10
+40.472703160, -86.993606000, 10
+40.472703880, -86.993606000, 10
+40.472703880, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472705320, -86.993606000, 10
+40.472705320, -86.994222000, 10
+40.472706040, -86.994222000, 10
+40.472706040, -86.993606000, 10
+40.472706760, -86.993606000, 10
+40.472706760, -86.994222000, 10
+40.472707480, -86.994222000, 10
+40.472707480, -86.993606000, 10
+40.472708200, -86.993606000, 10
+40.472708200, -86.994222000, 10
+40.472708920, -86.994222000, 10
+40.472708920, -86.993606000, 10
+40.472709640, -86.993606000, 10
+40.472709640, -86.994222000, 10
+40.472710000, -86.994222000, 10
+40.472710000, -86.993606000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-run3</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264772,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264772,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264844,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264844,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264916,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264916,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47264988,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47264988,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726506,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726506,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265132,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265132,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265276,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265276,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265348,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265348,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>21</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>22</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>23</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>24</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>25</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265564,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>26</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265564,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>27</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265636,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>28</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265636,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>29</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265708,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>30</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265708,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>31</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726578,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>32</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726578,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>33</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265852,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>34</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265852,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>35</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265924,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>36</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265924,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>37</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265996,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>38</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265996,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>39</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266068,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>40</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266068,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>41</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>42</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>43</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266212,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>44</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266212,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266284,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>46</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266284,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>47</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266356,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>48</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266356,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>49</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266428,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>50</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266428,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>51</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>52</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>53</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266572,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>54</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266572,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>55</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266644,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>56</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266644,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>57</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266716,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>58</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266716,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>59</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266788,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>60</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266788,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>61</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>62</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>63</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>64</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>65</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267004,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>66</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267004,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>67</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267076,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>68</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267076,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>69</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267148,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>70</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267148,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>71</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726722,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>72</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726722,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>73</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267292,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>74</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267292,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>75</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267364,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>76</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267364,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>77</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267436,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>78</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267436,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>79</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267508,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>80</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267508,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>81</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>82</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>83</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267652,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>84</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267652,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>85</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267724,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>86</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267724,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>87</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267796,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>88</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267796,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>89</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267868,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>90</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267868,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>91</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>92</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>93</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>94</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>95</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268084,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>96</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268084,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>97</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268156,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>98</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268156,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>99</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268228,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>100</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268228,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>101</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>102</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>103</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268372,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>104</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268372,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>105</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268444,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>106</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268444,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>107</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268516,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>108</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268516,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>109</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268588,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>110</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268588,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>111</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726866,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>112</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726866,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>113</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268732,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>114</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268732,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>115</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268804,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>116</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268804,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>117</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268876,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>118</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268876,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>119</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268948,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>120</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268948,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>121</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>122</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>123</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269092,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>124</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269092,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>125</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269164,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>126</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269164,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>127</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269236,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>128</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269236,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>129</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269308,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>130</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269308,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>131</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726938,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>132</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726938,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>133</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>134</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>135</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269524,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>136</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269524,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>137</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>138</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>139</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>140</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>141</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>142</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>143</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269812,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>144</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269812,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>145</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269884,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>146</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269884,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>147</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269956,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>148</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269956,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>149</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270028,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>150</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270028,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>151</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>152</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>153</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270172,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>154</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270172,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>155</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270244,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>156</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270244,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>157</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270316,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>158</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270316,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>159</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270388,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>160</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270388,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>161</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>162</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>163</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270532,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>164</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270532,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>165</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270604,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>166</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270604,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>167</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270676,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>168</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270676,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>169</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270748,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>170</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270748,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>171</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727082,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>172</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727082,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>173</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270892,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>174</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270892,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>175</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270964,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>176</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270964,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>177</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>178</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47264772,9.999999999999998 -86.99422199999999,40.47264772,9.999999999999998 -86.99422199999999,40.47264844,9.999999999999998 -86.993606,40.47264844,9.999999999999998 -86.993606,40.47264916,9.999999999999998 -86.99422199999999,40.47264916,9.999999999999998 -86.99422199999999,40.47264988,9.999999999999998 -86.993606,40.47264988,9.999999999999998 -86.993606,40.4726506,9.999999999999998 -86.99422199999999,40.4726506,9.999999999999998 -86.99422199999999,40.47265132,9.999999999999998 -86.993606,40.47265132,9.999999999999998 -86.993606,40.47265204,9.999999999999998 -86.99422199999999,40.47265204,9.999999999999998 -86.99422199999999,40.47265276,9.999999999999998 -86.993606,40.47265276,9.999999999999998 -86.993606,40.47265348,9.999999999999998 -86.99422199999999,40.47265348,9.999999999999998 -86.99422199999999,40.4726542,9.999999999999998 -86.993606,40.4726542,9.999999999999998 -86.993606,40.47265492,9.999999999999998 -86.99422199999999,40.47265492,9.999999999999998 -86.99422199999999,40.47265564,9.999999999999998 -86.993606,40.47265564,9.999999999999998 -86.993606,40.47265636,9.999999999999998 -86.99422199999999,40.47265636,9.999999999999998 -86.99422199999999,40.47265708,9.999999999999998 -86.993606,40.47265708,9.999999999999998 -86.993606,40.4726578,9.999999999999998 -86.99422199999999,40.4726578,9.999999999999998 -86.99422199999999,40.47265852,9.999999999999998 -86.993606,40.47265852,9.999999999999998 -86.993606,40.47265924,9.999999999999998 -86.99422199999999,40.47265924,9.999999999999998 -86.99422199999999,40.47265996,9.999999999999998 -86.993606,40.47265996,9.999999999999998 -86.993606,40.47266068,9.999999999999998 -86.99422199999999,40.47266068,9.999999999999998 -86.99422199999999,40.4726614,9.999999999999998 -86.993606,40.4726614,9.999999999999998 -86.993606,40.47266212,9.999999999999998 -86.99422199999999,40.47266212,9.999999999999998 -86.99422199999999,40.47266284,9.999999999999998 -86.993606,40.47266284,9.999999999999998 -86.993606,40.47266356,9.999999999999998 -86.99422199999999,40.47266356,9.999999999999998 -86.99422199999999,40.47266428,9.999999999999998 -86.993606,40.47266428,9.999999999999998 -86.993606,40.472665,9.999999999999998 -86.99422199999999,40.472665,9.999999999999998 -86.99422199999999,40.47266572,9.999999999999998 -86.993606,40.47266572,9.999999999999998 -86.993606,40.47266644,9.999999999999998 -86.99422199999999,40.47266644,9.999999999999998 -86.99422199999999,40.47266716,9.999999999999998 -86.993606,40.47266716,9.999999999999998 -86.993606,40.47266788,9.999999999999998 -86.99422199999999,40.47266788,9.999999999999998 -86.99422199999999,40.4726686,9.999999999999998 -86.993606,40.4726686,9.999999999999998 -86.993606,40.47266932,9.999999999999998 -86.99422199999999,40.47266932,9.999999999999998 -86.99422199999999,40.47267004,9.999999999999998 -86.993606,40.47267004,9.999999999999998 -86.993606,40.47267076,9.999999999999998 -86.99422199999999,40.47267076,9.999999999999998 -86.99422199999999,40.47267148,9.999999999999998 -86.993606,40.47267148,9.999999999999998 -86.993606,40.4726722,9.999999999999998 -86.99422199999999,40.4726722,9.999999999999998 -86.99422199999999,40.47267292,9.999999999999998 -86.993606,40.47267292,9.999999999999998 -86.993606,40.47267364,9.999999999999998 -86.99422199999999,40.47267364,9.999999999999998 -86.99422199999999,40.47267436,9.999999999999998 -86.993606,40.47267436,9.999999999999998 -86.993606,40.47267508,9.999999999999998 -86.99422199999999,40.47267508,9.999999999999998 -86.99422199999999,40.4726758,9.999999999999998 -86.993606,40.4726758,9.999999999999998 -86.993606,40.47267652,9.999999999999998 -86.99422199999999,40.47267652,9.999999999999998 -86.99422199999999,40.47267724,9.999999999999998 -86.993606,40.47267724,9.999999999999998 -86.993606,40.47267796,9.999999999999998 -86.99422199999999,40.47267796,9.999999999999998 -86.99422199999999,40.47267868,9.999999999999998 -86.993606,40.47267868,9.999999999999998 -86.993606,40.4726794,9.999999999999998 -86.99422199999999,40.4726794,9.999999999999998 -86.99422199999999,40.47268012,9.999999999999998 -86.993606,40.47268012,9.999999999999998 -86.993606,40.47268084,9.999999999999998 -86.99422199999999,40.47268084,9.999999999999998 -86.99422199999999,40.47268156,9.999999999999998 -86.993606,40.47268156,9.999999999999998 -86.993606,40.47268228,9.999999999999998 -86.99422199999999,40.47268228,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.993606,40.47268372,9.999999999999998 -86.99422199999999,40.47268372,9.999999999999998 -86.99422199999999,40.47268444,9.999999999999998 -86.993606,40.47268444,9.999999999999998 -86.993606,40.47268516,9.999999999999998 -86.99422199999999,40.47268516,9.999999999999998 -86.99422199999999,40.47268588,9.999999999999998 -86.993606,40.47268588,9.999999999999998 -86.993606,40.4726866,9.999999999999998 -86.99422199999999,40.4726866,9.999999999999998 -86.99422199999999,40.47268732,9.999999999999998 -86.993606,40.47268732,9.999999999999998 -86.993606,40.47268804,9.999999999999998 -86.99422199999999,40.47268804,9.999999999999998 -86.99422199999999,40.47268876,9.999999999999998 -86.993606,40.47268876,9.999999999999998 -86.993606,40.47268948,9.999999999999998 -86.99422199999999,40.47268948,9.999999999999998 -86.99422199999999,40.4726902,9.999999999999998 -86.993606,40.4726902,9.999999999999998 -86.993606,40.47269092,9.999999999999998 -86.99422199999999,40.47269092,9.999999999999998 -86.99422199999999,40.47269164,9.999999999999998 -86.993606,40.47269164,9.999999999999998 -86.993606,40.47269236,9.999999999999998 -86.99422199999999,40.47269236,9.999999999999998 -86.99422199999999,40.47269308,9.999999999999998 -86.993606,40.47269308,9.999999999999998 -86.993606,40.4726938,9.999999999999998 -86.99422199999999,40.4726938,9.999999999999998 -86.99422199999999,40.47269452,9.999999999999998 -86.993606,40.47269452,9.999999999999998 -86.993606,40.47269524,9.999999999999998 -86.99422199999999,40.47269524,9.999999999999998 -86.99422199999999,40.47269596,9.999999999999998 -86.993606,40.47269596,9.999999999999998 -86.993606,40.47269668,9.999999999999998 -86.99422199999999,40.47269668,9.999999999999998 -86.99422199999999,40.4726974,9.999999999999998 -86.993606,40.4726974,9.999999999999998 -86.993606,40.47269812,9.999999999999998 -86.99422199999999,40.47269812,9.999999999999998 -86.99422199999999,40.47269884,9.999999999999998 -86.993606,40.47269884,9.999999999999998 -86.993606,40.47269956,9.999999999999998 -86.99422199999999,40.47269956,9.999999999999998 -86.99422199999999,40.47270028,9.999999999999998 -86.993606,40.47270028,9.999999999999998 -86.993606,40.472701,9.999999999999998 -86.99422199999999,40.472701,9.999999999999998 -86.99422199999999,40.47270172,9.999999999999998 -86.993606,40.47270172,9.999999999999998 -86.993606,40.47270244,9.999999999999998 -86.99422199999999,40.47270244,9.999999999999998 -86.99422199999999,40.47270316,9.999999999999998 -86.993606,40.47270316,9.999999999999998 -86.993606,40.47270388,9.999999999999998 -86.99422199999999,40.47270388,9.999999999999998 -86.99422199999999,40.4727046,9.999999999999998 -86.993606,40.4727046,9.999999999999998 -86.993606,40.47270532,9.999999999999998 -86.99422199999999,40.47270532,9.999999999999998 -86.99422199999999,40.47270604,9.999999999999998 -86.993606,40.47270604,9.999999999999998 -86.993606,40.47270676,9.999999999999998 -86.99422199999999,40.47270676,9.999999999999998 -86.99422199999999,40.47270748,9.999999999999998 -86.993606,40.47270748,9.999999999999998 -86.993606,40.4727082,9.999999999999998 -86.99422199999999,40.4727082,9.999999999999998 -86.99422199999999,40.47270892,9.999999999999998 -86.993606,40.47270892,9.999999999999998 -86.993606,40.47270964,9.999999999999998 -86.99422199999999,40.47270964,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-run3 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-run3</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:05:55.190517</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>2851</td></tr><tr><th>Est. cost ($)</th><td>0.040276</td></tr><tr><th>Time (s)</th><td>33.04</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472647720, -86.993606000, 10
+40.472647720, -86.994222000, 10
+40.472648440, -86.994222000, 10
+40.472648440, -86.993606000, 10
+40.472649160, -86.993606000, 10
+40.472649160, -86.994222000, 10
+40.472649880, -86.994222000, 10
+40.472649880, -86.993606000, 10
+40.472650600, -86.993606000, 10
+40.472650600, -86.994222000, 10
+40.472651320, -86.994222000, 10
+40.472651320, -86.993606000, 10
+40.472652040, -86.993606000, 10
+40.472652040, -86.994222000, 10
+40.472652760, -86.994222000, 10
+40.472652760, -86.993606000, 10
+40.472653480, -86.993606000, 10
+40.472653480, -86.994222000, 10
+40.472654200, -86.994222000, 10
+40.472654200, -86.993606000, 10
+40.472654920, -86.993606000, 10
+40.472654920, -86.994222000, 10
+40.472655640, -86.994222000, 10
+40.472655640, -86.993606000, 10
+40.472656360, -86.993606000, 10
+40.472656360, -86.994222000, 10
+40.472657080, -86.994222000, 10
+40.472657080, -86.993606000, 10
+40.472657800, -86.993606000, 10
+40.472657800, -86.994222000, 10
+40.472658520, -86.994222000, 10
+40.472658520, -86.993606000, 10
+40.472659240, -86.993606000, 10
+40.472659240, -86.994222000, 10
+40.472659960, -86.994222000, 10
+40.472659960, -86.993606000, 10
+40.472660680, -86.993606000, 10
+40.472660680, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472662120, -86.993606000, 10
+40.472662120, -86.994222000, 10
+40.472662840, -86.994222000, 10
+40.472662840, -86.993606000, 10
+40.472663560, -86.993606000, 10
+40.472663560, -86.994222000, 10
+40.472664280, -86.994222000, 10
+40.472664280, -86.993606000, 10
+40.472665000, -86.993606000, 10
+40.472665000, -86.994222000, 10
+40.472665720, -86.994222000, 10
+40.472665720, -86.993606000, 10
+40.472666440, -86.993606000, 10
+40.472666440, -86.994222000, 10
+40.472667160, -86.994222000, 10
+40.472667160, -86.993606000, 10
+40.472667880, -86.993606000, 10
+40.472667880, -86.994222000, 10
+40.472668600, -86.994222000, 10
+40.472668600, -86.993606000, 10
+40.472669320, -86.993606000, 10
+40.472669320, -86.994222000, 10
+40.472670040, -86.994222000, 10
+40.472670040, -86.993606000, 10
+40.472670760, -86.993606000, 10
+40.472670760, -86.994222000, 10
+40.472671480, -86.994222000, 10
+40.472671480, -86.993606000, 10
+40.472672200, -86.993606000, 10
+40.472672200, -86.994222000, 10
+40.472672920, -86.994222000, 10
+40.472672920, -86.993606000, 10
+40.472673640, -86.993606000, 10
+40.472673640, -86.994222000, 10
+40.472674360, -86.994222000, 10
+40.472674360, -86.993606000, 10
+40.472675080, -86.993606000, 10
+40.472675080, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472676520, -86.993606000, 10
+40.472676520, -86.994222000, 10
+40.472677240, -86.994222000, 10
+40.472677240, -86.993606000, 10
+40.472677960, -86.993606000, 10
+40.472677960, -86.994222000, 10
+40.472678680, -86.994222000, 10
+40.472678680, -86.993606000, 10
+40.472679400, -86.993606000, 10
+40.472679400, -86.994222000, 10
+40.472680120, -86.994222000, 10
+40.472680120, -86.993606000, 10
+40.472680840, -86.993606000, 10
+40.472680840, -86.994222000, 10
+40.472681560, -86.994222000, 10
+40.472681560, -86.993606000, 10
+40.472682280, -86.993606000, 10
+40.472682280, -86.994222000, 10
+40.472683000, -86.994222000, 10
+40.472683000, -86.993606000, 10
+40.472683720, -86.993606000, 10
+40.472683720, -86.994222000, 10
+40.472684440, -86.994222000, 10
+40.472684440, -86.993606000, 10
+40.472685160, -86.993606000, 10
+40.472685160, -86.994222000, 10
+40.472685880, -86.994222000, 10
+40.472685880, -86.993606000, 10
+40.472686600, -86.993606000, 10
+40.472686600, -86.994222000, 10
+40.472687320, -86.994222000, 10
+40.472687320, -86.993606000, 10
+40.472688040, -86.993606000, 10
+40.472688040, -86.994222000, 10
+40.472688760, -86.994222000, 10
+40.472688760, -86.993606000, 10
+40.472689480, -86.993606000, 10
+40.472689480, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472690920, -86.993606000, 10
+40.472690920, -86.994222000, 10
+40.472691640, -86.994222000, 10
+40.472691640, -86.993606000, 10
+40.472692360, -86.993606000, 10
+40.472692360, -86.994222000, 10
+40.472693080, -86.994222000, 10
+40.472693080, -86.993606000, 10
+40.472693800, -86.993606000, 10
+40.472693800, -86.994222000, 10
+40.472694520, -86.994222000, 10
+40.472694520, -86.993606000, 10
+40.472695240, -86.993606000, 10
+40.472695240, -86.994222000, 10
+40.472695960, -86.994222000, 10
+40.472695960, -86.993606000, 10
+40.472696680, -86.993606000, 10
+40.472696680, -86.994222000, 10
+40.472697400, -86.994222000, 10
+40.472697400, -86.993606000, 10
+40.472698120, -86.993606000, 10
+40.472698120, -86.994222000, 10
+40.472698840, -86.994222000, 10
+40.472698840, -86.993606000, 10
+40.472699560, -86.993606000, 10
+40.472699560, -86.994222000, 10
+40.472700280, -86.994222000, 10
+40.472700280, -86.993606000, 10
+40.472701000, -86.993606000, 10
+40.472701000, -86.994222000, 10
+40.472701720, -86.994222000, 10
+40.472701720, -86.993606000, 10
+40.472702440, -86.993606000, 10
+40.472702440, -86.994222000, 10
+40.472703160, -86.994222000, 10
+40.472703160, -86.993606000, 10
+40.472703880, -86.993606000, 10
+40.472703880, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472705320, -86.993606000, 10
+40.472705320, -86.994222000, 10
+40.472706040, -86.994222000, 10
+40.472706040, -86.993606000, 10
+40.472706760, -86.993606000, 10
+40.472706760, -86.994222000, 10
+40.472707480, -86.994222000, 10
+40.472707480, -86.993606000, 10
+40.472708200, -86.993606000, 10
+40.472708200, -86.994222000, 10
+40.472708920, -86.994222000, 10
+40.472708920, -86.993606000, 10
+40.472709640, -86.993606000, 10
+40.472709640, -86.994222000, 10
+40.472710000, -86.994222000, 10
+40.472710000, -86.993606000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>smartprompt-5.2-run1</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472654199,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472654199,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472661397,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472661397,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472668596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472668596,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472675794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472675794,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472682993,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472682993,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472690191,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472690191,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269739,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269739,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472704589,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472704589,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472654199,9.999999999999998 -86.99422199999999,40.472654199,9.999999999999998 -86.99422199999999,40.472661397,9.999999999999998 -86.993606,40.472661397,9.999999999999998 -86.993606,40.472668596,9.999999999999998 -86.99422199999999,40.472668596,9.999999999999998 -86.99422199999999,40.472675794,9.999999999999998 -86.993606,40.472675794,9.999999999999998 -86.993606,40.472682993,9.999999999999998 -86.99422199999999,40.472682993,9.999999999999998 -86.99422199999999,40.472690191,9.999999999999998 -86.993606,40.472690191,9.999999999999998 -86.993606,40.47269739,9.999999999999998 -86.99422199999999,40.47269739,9.999999999999998 -86.99422199999999,40.472704589,9.999999999999998 -86.993606,40.472704589,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>smartprompt-5.2-run1 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>smartprompt-5.2-run1</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:23:44.291903</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>2132</td></tr><tr><th>Output tokens</th><td>775</td></tr><tr><th>Est. cost ($)</th><td>0.014581</td></tr><tr><th>Time (s)</th><td>71.03</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654199, -86.993606000, 10
+40.472654199, -86.994222000, 10
+40.472661397, -86.994222000, 10
+40.472661397, -86.993606000, 10
+40.472668596, -86.993606000, 10
+40.472668596, -86.994222000, 10
+40.472675794, -86.994222000, 10
+40.472675794, -86.993606000, 10
+40.472682993, -86.993606000, 10
+40.472682993, -86.994222000, 10
+40.472690191, -86.994222000, 10
+40.472690191, -86.993606000, 10
+40.472697390, -86.993606000, 10
+40.472697390, -86.994222000, 10
+40.472704589, -86.994222000, 10
+40.472704589, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>smartprompt-5.2-run2</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472654204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472654204,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472661409,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472661409,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472668613,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472668613,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472675818,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472675818,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683022,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683022,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472690226,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472690226,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472697431,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472697431,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472704635,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472704635,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472711839,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472711839,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472654204,9.999999999999998 -86.99422199999999,40.472654204,9.999999999999998 -86.99422199999999,40.472661409,9.999999999999998 -86.993606,40.472661409,9.999999999999998 -86.993606,40.472668613,9.999999999999998 -86.99422199999999,40.472668613,9.999999999999998 -86.99422199999999,40.472675818,9.999999999999998 -86.993606,40.472675818,9.999999999999998 -86.993606,40.472683022,9.999999999999998 -86.99422199999999,40.472683022,9.999999999999998 -86.99422199999999,40.472690226,9.999999999999998 -86.993606,40.472690226,9.999999999999998 -86.993606,40.472697431,9.999999999999998 -86.99422199999999,40.472697431,9.999999999999998 -86.99422199999999,40.472704635,9.999999999999998 -86.993606,40.472704635,9.999999999999998 -86.993606,40.472711839,9.999999999999998 -86.99422199999999,40.472711839,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>smartprompt-5.2-run2 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>smartprompt-5.2-run2</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:27:16.179148</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>2118</td></tr><tr><th>Output tokens</th><td>750</td></tr><tr><th>Est. cost ($)</th><td>0.014207</td></tr><tr><th>Time (s)</th><td>43.04</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654204, -86.993606000, 10
+40.472654204, -86.994222000, 10
+40.472661409, -86.994222000, 10
+40.472661409, -86.993606000, 10
+40.472668613, -86.993606000, 10
+40.472668613, -86.994222000, 10
+40.472675818, -86.994222000, 10
+40.472675818, -86.993606000, 10
+40.472683022, -86.993606000, 10
+40.472683022, -86.994222000, 10
+40.472690226, -86.994222000, 10
+40.472690226, -86.993606000, 10
+40.472697431, -86.993606000, 10
+40.472697431, -86.994222000, 10
+40.472704635, -86.994222000, 10
+40.472704635, -86.993606000, 10
+40.472711839, -86.993606000, 10
+40.472711839, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>smartprompt-5.2-run3</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472654186,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472654186,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472661373,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472661373,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472668559,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472668559,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472675746,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472675746,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472682932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472682932,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472690119,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472690119,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472697305,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472697305,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472704492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472704492,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472654186,9.999999999999998 -86.99422199999999,40.472654186,9.999999999999998 -86.99422199999999,40.472661373,9.999999999999998 -86.993606,40.472661373,9.999999999999998 -86.993606,40.472668559,9.999999999999998 -86.99422199999999,40.472668559,9.999999999999998 -86.99422199999999,40.472675746,9.999999999999998 -86.993606,40.472675746,9.999999999999998 -86.993606,40.472682932,9.999999999999998 -86.99422199999999,40.472682932,9.999999999999998 -86.99422199999999,40.472690119,9.999999999999998 -86.993606,40.472690119,9.999999999999998 -86.993606,40.472697305,9.999999999999998 -86.99422199999999,40.472697305,9.999999999999998 -86.99422199999999,40.472704492,9.999999999999998 -86.993606,40.472704492,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>smartprompt-5.2-run3 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>smartprompt-5.2-run3</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:30:41.146672</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>2249</td></tr><tr><th>Output tokens</th><td>786</td></tr><tr><th>Est. cost ($)</th><td>0.014940</td></tr><tr><th>Time (s)</th><td>70.18</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654186, -86.993606000, 10
+40.472654186, -86.994222000, 10
+40.472661373, -86.994222000, 10
+40.472661373, -86.993606000, 10
+40.472668559, -86.993606000, 10
+40.472668559, -86.994222000, 10
+40.472675746, -86.994222000, 10
+40.472675746, -86.993606000, 10
+40.472682932, -86.993606000, 10
+40.472682932, -86.994222000, 10
+40.472690119, -86.994222000, 10
+40.472690119, -86.993606000, 10
+40.472697305, -86.993606000, 10
+40.472697305, -86.994222000, 10
+40.472704492, -86.994222000, 10
+40.472704492, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-high-run1</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47265419,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47265419,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266138,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266138,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266857,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266857,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47267576,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47267576,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47268295,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47268295,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269014,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269014,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269733,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269733,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47270452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47270452,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47265419,9.999999999999998 -86.99422199999999,40.47265419,9.999999999999998 -86.99422199999999,40.47266138,9.999999999999998 -86.993606,40.47266138,9.999999999999998 -86.993606,40.47266857,9.999999999999998 -86.99422199999999,40.47266857,9.999999999999998 -86.99422199999999,40.47267576,9.999999999999998 -86.993606,40.47267576,9.999999999999998 -86.993606,40.47268295,9.999999999999998 -86.99422199999999,40.47268295,9.999999999999998 -86.99422199999999,40.47269014,9.999999999999998 -86.993606,40.47269014,9.999999999999998 -86.993606,40.47269733,9.999999999999998 -86.99422199999999,40.47269733,9.999999999999998 -86.99422199999999,40.47270452,9.999999999999998 -86.993606,40.47270452,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-high-run1 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-high-run1</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:37:51.678645</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>2534</td></tr><tr><th>Est. cost ($)</th><td>0.035838</td></tr><tr><th>Time (s)</th><td>38.83</td></tr></table><h3>Output</h3><pre>40.47264700, -86.994222, 10
+40.47264700, -86.993606, 10
+40.47265419, -86.993606, 10
+40.47265419, -86.994222, 10
+40.47266138, -86.994222, 10
+40.47266138, -86.993606, 10
+40.47266857, -86.993606, 10
+40.47266857, -86.994222, 10
+40.47267576, -86.994222, 10
+40.47267576, -86.993606, 10
+40.47268295, -86.993606, 10
+40.47268295, -86.994222, 10
+40.47269014, -86.994222, 10
+40.47269014, -86.993606, 10
+40.47269733, -86.993606, 10
+40.47269733, -86.994222, 10
+40.47270452, -86.994222, 10
+40.47270452, -86.993606, 10
+40.47271000, -86.993606, 10
+40.47271000, -86.994222, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-high-run2</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472654,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472654,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472661,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472661,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472668,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472675,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472675,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472682,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472682,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472689,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472689,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472696,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472696,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472703,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472703,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472654,9.999999999999998 -86.99422199999999,40.472654,9.999999999999998 -86.99422199999999,40.472661,9.999999999999998 -86.993606,40.472661,9.999999999999998 -86.993606,40.472668,9.999999999999998 -86.99422199999999,40.472668,9.999999999999998 -86.99422199999999,40.472675,9.999999999999998 -86.993606,40.472675,9.999999999999998 -86.993606,40.472682,9.999999999999998 -86.99422199999999,40.472682,9.999999999999998 -86.99422199999999,40.472689,9.999999999999998 -86.993606,40.472689,9.999999999999998 -86.993606,40.472696,9.999999999999998 -86.99422199999999,40.472696,9.999999999999998 -86.99422199999999,40.472703,9.999999999999998 -86.993606,40.472703,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-high-run2 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-high-run2</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:38:55.725498</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>2243</td></tr><tr><th>Est. cost ($)</th><td>0.031764</td></tr><tr><th>Time (s)</th><td>35.21</td></tr></table><h3>Output</h3><pre>40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472654, -86.993606, 10
+40.472654, -86.994222, 10
+40.472661, -86.994222, 10
+40.472661, -86.993606, 10
+40.472668, -86.993606, 10
+40.472668, -86.994222, 10
+40.472675, -86.994222, 10
+40.472675, -86.993606, 10
+40.472682, -86.993606, 10
+40.472682, -86.994222, 10
+40.472689, -86.994222, 10
+40.472689, -86.993606, 10
+40.472696, -86.993606, 10
+40.472696, -86.994222, 10
+40.472703, -86.994222, 10
+40.472703, -86.993606, 10
+40.472710, -86.993606, 10
+40.472710, -86.994222, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-high-run3</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472672,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472672,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472679,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472679,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472687,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472687,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472694,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472694,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472665,9.999999999999998 -86.993606,40.472665,9.999999999999998 -86.993606,40.472672,9.999999999999998 -86.99422199999999,40.472672,9.999999999999998 -86.99422199999999,40.472679,9.999999999999998 -86.993606,40.472679,9.999999999999998 -86.993606,40.472687,9.999999999999998 -86.99422199999999,40.472687,9.999999999999998 -86.99422199999999,40.472694,9.999999999999998 -86.993606,40.472694,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-high-run3 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-high-run3</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:39:41.337433</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>1697</td></tr><tr><th>Est. cost ($)</th><td>0.024120</td></tr><tr><th>Time (s)</th><td>27.94</td></tr></table><h3>Output</h3><pre>40.472665, -86.994222, 10
+40.472665, -86.993606, 10
+40.472672, -86.993606, 10
+40.472672, -86.994222, 10
+40.472679, -86.994222, 10
+40.472679, -86.993606, 10
+40.472687, -86.993606, 10
+40.472687, -86.994222, 10
+40.472694, -86.994222, 10
+40.472694, -86.993606, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.4-run1</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>21</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>22</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>23</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>24</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>25</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>26</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>27</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>28</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>29</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>30</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.994175,40.47271,9.999999999999998 -86.994175,40.472647,9.999999999999998 -86.994128,40.472647,9.999999999999998 -86.994128,40.47271,9.999999999999998 -86.99408099999999,40.47271,9.999999999999998 -86.99408099999999,40.472647,9.999999999999998 -86.994034,40.472647,9.999999999999998 -86.994034,40.47271,9.999999999999998 -86.993987,40.47271,9.999999999999998 -86.993987,40.472647,9.999999999999998 -86.99393999999999,40.472647,9.999999999999998 -86.99393999999999,40.47271,9.999999999999998 -86.993893,40.47271,9.999999999999998 -86.993893,40.472647,9.999999999999998 -86.993846,40.472647,9.999999999999998 -86.993846,40.47271,9.999999999999998 -86.993799,40.47271,9.999999999999998 -86.993799,40.472647,9.999999999999998 -86.993752,40.472647,9.999999999999998 -86.993752,40.47271,9.999999999999998 -86.99370500000001,40.47271,9.999999999999998 -86.99370500000001,40.472647,9.999999999999998 -86.993658,40.472647,9.999999999999998 -86.993658,40.47271,9.999999999999998 -86.993611,40.47271,9.999999999999998 -86.993611,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.4-run1 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.4-run1</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:41:33.070051</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>423</td></tr><tr><th>Est. cost ($)</th><td>0.006862</td></tr><tr><th>Time (s)</th><td>5.68</td></tr></table><h3>Output</h3><pre>40.472647, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.994175, 10
+40.472647, -86.994175, 10
+40.472647, -86.994128, 10
+40.472710, -86.994128, 10
+40.472710, -86.994081, 10
+40.472647, -86.994081, 10
+40.472647, -86.994034, 10
+40.472710, -86.994034, 10
+40.472710, -86.993987, 10
+40.472647, -86.993987, 10
+40.472647, -86.993940, 10
+40.472710, -86.993940, 10
+40.472710, -86.993893, 10
+40.472647, -86.993893, 10
+40.472647, -86.993846, 10
+40.472710, -86.993846, 10
+40.472710, -86.993799, 10
+40.472647, -86.993799, 10
+40.472647, -86.993752, 10
+40.472710, -86.993752, 10
+40.472710, -86.993705, 10
+40.472647, -86.993705, 10
+40.472647, -86.993658, 10
+40.472710, -86.993658, 10
+40.472710, -86.993611, 10
+40.472647, -86.993611, 10
+40.472647, -86.993606, 10
+40.472710, -86.993606, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.4-run2</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>21</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>22</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>23</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>24</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>25</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>26</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>27</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>28</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>29</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>30</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.994175,40.47271,9.999999999999998 -86.994175,40.472647,9.999999999999998 -86.994128,40.472647,9.999999999999998 -86.994128,40.47271,9.999999999999998 -86.99408099999999,40.47271,9.999999999999998 -86.99408099999999,40.472647,9.999999999999998 -86.994034,40.472647,9.999999999999998 -86.994034,40.47271,9.999999999999998 -86.993987,40.47271,9.999999999999998 -86.993987,40.472647,9.999999999999998 -86.99393999999999,40.472647,9.999999999999998 -86.99393999999999,40.47271,9.999999999999998 -86.993893,40.47271,9.999999999999998 -86.993893,40.472647,9.999999999999998 -86.993846,40.472647,9.999999999999998 -86.993846,40.47271,9.999999999999998 -86.993799,40.47271,9.999999999999998 -86.993799,40.472647,9.999999999999998 -86.993752,40.472647,9.999999999999998 -86.993752,40.47271,9.999999999999998 -86.99370500000001,40.47271,9.999999999999998 -86.99370500000001,40.472647,9.999999999999998 -86.993658,40.472647,9.999999999999998 -86.993658,40.47271,9.999999999999998 -86.993611,40.47271,9.999999999999998 -86.993611,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.4-run2 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.4-run2</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:44:41.704507</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>423</td></tr><tr><th>Est. cost ($)</th><td>0.006862</td></tr><tr><th>Time (s)</th><td>5.51</td></tr></table><h3>Output</h3><pre>40.472647, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.994175, 10
+40.472647, -86.994175, 10
+40.472647, -86.994128, 10
+40.472710, -86.994128, 10
+40.472710, -86.994081, 10
+40.472647, -86.994081, 10
+40.472647, -86.994034, 10
+40.472710, -86.994034, 10
+40.472710, -86.993987, 10
+40.472647, -86.993987, 10
+40.472647, -86.993940, 10
+40.472710, -86.993940, 10
+40.472710, -86.993893, 10
+40.472647, -86.993893, 10
+40.472647, -86.993846, 10
+40.472710, -86.993846, 10
+40.472710, -86.993799, 10
+40.472647, -86.993799, 10
+40.472647, -86.993752, 10
+40.472710, -86.993752, 10
+40.472710, -86.993705, 10
+40.472647, -86.993705, 10
+40.472647, -86.993658, 10
+40.472710, -86.993658, 10
+40.472710, -86.993611, 10
+40.472647, -86.993611, 10
+40.472647, -86.993606, 10
+40.472710, -86.993606, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.4-run3</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994175,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994128,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99408099999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.994034,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993987,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99393999999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993893,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993846,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993799,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>21</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>22</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993752,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>23</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>24</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99370500000001,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>25</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>26</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993658,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>27</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>28</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993611,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>29</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>30</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.994175,40.47271,9.999999999999998 -86.994175,40.472647,9.999999999999998 -86.994128,40.472647,9.999999999999998 -86.994128,40.47271,9.999999999999998 -86.99408099999999,40.47271,9.999999999999998 -86.99408099999999,40.472647,9.999999999999998 -86.994034,40.472647,9.999999999999998 -86.994034,40.47271,9.999999999999998 -86.993987,40.47271,9.999999999999998 -86.993987,40.472647,9.999999999999998 -86.99393999999999,40.472647,9.999999999999998 -86.99393999999999,40.47271,9.999999999999998 -86.993893,40.47271,9.999999999999998 -86.993893,40.472647,9.999999999999998 -86.993846,40.472647,9.999999999999998 -86.993846,40.47271,9.999999999999998 -86.993799,40.47271,9.999999999999998 -86.993799,40.472647,9.999999999999998 -86.993752,40.472647,9.999999999999998 -86.993752,40.47271,9.999999999999998 -86.99370500000001,40.47271,9.999999999999998 -86.99370500000001,40.472647,9.999999999999998 -86.993658,40.472647,9.999999999999998 -86.993658,40.47271,9.999999999999998 -86.993611,40.47271,9.999999999999998 -86.993611,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.4-run3 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.4-run3</td></tr><tr><th>Timestamp</th><td>2026-03-07T17:45:14.539844</td></tr><tr><th>Input</th><td>You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>207</td></tr><tr><th>Output tokens</th><td>423</td></tr><tr><th>Est. cost ($)</th><td>0.006862</td></tr><tr><th>Time (s)</th><td>5.5</td></tr></table><h3>Output</h3><pre>40.472647, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.994175, 10
+40.472647, -86.994175, 10
+40.472647, -86.994128, 10
+40.472710, -86.994128, 10
+40.472710, -86.994081, 10
+40.472647, -86.994081, 10
+40.472647, -86.994034, 10
+40.472710, -86.994034, 10
+40.472710, -86.993987, 10
+40.472647, -86.993987, 10
+40.472647, -86.993940, 10
+40.472710, -86.993940, 10
+40.472710, -86.993893, 10
+40.472647, -86.993893, 10
+40.472647, -86.993846, 10
+40.472710, -86.993846, 10
+40.472710, -86.993799, 10
+40.472647, -86.993799, 10
+40.472647, -86.993752, 10
+40.472710, -86.993752, 10
+40.472710, -86.993705, 10
+40.472647, -86.993705, 10
+40.472647, -86.993658, 10
+40.472710, -86.993658, 10
+40.472710, -86.993611, 10
+40.472647, -86.993611, 10
+40.472647, -86.993606, 10
+40.472710, -86.993606, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-reason-none-run4</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.4726542,9.999999999999998 -86.99422199999999,40.4726542,9.999999999999998 -86.99422199999999,40.4726614,9.999999999999998 -86.993606,40.4726614,9.999999999999998 -86.993606,40.4726686,9.999999999999998 -86.99422199999999,40.4726686,9.999999999999998 -86.99422199999999,40.4726758,9.999999999999998 -86.993606,40.4726758,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.99422199999999,40.4726902,9.999999999999998 -86.993606,40.4726902,9.999999999999998 -86.993606,40.4726974,9.999999999999998 -86.99422199999999,40.4726974,9.999999999999998 -86.99422199999999,40.4727046,9.999999999999998 -86.993606,40.4727046,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-reason-none-run4 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-reason-none-run4</td></tr><tr><th>Timestamp</th><td>2026-03-07T19:22:13.204001</td></tr><tr><th>Input</th><td>[cache-bust: d3jF19AckiAwxo]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}
+</td></tr><tr><th>Input tokens</th><td>222</td></tr><tr><th>Output tokens</th><td>323</td></tr><tr><th>Est. cost ($)</th><td>0.004910</td></tr><tr><th>Time (s)</th><td>4.17</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654200, -86.993606000, 10
+40.472654200, -86.994222000, 10
+40.472661400, -86.994222000, 10
+40.472661400, -86.993606000, 10
+40.472668600, -86.993606000, 10
+40.472668600, -86.994222000, 10
+40.472675800, -86.994222000, 10
+40.472675800, -86.993606000, 10
+40.472683000, -86.993606000, 10
+40.472683000, -86.994222000, 10
+40.472690200, -86.994222000, 10
+40.472690200, -86.993606000, 10
+40.472697400, -86.993606000, 10
+40.472697400, -86.994222000, 10
+40.472704600, -86.994222000, 10
+40.472704600, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+		<Document>
+			<name>SW Field Plot</name>
+			<visibility>0</visibility>
+			<open>1</open>
+			<Style id="cornerStyle0">
+				<IconStyle>
+					<color>ff0000ff</color>
+					<scale>0.8</scale>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+					</Icon>
+				</IconStyle>
+				<LabelStyle>
+					<scale>0.8</scale>
+				</LabelStyle>
+			</Style>
+			<Placemark>
+				<name>SW Field Plot</name>
+				<visibility>0</visibility>
+				<description>Field plot boundary defined by 4 corner points.</description>
+				<StyleMap id="fieldStyle">
+					<Pair>
+						<key>normal</key>
+						<styleUrl>runtime://clone7#fieldStyle</styleUrl>
+					</Pair>
+					<Pair>
+						<key>highlight</key>
+						<styleUrl>runtime://clone8#fieldStyle</styleUrl>
+					</Pair>
+				</StyleMap>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+								-86.99420036983601,40.472427,0 -86.99385806292733,40.472559,0 -86.99360813836627,40.47255932254134,0 -86.99360799999999,40.472427413383,0 -86.99420036983601,40.472427,0 
+							</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>SW Corner (NW)</name>
+				<visibility>0</visibility>
+				<styleUrl>#cornerStyle0</styleUrl>
+				<Point>
+					<coordinates>-86.99420036983601,40.472427,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Corner (NE)</name>
+				<visibility>0</visibility>
+				<styleUrl>#cornerStyle0</styleUrl>
+				<Point>
+					<coordinates>-86.99360813836627,40.47255932254134,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Corner (SE)</name>
+				<visibility>0</visibility>
+				<styleUrl>#cornerStyle0</styleUrl>
+				<Point>
+					<coordinates>-86.99360799999999,40.472427413383,0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Corner (SW-inner)</name>
+				<visibility>0</visibility>
+				<styleUrl>#cornerStyle0</styleUrl>
+				<Point>
+					<coordinates>-86.99385806292733,40.472559,0</coordinates>
+				</Point>
+			</Placemark>
+		</Document>
+	</Folder>
+	<Folder>
+		<name>naive-5.2-reason-high-run4</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726542,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726614,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726686,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726758,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726902,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4726974,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.4727046,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.4726542,9.999999999999998 -86.99422199999999,40.4726542,9.999999999999998 -86.99422199999999,40.4726614,9.999999999999998 -86.993606,40.4726614,9.999999999999998 -86.993606,40.4726686,9.999999999999998 -86.99422199999999,40.4726686,9.999999999999998 -86.99422199999999,40.4726758,9.999999999999998 -86.993606,40.4726758,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.99422199999999,40.4726902,9.999999999999998 -86.993606,40.4726902,9.999999999999998 -86.993606,40.4726974,9.999999999999998 -86.99422199999999,40.4726974,9.999999999999998 -86.99422199999999,40.4727046,9.999999999999998 -86.993606,40.4727046,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.2-reason-high-run4 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.2-reason-high-run4</td></tr><tr><th>Timestamp</th><td>2026-03-07T19:22:34.750472</td></tr><tr><th>Input</th><td>[cache-bust: fLjgIOLiYlqHit]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}
+</td></tr><tr><th>Input tokens</th><td>223</td></tr><tr><th>Output tokens</th><td>1592</td></tr><tr><th>Est. cost ($)</th><td>0.022678</td></tr><tr><th>Time (s)</th><td>21.31</td></tr></table><h3>Output</h3><pre>40.4726470, -86.9942220, 10
+40.4726470, -86.9936060, 10
+40.4726542, -86.9936060, 10
+40.4726542, -86.9942220, 10
+40.4726614, -86.9942220, 10
+40.4726614, -86.9936060, 10
+40.4726686, -86.9936060, 10
+40.4726686, -86.9942220, 10
+40.4726758, -86.9942220, 10
+40.4726758, -86.9936060, 10
+40.4726830, -86.9936060, 10
+40.4726830, -86.9942220, 10
+40.4726902, -86.9942220, 10
+40.4726902, -86.9936060, 10
+40.4726974, -86.9936060, 10
+40.4726974, -86.9942220, 10
+40.4727046, -86.9942220, 10
+40.4727046, -86.9936060, 10
+40.4727100, -86.9936060, 10
+40.4727100, -86.9942220, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>smart-5.2-code-interpreter-run4</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472654187,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472654187,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472661373,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472661373,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47266856,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47266856,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472675747,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472675747,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>11</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472682933,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>12</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472682933,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>13</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47269012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>14</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47269012,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>15</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472697307,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>16</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472697307,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>17</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472704493,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>18</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472704493,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>19</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>20</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472654187,9.999999999999998 -86.99422199999999,40.472654187,9.999999999999998 -86.99422199999999,40.472661373,9.999999999999998 -86.993606,40.472661373,9.999999999999998 -86.993606,40.47266856,9.999999999999998 -86.99422199999999,40.47266856,9.999999999999998 -86.99422199999999,40.472675747,9.999999999999998 -86.993606,40.472675747,9.999999999999998 -86.993606,40.472682933,9.999999999999998 -86.99422199999999,40.472682933,9.999999999999998 -86.99422199999999,40.47269012,9.999999999999998 -86.993606,40.47269012,9.999999999999998 -86.993606,40.472697307,9.999999999999998 -86.99422199999999,40.472697307,9.999999999999998 -86.99422199999999,40.472704493,9.999999999999998 -86.993606,40.472704493,9.999999999999998 -86.993606,40.47271,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>smart-5.2-code-interpreter-run4 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>smart-5.2-code-interpreter-run4</td></tr><tr><th>Timestamp</th><td>2026-03-07T19:23:23.843675</td></tr><tr><th>Input</th><td>[cache-bust: cYNcVCiV2KVi2t]
+
+You are a UAV flight planning assistant. **Use the code interpreter tool to compute the flight plan.** Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}</td></tr><tr><th>Input tokens</th><td>2288</td></tr><tr><th>Output tokens</th><td>919</td></tr><tr><th>Est. cost ($)</th><td>0.016870</td></tr><tr><th>Time (s)</th><td>49.08</td></tr></table><h3>Output</h3><pre>40.472647000, -86.994222000, 10
+40.472647000, -86.993606000, 10
+40.472654187, -86.993606000, 10
+40.472654187, -86.994222000, 10
+40.472661373, -86.994222000, 10
+40.472661373, -86.993606000, 10
+40.472668560, -86.993606000, 10
+40.472668560, -86.994222000, 10
+40.472675747, -86.994222000, 10
+40.472675747, -86.993606000, 10
+40.472682933, -86.993606000, 10
+40.472682933, -86.994222000, 10
+40.472690120, -86.994222000, 10
+40.472690120, -86.993606000, 10
+40.472697307, -86.993606000, 10
+40.472697307, -86.994222000, 10
+40.472704493, -86.994222000, 10
+40.472704493, -86.993606000, 10
+40.472710000, -86.993606000, 10
+40.472710000, -86.994222000, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>naive-5.4-reason-none-run4</name>
+		<visibility>0</visibility>
+		<Placemark>
+			<name>1</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472647,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>3</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>4</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472665,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>6</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472683,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>7</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>8</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.472701,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.99422199999999,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>10</name>
+			<visibility>0</visibility>
+			<Point>
+				<coordinates>-86.993606,40.47271,9.999999999999998</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Path</name>
+			<visibility>0</visibility>
+			<LineString>
+				<coordinates>
+					-86.99422199999999,40.472647,9.999999999999998 -86.993606,40.472647,9.999999999999998 -86.993606,40.472665,9.999999999999998 -86.99422199999999,40.472665,9.999999999999998 -86.99422199999999,40.472683,9.999999999999998 -86.993606,40.472683,9.999999999999998 -86.993606,40.472701,9.999999999999998 -86.99422199999999,40.472701,9.999999999999998 -86.99422199999999,40.47271,9.999999999999998 -86.993606,40.47271,9.999999999999998 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>naive-5.4-reason-none-run4 (metadata)</name>
+			<visibility>0</visibility>
+			<description><![CDATA[<table border="1" cellpadding="4"><tr><th>Name</th><td>naive-5.4-reason-none-run4</td></tr><tr><th>Timestamp</th><td>2026-03-07T19:23:26.684152</td></tr><tr><th>Input</th><td>[cache-bust: zVLWGhygHlpQie]
+
+You are a UAV flight planning assistant. Generate a UAV flight plan that fully covers a rectangular plot defined by four corner coordinates.
+The input will provide four corner coordinates (latitude, longitude), flight altitude (meters), image width (meters), and overlap percentage.
+Compute a set of ordered flight waypoints that cover the entire area using a lawnmower (back-and-forth) pattern.
+Output requirements:
+Output only plain text.
+No explanations.
+Provide ordered waypoints covering the area.
+Each waypoint must contain: latitude, longitude, altitude.
+altitude: 10m
+image width: 4m
+overlap: 80
+coordinates:
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.994222},
+{&quot;lat&quot;: 40.472647, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.993606},
+{&quot;lat&quot;: 40.472710, &quot;lng&quot;: -86.994222}
+</td></tr><tr><th>Input tokens</th><td>222</td></tr><tr><th>Output tokens</th><td>143</td></tr><tr><th>Est. cost ($)</th><td>0.002700</td></tr><tr><th>Time (s)</th><td>2.83</td></tr></table><h3>Output</h3><pre>40.472647, -86.994222, 10
+40.472647, -86.993606, 10
+40.472665, -86.993606, 10
+40.472665, -86.994222, 10
+40.472683, -86.994222, 10
+40.472683, -86.993606, 10
+40.472701, -86.993606, 10
+40.472701, -86.994222, 10
+40.472710, -86.994222, 10
+40.472710, -86.993606, 10</pre>]]></description>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
