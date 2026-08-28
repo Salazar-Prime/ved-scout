@@ -1608,6 +1608,18 @@ body {
   color: #695b39;
 }
 
+.development-banner-inline {
+  width: min(100%, 780px);
+  min-height: 0;
+  justify-content: flex-start;
+  margin: 0 0 24px;
+  padding: 11px 14px;
+  border: 1px solid #d5b979;
+  border-left: 4px solid var(--amber);
+  border-radius: 3px;
+  text-align: left;
+}
+
 .site-header {
   min-height: 68px;
   padding-top: 9px;
@@ -1934,6 +1946,11 @@ footer {
     gap: 2px;
     padding: 10px 22px;
     text-align: left;
+  }
+
+  .development-banner-inline {
+    margin-bottom: 20px;
+    padding: 10px 12px;
   }
 
   .site-header {
